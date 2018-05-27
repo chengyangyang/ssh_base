@@ -1,0 +1,49 @@
+/*
+ * 
+信息监视-运检指标弹框
+*/
+function ywdwTK(ztz,ztn){
+	var count = "";
+	var restClient = new mx.rpc.RESTClient();
+	var data = {
+			items :  [{
+				"ztz" : ztz,"ztn":ztn
+			} ]
+		};
+	restClient.send(
+			xxjs.mappath("~/rest/yjzbController/queryYwdwTk"),
+			"post", JSON.stringify(data), false, function(result) {
+				count = result.resultValue.items;
+			}
+	);
+	return count;
+}
+
+
+	 "SELECT '所用变' B,COUNT(*) A FROM GK_CIM_ASTSTATTRANSFORMER WHERE BELONGSTATION IN (SELECT ID FROM GK_CIM_ASTTRANSFORMER WHERE NAME = '"+bdz+"')  "+sqltq+"";
+				sql+= " UNION ALL";
+				sql+= " SELECT '电流互感器' B,COUNT(*) A FROM GK_CIM_ASTCT WHERE BELONGSTATION IN (SELECT ID FROM GK_CIM_ASTTRANSFORMER WHERE NAME = '"+bdz+"')   "+sqltq+"";
+				sql+= " UNION ALL";
+				sql+= " SELECT '电压互感器' B,COUNT(*) A FROM GK_CIM_ASTPT WHERE BELONGSTATION IN (SELECT ID FROM GK_CIM_ASTTRANSFORMER WHERE NAME = '"+bdz+"')  "+sqltq+"";
+				sql+= " UNION ALL";
+				sql+= " SELECT '开关柜' B,COUNT(*) A FROM GK_CIM_ASTSWITCHCABINET WHERE BELONGSTATION IN (SELECT ID FROM GK_CIM_ASTTRANSFORMER WHERE NAME = '"+bdz+"')   "+sqltq+"";
+				sql+= " UNION ALL";
+				sql+= " SELECT '组合电器' B,COUNT(*) A FROM GK_CIM_ASTGIS WHERE BELONGSTATION IN (SELECT ID FROM GK_CIM_ASTTRANSFORMER WHERE NAME = '"+bdz+"')   "+sqltq+"";
+				sql+= " UNION ALL";
+				sql+= " SELECT '隔离开关' B,COUNT(*) A FROM GK_CIM_ASTKNIFESWITCH WHERE BELONGSTATION IN (SELECT ID FROM GK_CIM_ASTTRANSFORMER WHERE NAME = '"+bdz+"')   "+sqltq+"";
+				sql+= " UNION ALL";
+				sql+= " SELECT '电抗器' B,COUNT(*) A FROM GK_CIM_ASTRESISTOR WHERE BELONGSTATION IN (SELECT ID FROM GK_CIM_ASTTRANSFORMER WHERE NAME = '"+bdz+"')   "+sqltq+"";
+				sql+= " UNION ALL";
+				sql+= " SELECT '电容器' B,COUNT(*) A FROM GK_CIM_ASTELECTRICCAPACITOR WHERE BELONGSTATION IN (SELECT ID FROM GK_CIM_ASTTRANSFORMER WHERE NAME = '"+bdz+"')   "+sqltq+"";
+				sql+= " UNION ALL";
+				sql+= " SELECT '变压器' B,COUNT(*) A FROM GK_CIM_ASTPOWERTRANSFORMER WHERE BELONGSTATION IN (SELECT ID FROM GK_CIM_ASTTRANSFORMER WHERE NAME = '"+bdz+"')   "+sqltq+"";
+				sql+= " UNION ALL";
+				sql+= " SELECT '断路器' B,COUNT(*) A FROM GK_CIM_ASTBREAKER WHERE BELONGSTATION IN (SELECT ID FROM GK_CIM_ASTTRANSFORMER WHERE NAME = '"+bdz+"')   "+sqltq+"";		
+
+
+String	sqltq01 = " AND TRUNC(MONTHS_BETWEEN(SYSDATE,INUSEDATE)/12, 2) < 1";
+		String	sqltq02 = " AND TRUNC(MONTHS_BETWEEN(SYSDATE,INUSEDATE)/12, 2) BETWEEN 1 AND 5";
+		String	sqltq03 = " AND TRUNC(MONTHS_BETWEEN(SYSDATE,INUSEDATE)/12, 2) BETWEEN 5 AND 10";
+		String	sqltq04 = " AND TRUNC(MONTHS_BETWEEN(SYSDATE,INUSEDATE)/12, 2) BETWEEN 10 AND 20";
+		String	sqltq05 = " AND TRUNC(MONTHS_BETWEEN(SYSDATE,INUSEDATE)/12, 2) BETWEEN 20 AND 30";
+		String	sqltq06 = " AND TRUNC(MONTHS_BETWEEN(SYSDATE,INUSEDATE)/12, 2) >= 30";
