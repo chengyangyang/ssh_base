@@ -25,6 +25,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("*classpath:/spring-hibernate.xml")
 public class MyProcessService {
 
+	
 	 @Autowired
 	 private ProcessEngine processEngine;
 	 @Autowired
