@@ -1,6 +1,5 @@
 package ch.aspect;
 
-import com.trm.util.SessionUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -9,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import ch.util.SessionUtil;
 
 import java.lang.reflect.Method;
 import java.sql.Timestamp;
@@ -26,10 +27,10 @@ public class CreateUpdateInfoAspect {
 	
 	private static Logger logger = LoggerFactory.getLogger(CreateUpdateInfoAspect.class);
 	
-	@Pointcut(value="execution(* com.trm.dao..*.create*(..))")
+	@Pointcut(value="execution(* ch.dao..*.create*(..))")
 	public void createInfoAspect(){}
 	
-	@Pointcut(value="execution(* com.trm.dao..*.modify*(..))")
+	@Pointcut(value="execution(* ch.dao..*.modify*(..))")
 	public void updateInfoAspect(){}
 	
 	@Before(value="createInfoAspect()")

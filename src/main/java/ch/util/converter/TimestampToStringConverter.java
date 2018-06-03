@@ -1,6 +1,6 @@
 package ch.util.converter;
 
-import com.trm.util.TrmDateUtil;
+import ch.util.TrmDateUtil;
 import org.dozer.DozerConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
