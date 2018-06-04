@@ -5,7 +5,7 @@ import org.junit.Test;
 public class HashTest {
 
 	@Test
-	public void hash(){
+    protected void hash(){
 	   
 		Hashqq a =	new Hashqq(1,2);
 		Hashqq b =	a;//new Hashqq(1,2);
