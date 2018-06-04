@@ -1,3 +1,4 @@
+/*
 package ch.ch.controller;
 
 import java.io.BufferedInputStream;
@@ -250,7 +251,8 @@ public class TestController {
 			FileInputStream in = new FileInputStream(path + "\\" + filename);
 			
 			
-			/*BufferedInputStream bis = null;
+			*/
+/*BufferedInputStream bis = null;
 			BufferedOutputStream bos = null;
 			String downLoadPath = path+"\\" + filename;
 			System.out.println(downLoadPath);
@@ -270,7 +272,8 @@ public class TestController {
 				bos.write(buff, 0, bytesRead);
 			}
 			bis.close();
-			bos.close();*/
+			bos.close();*//*
+
 
 		
 			
@@ -319,4 +322,4 @@ public class TestController {
 			map.put(file.getName(), substring);
 		}
 	}
-}
+}*/

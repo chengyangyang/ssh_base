@@ -1,3 +1,4 @@
+/*
 package ch.activiti.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,3 +19,4 @@ public class MyProcessController {
 		myProcessService.publishActiviti();
 	}
 }
+*/
