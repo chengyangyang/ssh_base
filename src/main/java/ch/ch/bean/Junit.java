@@ -1,3 +1,4 @@
+/*
 package ch.ch.bean;
 
 import org.junit.Test;
@@ -19,4 +20,4 @@ public class Junit {
 	public void gettest() {
 		testservice.gettest();
 }
-}
+}*/

@@ -1,3 +1,4 @@
+/*
 package ch.ch.service;
 
 
@@ -57,3 +58,4 @@ public class TestServiceImpl implements TestService {
 		
 	}
 }
+*/

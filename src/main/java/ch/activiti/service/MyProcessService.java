@@ -1,3 +1,4 @@
+/*
 package ch.activiti.service;
 
 import java.util.Date;
@@ -36,10 +37,12 @@ public class MyProcessService {
 	 private HistoryService historyService;
 	@Autowired
 	 private RepositoryService repositoryService;
-	/* @Autowired
+	*/
+/* @Autowired
 	 private ManagementService managementService;
 	 @Autowired
-	 private FormService formService;*/
+	 private FormService formService;*//*
+
 	 
 	@Test
 	 //1.部署流程
@@ -77,3 +80,4 @@ public class MyProcessService {
 		taskService.complete(tasks.get(0).getId());//完成任务
 	}
 }
+*/

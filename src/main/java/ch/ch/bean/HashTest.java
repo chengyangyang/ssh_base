@@ -1,3 +1,4 @@
+/*
 package ch.ch.bean;
 
 import org.junit.Test;
@@ -25,3 +26,4 @@ public class HashTest {
 		System.out.println("---------------------");
 	}
 }
+*/

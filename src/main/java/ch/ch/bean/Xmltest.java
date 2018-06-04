@@ -1,3 +1,4 @@
+/*
 package ch.ch.bean;
 
 import java.io.File;
@@ -110,3 +111,4 @@ public class Xmltest {
 		}
 	
 }
+*/

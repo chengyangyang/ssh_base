@@ -1,3 +1,4 @@
+/*
 package ch.ch.bean;
 
 import java.lang.reflect.Constructor;
@@ -39,3 +40,4 @@ public class ClassTest {
 		} 
 	}
 }
+*/

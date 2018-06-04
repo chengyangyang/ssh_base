@@ -1,3 +1,4 @@
+/*
 package ch.ch.bean;
 
 import java.util.UUID;
@@ -12,3 +13,4 @@ public class Uuid {
 		System.out.println(string.replace("-", ""));
 	}
 }
+*/
