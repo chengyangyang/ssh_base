@@ -1,6 +1,7 @@
 package ch.controller.mytest;
 
 import ch.entity.mytest.Person;
+import ch.exception.BusinessException;
 import ch.service.mytest.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,12 +17,21 @@ public class PersonController {
     private PersonService personService;
 
     /*
-     * 添加更新财务信息@cy
+     * 添加测试信息@cy
      * */
     @RequestMapping(value = "/savePerson", method = RequestMethod.GET)
     public void savePerson(){
         Person person = new Person();
         person.setCreateBy("测试人");
         personService.savePerson(person);
+    }
+
+    /*
+     * 查询测试信息@cy
+     * */
+    @RequestMapping(value = "/getPerson", method = RequestMethod.POST)
+    @ResponseBody
+    public Person getPerson() throws BusinessException{
+        return personService.getPerson("1");
     }
 }
