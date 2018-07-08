@@ -1,8 +1,9 @@
-package ch.dao.mytest;
+package ch.dao.user;
 
 import ch.dao.common.BaseDao;
-import ch.entity.mytest.Person;
-import ch.exception.BusinessException;
+import ch.entity.exception.BusinessException;
+import ch.entity.user.Person;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;

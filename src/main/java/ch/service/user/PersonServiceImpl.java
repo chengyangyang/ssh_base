@@ -1,8 +1,9 @@
-package ch.service.mytest;
+package ch.service.user;
 
-import ch.dao.mytest.PersonDao;
-import ch.entity.mytest.Person;
-import ch.exception.BusinessException;
+import ch.dao.user.PersonDao;
+import ch.entity.exception.BusinessException;
+import ch.entity.user.Person;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

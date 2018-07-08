@@ -1,4 +1,4 @@
-package ch.entity.mytest;
+package ch.entity.user;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

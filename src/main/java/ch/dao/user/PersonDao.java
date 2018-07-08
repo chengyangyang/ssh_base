@@ -1,7 +1,7 @@
-package ch.dao.mytest;
+package ch.dao.user;
 
-import ch.entity.mytest.Person;
-import ch.exception.BusinessException;
+import ch.entity.exception.BusinessException;
+import ch.entity.user.Person;
 
 public interface PersonDao {
     public boolean savePerson(Person person);

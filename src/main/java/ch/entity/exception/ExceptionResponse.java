@@ -1,4 +1,4 @@
-package ch.exception;
+package ch.entity.exception;
 
 import java.util.ArrayList;
 import java.util.List;

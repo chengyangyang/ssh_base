@@ -1,4 +1,4 @@
-package ch.exception;
+package ch.entity.exception;
 
 public class Reason {
 	/*

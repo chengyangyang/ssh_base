@@ -1,7 +1,7 @@
-package ch.service.mytest;
+package ch.service.user;
 
-import ch.entity.mytest.Person;
-import ch.exception.BusinessException;
+import ch.entity.exception.BusinessException;
+import ch.entity.user.Person;
 
 public interface PersonService {
 
