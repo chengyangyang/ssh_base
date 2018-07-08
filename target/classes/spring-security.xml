@@ -22,7 +22,7 @@
     </bean>
     
     <!-- 自定义Realm -->
-     <bean id="customRealm" class="com.zxz.auth.realm.UserRealm">
+     <bean id="customRealm" class="ch.entity.user.UserRealm">
          <property name="credentialsMatcher" ref="credentialsMatcher"></property>
      </bean>
      
