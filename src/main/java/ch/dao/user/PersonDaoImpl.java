@@ -1,7 +1,6 @@
-package ch.dao.mytest;
+package ch.dao.user;
 
 import ch.dao.common.BaseDao;
-import ch.dao.user.PersonDao;
 import ch.entity.exception.BusinessException;
 import ch.entity.user.Person;
 
@@ -25,8 +24,7 @@ public class PersonDaoImpl extends BaseDao implements PersonDao {
 
     public Person getPerson(String id) throws BusinessException {
         String hql = "from Person where id = ?";
-        int i = Integer.parseInt(id);
-        Person person = (Person) this.currentSession().createQuery(hql).setParameter(0,i).uniqueResult();
+        Person person = (Person) this.currentSession().createQuery(hql).setParameter(0,id).uniqueResult();
         return person;
     }
 }

@@ -1,9 +1,10 @@
 package ch.controller.common;
 
 import ch.constants.ExceptionConstants;
-import ch.exception.BusinessException;
-import ch.exception.ExceptionResponse;
-import ch.exception.Reason;
+import ch.entity.exception.BusinessException;
+import ch.entity.exception.ExceptionResponse;
+import ch.entity.exception.Reason;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 异常处理类
- * @author zhaosimiao 2017-5-9 15:42:36
+ * @author  
  */
 @ControllerAdvice
 public class ExceptionControllerAdvice {
