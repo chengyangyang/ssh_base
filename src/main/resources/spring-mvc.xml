@@ -41,5 +41,5 @@
 	 <!-- 启用注解式事务 必须要这里启用，如果放在applicationContext.xml中的话不生效-->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
-		<import resource="classpath:spring-security.xml" />
+		<import resource="classpath:spring-shiro.xml" />
 	</beans>
