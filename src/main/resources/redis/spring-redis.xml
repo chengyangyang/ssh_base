@@ -140,6 +140,6 @@
             </map>
         </property>
     </bean>
-    <!-- cache注解，和spring-ehcache.xml中的只能使用一个 -->
+    <!-- cache注解，和spring-shirocache.xml中的只能使用一个 -->
     <cache:annotation-driven cache-manager="cacheManager" proxy-target-class="true"/>
 </beans>

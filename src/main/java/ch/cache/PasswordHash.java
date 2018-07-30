@@ -1,6 +1,6 @@
 package ch.cache;
 
-import com.trm.bidding.common.utils.DigestUtils;
+import ch.common.util.DigestUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.Assert;
 

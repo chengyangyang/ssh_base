@@ -3,11 +3,11 @@
  */
 package ch.cache.session;
 
+import ch.common.config.Global;
+import ch.common.util.Servlets;
+import ch.common.util.StringUtils;
+import ch.util.DateUtils;
 import com.google.common.collect.Sets;
-import com.trm.bidding.common.config.Global;
-import com.trm.bidding.common.utils.DateUtils;
-import com.trm.bidding.common.utils.StringUtils;
-import com.trm.bidding.common.web.Servlets;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;

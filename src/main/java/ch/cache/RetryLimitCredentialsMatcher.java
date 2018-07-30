@@ -35,7 +35,7 @@ import org.springframework.util.Assert;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 输错5次密码锁定半小时，ehcache.xml配置
+ * 输错5次密码锁定半小时，shirocache.xml配置
  */
 public class RetryLimitCredentialsMatcher extends HashedCredentialsMatcher implements InitializingBean {
 	private static final Logger logger =  LoggerFactory.getLogger(RetryLimitCredentialsMatcher.class);
