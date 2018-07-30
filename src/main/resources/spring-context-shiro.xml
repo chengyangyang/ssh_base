@@ -9,8 +9,13 @@
     <bean id="userRealm" class="com.trm.bidding.common.security.shiro.UserRealm" >
         <constructor-arg index="0" name="cacheManager" ref="shiroSpringCacheManager"/>
         <constructor-arg index="1" name="matcher" ref="credentialsMatcher"/>
+        <!-- 打开缓存 -->
+        <property name="cachingEnabled" value="true"/>
+        
         <!-- 启用身份验证缓存，即缓存AuthenticationInfo信息，默认false -->
         <property name="authenticationCachingEnabled" value="true"/>
+        <!-- 打开授权缓存 -->
+        <property name="authorizationCachingEnabled" value="true"/>
         <!-- 缓存AuthenticationInfo信息的缓存名称 -->
         <property name="authenticationCacheName" value="authenticationCache"/>
         <!-- 缓存AuthorizationInfo信息的缓存名称 -->
@@ -20,11 +25,21 @@
     <!-- uid(session id) 生成策略 -->
     <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
 
+	<!-- 记住密码Cookie -->
     <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
         <constructor-arg value="rememberMe"/>
         <property name="httpOnly" value="true"/>
         <property name="maxAge" value="#{7 * 24 * 60 * 60}"/>
     </bean>
+    
+    <!-- sesisonCookie 设置  -->
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">  
+            <!-- cookie的名字 -->
+        <constructor-arg value="sessionIdCookie"/>
+        <property name="httpOnly" value="true"/>
+        <!-- 30分钟  单位是秒-->
+        <property name="maxAge" value="1800"/>
+    </bean>   
 
     <!-- rememberMe管理器,cipherKey生成见{@code Base64Test.java} -->
     <bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
@@ -32,8 +47,10 @@
                   value="#{T(org.apache.shiro.codec.Base64).decode('5aaC5qKm5oqA5pyvAAAAAA==')}"/>
         <property name="cookie" ref="rememberMeCookie"/>
     </bean>
+    
+     <!-- 配置自定义缓存管理器，中引入redis缓存管理器或者,用Redis使用redis,用ehcache使用ehcache中 -->
     <!-- 用户授权信息Cache, 采用spring-cache, 具体请查看spring-ehcache.xml -->
-    <bean id="shiroSpringCacheManager" class="com.trm.bidding.common.security.shiro.cache.ShiroSpringCacheManager">
+    <bean id="shiroSpringCacheManager" class="ch.cache.redis.ShiroSpringCacheManager">
        <property name="cacheManager" ref="cacheManager" />
     </bean>
 
@@ -44,8 +61,9 @@
         <property name="sessionValidationInterval" value="120000"/>
         <property name="sessionValidationSchedulerEnabled" value="true"/>
         <property name="sessionIdCookieEnabled" value="true"/>
+        <property name="sessionIdCookie" ref="sessionIdCookie"/>
         <property name="sessionDAO" ref="sessionDAO"/>
-        <property name="sessionIdCookie.name" value="TRM_JSESSIONID"/>
+        <!-- <property name="sessionIdCookie.name" value="TRM_JSESSIONID"/> -->
     </bean>
 
     <!-- 会话DAO 用于会话的CRUD -->
@@ -55,10 +73,13 @@
         <property name="cacheManager" ref="shiroSpringCacheManager"/>
     </bean>
 
-
+    <!--配置安全管理器-->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-        <!-- Single realm app.  If you have multiple realms, use the 'realms' property instead. -->
+        <!--设置自定义Realm-->
         <property name="realm" ref="userRealm"/>
+         <!--将缓存管理器，交给安全管理器-->
+        <property name="cacheManager" ref="shiroSpringCacheManager"/>
+        <!-- 记住密码管理 -->
         <property name="sessionManager" ref="sessionManager"/>
         <property name="rememberMeManager" ref="rememberMeManager"/>
     </bean>
@@ -79,6 +100,7 @@
     <!-- 密码错误5次锁定半小时 -->
     <bean id="credentialsMatcher" class="com.trm.bidding.common.security.shiro.RetryLimitCredentialsMatcher">
         <constructor-arg ref="shiroSpringCacheManager"/>
+        <!-- <property name="cacheManager" ref="shiroSpringCacheManager"/> -->
         <property name="retryLimitCacheName" value="halfHour"/>
         <property name="passwordHash" ref="passwordHash"/>
     </bean>
@@ -112,6 +134,7 @@
     </bean>
     <!-- ajax session超时时处理 -->
     <bean id="ajaxSessionFilter" class="com.trm.bidding.common.security.shiro.ShiroAjaxSessionFilter"/>
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
     <!-- 启用shrio 控制器授权注解拦截方式 -->
     <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
