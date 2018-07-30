@@ -1,6 +1,6 @@
 package ch.cache;
 
-import com.trm.bidding.common.utils.StringUtils;
+import ch.util.StringUtils;
 import org.apache.shiro.web.filter.authc.UserFilter;
 import org.apache.shiro.web.util.WebUtils;
 
