@@ -20,7 +20,7 @@ import java.util.Set;
  */
 @SuppressWarnings("unchecked")
 public class ShiroSpringCache<K,V> implements org.apache.shiro.cache.Cache<K, V>{
-	private static final Logger log = LoggerFactory.getLogger(ShiroSpringCache.class);
+	private Logger log = LoggerFactory.getLogger(ShiroSpringCache.class);
 	private CacheManager cacheManager;
 	private Cache cache;
 	//    private RedisCache cache2;

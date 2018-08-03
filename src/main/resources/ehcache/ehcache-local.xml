@@ -42,6 +42,7 @@
 		   timeToIdleSeconds="86400" timeToLiveSeconds="86400" overflowToDisk="false" diskPersistent="false" />
 
 	<!--
+	maxEntriesLocalHeap 堆内存中最大缓存对象数，0没有限制
     name:缓存名称。
     maxElementsInMemory：缓存最大个数。
     eternal:对象是否永久有效，一但设置了，timeout将不起作用。

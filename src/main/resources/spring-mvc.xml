@@ -4,7 +4,8 @@
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:aop="http://www.springframework.org/schema/aop"
     xmlns:tx="http://www.springframework.org/schema/tx"
-     xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
     xsi:schemaLocation="http://www.springframework.org/schema/beans 
            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
            http://www.springframework.org/schema/context
@@ -13,6 +14,8 @@
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
            http://www.springframework.org/schema/mvc 
            http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+           http://www.springframework.org/schema/util
+	       http://www.springframework.org/schema/util/spring-util-4.1.xsd
            ">
           
 	
@@ -40,6 +43,8 @@
 	
 	 <!-- 启用注解式事务 必须要这里启用，如果放在applicationContext.xml中的话不生效-->
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	
-		<import resource="classpath:spring-shiro.xml" />
+
+
+	<!-- 控制器异常处理 -->
+	<util:properties id="filePath" location="classpath:config.properties"/>
 	</beans>

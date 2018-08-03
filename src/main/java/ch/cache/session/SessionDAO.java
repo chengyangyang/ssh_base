@@ -1,6 +1,9 @@
 package ch.cache.session;
 
 import org.apache.shiro.session.Session;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
