@@ -12,10 +12,10 @@ import org.springframework.util.CollectionUtils;
 
 /**
  *
- * »ùÓÚspringºÍredisµÄredisTemplate¹¤¾ßÀà
- * Õë¶ÔËùÓÐµÄhash ¶¼ÊÇÒÔh¿ªÍ·µÄ·½·¨
- * Õë¶ÔËùÓÐµÄSet ¶¼ÊÇÒÔs¿ªÍ·µÄ·½·¨                    ²»º¬Í¨ÓÃ·½·¨
- * Õë¶ÔËùÓÐµÄList ¶¼ÊÇÒÔl¿ªÍ·µÄ·½·¨
+ * ï¿½ï¿½ï¿½ï¿½springï¿½ï¿½redisï¿½ï¿½redisTemplateï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½hash ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½hï¿½ï¿½Í·ï¿½Ä·ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Set ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½Í·ï¿½Ä·ï¿½ï¿½ï¿½                    ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Ã·ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½List ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½Í·ï¿½Ä·ï¿½ï¿½ï¿½
  */
 public class RedisUtil {
 
@@ -25,11 +25,11 @@ public class RedisUtil {
     public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
-    //=============================common============================
+    //=============================general============================
     /**
-     * Ö¸¶¨»º´æÊ§Ð§Ê±¼ä
-     * @param key ¼ü
-     * @param time Ê±¼ä(Ãë)
+     * Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§Ð§Ê±ï¿½ï¿½
+     * @param key ï¿½ï¿½
+     * @param time Ê±ï¿½ï¿½(ï¿½ï¿½)
      * @return
      */
     public boolean expire(String key,long time){
@@ -45,18 +45,18 @@ public class RedisUtil {
     }
 
     /**
-     * ¸ù¾Ýkey »ñÈ¡¹ýÆÚÊ±¼ä
-     * @param key ¼ü ²»ÄÜÎªnull
-     * @return Ê±¼ä(Ãë) ·µ»Ø0´ú±íÎªÓÀ¾ÃÓÐÐ§
+     * ï¿½ï¿½ï¿½ï¿½key ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+     * @param key ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªnull
+     * @return Ê±ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
      */
     public long getExpire(String key){
         return redisTemplate.getExpire(key,TimeUnit.SECONDS);
     }
 
     /**
-     * ÅÐ¶ÏkeyÊÇ·ñ´æÔÚ
-     * @param key ¼ü
-     * @return true ´æÔÚ false²»´æÔÚ
+     * ï¿½Ð¶ï¿½keyï¿½Ç·ï¿½ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½
+     * @return true ï¿½ï¿½ï¿½ï¿½ falseï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public boolean hasKey(String key){
         try {
@@ -68,8 +68,8 @@ public class RedisUtil {
     }
 
     /**
-     * É¾³ý»º´æ
-     * @param key ¿ÉÒÔ´«Ò»¸öÖµ »ò¶à¸ö
+     * É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½ï¿½Ô´ï¿½Ò»ï¿½ï¿½Öµ ï¿½ï¿½ï¿½ï¿½
      */
     @SuppressWarnings("unchecked")
     public void del(String ... key){
@@ -84,8 +84,8 @@ public class RedisUtil {
 
     //============================String=============================
     /**
-     * ÆÕÍ¨»º´æ»ñÈ¡
-     * @param key ¼ü
+     * ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½È¡
+     * @param key ï¿½ï¿½
      * @return Öµ
      */
     public Object get(String key){
@@ -93,10 +93,10 @@ public class RedisUtil {
     }
 
     /**
-     * ÆÕÍ¨»º´æ·ÅÈë
-     * @param key ¼ü
+     * ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½
      * @param value Öµ
-     * @return true³É¹¦ falseÊ§°Ü
+     * @return trueï¿½É¹ï¿½ falseÊ§ï¿½ï¿½
      */
     public boolean set(String key,Object value) {
         try {
@@ -110,11 +110,11 @@ public class RedisUtil {
     }
 
     /**
-     * ÆÕÍ¨»º´æ·ÅÈë²¢ÉèÖÃÊ±¼ä
-     * @param key ¼ü
+     * ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²¢ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+     * @param key ï¿½ï¿½
      * @param value Öµ
-     * @param time Ê±¼ä(Ãë) timeÒª´óÓÚ0 Èç¹ûtimeÐ¡ÓÚµÈÓÚ0 ½«ÉèÖÃÎÞÏÞÆÚ
-     * @return true³É¹¦ false Ê§°Ü
+     * @param time Ê±ï¿½ï¿½(ï¿½ï¿½) timeÒªï¿½ï¿½ï¿½ï¿½0 ï¿½ï¿½ï¿½timeÐ¡ï¿½Úµï¿½ï¿½ï¿½0 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return trueï¿½É¹ï¿½ false Ê§ï¿½ï¿½
      */
     public boolean set(String key,Object value,long time){
         try {
@@ -131,27 +131,27 @@ public class RedisUtil {
     }
 
     /**
-     * µÝÔö
-     * @param key ¼ü
-     * @param by ÒªÔö¼Ó¼¸(´óÓÚ0)
+     * ï¿½ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½
+     * @param by Òªï¿½ï¿½ï¿½Ó¼ï¿½(ï¿½ï¿½ï¿½ï¿½0)
      * @return
      */
     public long incr(String key, long delta){
         if(delta<0){
-            throw new RuntimeException("µÝÔöÒò×Ó±ØÐë´óÓÚ0");
+            throw new RuntimeException("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0");
         }
         return redisTemplate.opsForValue().increment(key, delta);
     }
 
     /**
-     * µÝ¼õ
-     * @param key ¼ü
-     * @param by Òª¼õÉÙ¼¸(Ð¡ÓÚ0)
+     * ï¿½Ý¼ï¿½
+     * @param key ï¿½ï¿½
+     * @param by Òªï¿½ï¿½ï¿½Ù¼ï¿½(Ð¡ï¿½ï¿½0)
      * @return
      */
     public long decr(String key, long delta){
         if(delta<0){
-            throw new RuntimeException("µÝ¼õÒò×Ó±ØÐë´óÓÚ0");
+            throw new RuntimeException("ï¿½Ý¼ï¿½ï¿½ï¿½ï¿½Ó±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0");
         }
         return redisTemplate.opsForValue().increment(key, -delta);
     }
@@ -159,8 +159,8 @@ public class RedisUtil {
     //================================Map=================================
     /**
      * HashGet
-     * @param key ¼ü ²»ÄÜÎªnull
-     * @param item Ïî ²»ÄÜÎªnull
+     * @param key ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªnull
+     * @param item ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªnull
      * @return Öµ
      */
     public Object hget(String key,String item){
@@ -168,9 +168,9 @@ public class RedisUtil {
     }
 
     /**
-     * »ñÈ¡hashKey¶ÔÓ¦µÄËùÓÐ¼üÖµ
-     * @param key ¼ü
-     * @return ¶ÔÓ¦µÄ¶à¸ö¼üÖµ
+     * ï¿½ï¿½È¡hashKeyï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Öµ
+     * @param key ï¿½ï¿½
+     * @return ï¿½ï¿½Ó¦ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½Öµ
      */
     public Map<Object,Object> hmget(String key){
         return redisTemplate.opsForHash().entries(key);
@@ -178,9 +178,9 @@ public class RedisUtil {
 
     /**
      * HashSet
-     * @param key ¼ü
-     * @param map ¶ÔÓ¦¶à¸ö¼üÖµ
-     * @return true ³É¹¦ false Ê§°Ü
+     * @param key ï¿½ï¿½
+     * @param map ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+     * @return true ï¿½É¹ï¿½ false Ê§ï¿½ï¿½
      */
     public boolean hmset(String key, Map<String,Object> map){
         try {
@@ -193,11 +193,11 @@ public class RedisUtil {
     }
 
     /**
-     * HashSet ²¢ÉèÖÃÊ±¼ä
-     * @param key ¼ü
-     * @param map ¶ÔÓ¦¶à¸ö¼üÖµ
-     * @param time Ê±¼ä(Ãë)
-     * @return true³É¹¦ falseÊ§°Ü
+     * HashSet ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+     * @param key ï¿½ï¿½
+     * @param map ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+     * @param time Ê±ï¿½ï¿½(ï¿½ï¿½)
+     * @return trueï¿½É¹ï¿½ falseÊ§ï¿½ï¿½
      */
     public boolean hmset(String key, Map<String,Object> map, long time){
         try {
@@ -213,11 +213,11 @@ public class RedisUtil {
     }
 
     /**
-     * ÏòÒ»ÕÅhash±íÖÐ·ÅÈëÊý¾Ý,Èç¹û²»´æÔÚ½«´´½¨
-     * @param key ¼ü
-     * @param item Ïî
+     * ï¿½ï¿½Ò»ï¿½ï¿½hashï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½
+     * @param item ï¿½ï¿½
      * @param value Öµ
-     * @return true ³É¹¦ falseÊ§°Ü
+     * @return true ï¿½É¹ï¿½ falseÊ§ï¿½ï¿½
      */
     public boolean hset(String key,String item,Object value) {
         try {
@@ -230,12 +230,12 @@ public class RedisUtil {
     }
 
     /**
-     * ÏòÒ»ÕÅhash±íÖÐ·ÅÈëÊý¾Ý,Èç¹û²»´æÔÚ½«´´½¨
-     * @param key ¼ü
-     * @param item Ïî
+     * ï¿½ï¿½Ò»ï¿½ï¿½hashï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½
+     * @param item ï¿½ï¿½
      * @param value Öµ
-     * @param time Ê±¼ä(Ãë)  ×¢Òâ:Èç¹ûÒÑ´æÔÚµÄhash±íÓÐÊ±¼ä,ÕâÀï½«»áÌæ»»Ô­ÓÐµÄÊ±¼ä
-     * @return true ³É¹¦ falseÊ§°Ü
+     * @param time Ê±ï¿½ï¿½(ï¿½ï¿½)  ×¢ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½Úµï¿½hashï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½,ï¿½ï¿½ï¿½ï½«ï¿½ï¿½ï¿½æ»»Ô­ï¿½Ðµï¿½Ê±ï¿½ï¿½
+     * @return true ï¿½É¹ï¿½ falseÊ§ï¿½ï¿½
      */
     public boolean hset(String key,String item,Object value,long time) {
         try {
@@ -251,29 +251,29 @@ public class RedisUtil {
     }
 
     /**
-     * É¾³ýhash±íÖÐµÄÖµ
-     * @param key ¼ü ²»ÄÜÎªnull
-     * @param item Ïî ¿ÉÒÔÊ¹¶à¸ö ²»ÄÜÎªnull
+     * É¾ï¿½ï¿½hashï¿½ï¿½ï¿½Ðµï¿½Öµ
+     * @param key ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªnull
+     * @param item ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªnull
      */
     public void hdel(String key, Object... item){
         redisTemplate.opsForHash().delete(key,item);
     }
 
     /**
-     * ÅÐ¶Ïhash±íÖÐÊÇ·ñÓÐ¸ÃÏîµÄÖµ
-     * @param key ¼ü ²»ÄÜÎªnull
-     * @param item Ïî ²»ÄÜÎªnull
-     * @return true ´æÔÚ false²»´æÔÚ
+     * ï¿½Ð¶ï¿½hashï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½Öµ
+     * @param key ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªnull
+     * @param item ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªnull
+     * @return true ï¿½ï¿½ï¿½ï¿½ falseï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public boolean hHasKey(String key, String item){
         return redisTemplate.opsForHash().hasKey(key, item);
     }
 
     /**
-     * hashµÝÔö Èç¹û²»´æÔÚ,¾Í»á´´½¨Ò»¸ö ²¢°ÑÐÂÔöºóµÄÖµ·µ»Ø
-     * @param key ¼ü
-     * @param item Ïî
-     * @param by ÒªÔö¼Ó¼¸(´óÓÚ0)
+     * hashï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Í»á´´ï¿½ï¿½Ò»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½
+     * @param item ï¿½ï¿½
+     * @param by Òªï¿½ï¿½ï¿½Ó¼ï¿½(ï¿½ï¿½ï¿½ï¿½0)
      * @return
      */
     public double hincr(String key, String item,double by){
@@ -281,10 +281,10 @@ public class RedisUtil {
     }
 
     /**
-     * hashµÝ¼õ
-     * @param key ¼ü
-     * @param item Ïî
-     * @param by Òª¼õÉÙ¼Ç(Ð¡ÓÚ0)
+     * hashï¿½Ý¼ï¿½
+     * @param key ï¿½ï¿½
+     * @param item ï¿½ï¿½
+     * @param by Òªï¿½ï¿½ï¿½Ù¼ï¿½(Ð¡ï¿½ï¿½0)
      * @return
      */
     public double hdecr(String key, String item,double by){
@@ -293,8 +293,8 @@ public class RedisUtil {
 
     //============================set=============================
     /**
-     * ¸ù¾Ýkey»ñÈ¡SetÖÐµÄËùÓÐÖµ
-     * @param key ¼ü
+     * ï¿½ï¿½ï¿½ï¿½keyï¿½ï¿½È¡Setï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+     * @param key ï¿½ï¿½
      * @return
      */
     public Set<Object> sGet(String key){
@@ -307,10 +307,10 @@ public class RedisUtil {
     }
 
     /**
-     * ¸ù¾Ývalue´ÓÒ»¸ösetÖÐ²éÑ¯,ÊÇ·ñ´æÔÚ
-     * @param key ¼ü
+     * ï¿½ï¿½ï¿½ï¿½valueï¿½ï¿½Ò»ï¿½ï¿½setï¿½Ð²ï¿½Ñ¯,ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½
      * @param value Öµ
-     * @return true ´æÔÚ false²»´æÔÚ
+     * @return true ï¿½ï¿½ï¿½ï¿½ falseï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public boolean sHasKey(String key,Object value){
         try {
@@ -322,10 +322,10 @@ public class RedisUtil {
     }
 
     /**
-     * ½«Êý¾Ý·ÅÈëset»º´æ
-     * @param key ¼ü
-     * @param values Öµ ¿ÉÒÔÊÇ¶à¸ö
-     * @return ³É¹¦¸öÊý
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½setï¿½ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½
+     * @param values Öµ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public long sSet(String key, Object...values) {
         try {
@@ -337,11 +337,11 @@ public class RedisUtil {
     }
 
     /**
-     * ½«setÊý¾Ý·ÅÈë»º´æ
-     * @param key ¼ü
-     * @param time Ê±¼ä(Ãë)
-     * @param values Öµ ¿ÉÒÔÊÇ¶à¸ö
-     * @return ³É¹¦¸öÊý
+     * ï¿½ï¿½setï¿½ï¿½ï¿½Ý·ï¿½ï¿½ë»ºï¿½ï¿½
+     * @param key ï¿½ï¿½
+     * @param time Ê±ï¿½ï¿½(ï¿½ï¿½)
+     * @param values Öµ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public long sSetAndTime(String key,long time,Object...values) {
         try {
@@ -355,8 +355,8 @@ public class RedisUtil {
     }
 
     /**
-     * »ñÈ¡set»º´æµÄ³¤¶È
-     * @param key ¼ü
+     * ï¿½ï¿½È¡setï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½
      * @return
      */
     public long sGetSetSize(String key){
@@ -369,10 +369,10 @@ public class RedisUtil {
     }
 
     /**
-     * ÒÆ³ýÖµÎªvalueµÄ
-     * @param key ¼ü
-     * @param values Öµ ¿ÉÒÔÊÇ¶à¸ö
-     * @return ÒÆ³ýµÄ¸öÊý
+     * ï¿½Æ³ï¿½ÖµÎªvalueï¿½ï¿½
+     * @param key ï¿½ï¿½
+     * @param values Öµ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½
+     * @return ï¿½Æ³ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½
      */
     public long setRemove(String key, Object ...values) {
         try {
@@ -386,10 +386,10 @@ public class RedisUtil {
     //===============================list=================================
 
     /**
-     * »ñÈ¡list»º´æµÄÄÚÈÝ
-     * @param key ¼ü
-     * @param start ¿ªÊ¼
-     * @param end ½áÊø  0 µ½ -1´ú±íËùÓÐÖµ
+     * ï¿½ï¿½È¡listï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½
+     * @param start ï¿½ï¿½Ê¼
+     * @param end ï¿½ï¿½ï¿½ï¿½  0 ï¿½ï¿½ -1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
      * @return
      */
     public List<Object> lGet(String key,long start, long end){
@@ -402,8 +402,8 @@ public class RedisUtil {
     }
 
     /**
-     * »ñÈ¡list»º´æµÄ³¤¶È
-     * @param key ¼ü
+     * ï¿½ï¿½È¡listï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½
      * @return
      */
     public long lGetListSize(String key){
@@ -416,9 +416,9 @@ public class RedisUtil {
     }
 
     /**
-     * Í¨¹ýË÷Òý »ñÈ¡listÖÐµÄÖµ
-     * @param key ¼ü
-     * @param index Ë÷Òý  index>=0Ê±£¬ 0 ±íÍ·£¬1 µÚ¶þ¸öÔªËØ£¬ÒÀ´ÎÀàÍÆ£»index<0Ê±£¬-1£¬±íÎ²£¬-2µ¹ÊýµÚ¶þ¸öÔªËØ£¬ÒÀ´ÎÀàÍÆ
+     * Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¡listï¿½Ðµï¿½Öµ
+     * @param key ï¿½ï¿½
+     * @param index ï¿½ï¿½ï¿½ï¿½  index>=0Ê±ï¿½ï¿½ 0 ï¿½ï¿½Í·ï¿½ï¿½1 ï¿½Ú¶ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½index<0Ê±ï¿½ï¿½-1ï¿½ï¿½ï¿½ï¿½Î²ï¿½ï¿½-2ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      * @return
      */
     public Object lGetIndex(String key,long index){
@@ -431,10 +431,10 @@ public class RedisUtil {
     }
 
     /**
-     * ½«list·ÅÈë»º´æ
-     * @param key ¼ü
+     * ï¿½ï¿½listï¿½ï¿½ï¿½ë»ºï¿½ï¿½
+     * @param key ï¿½ï¿½
      * @param value Öµ
-     * @param time Ê±¼ä(Ãë)
+     * @param time Ê±ï¿½ï¿½(ï¿½ï¿½)
      * @return
      */
     public boolean lSet(String key, Object value) {
@@ -448,10 +448,10 @@ public class RedisUtil {
     }
 
     /**
-     * ½«list·ÅÈë»º´æ
-     * @param key ¼ü
+     * ï¿½ï¿½listï¿½ï¿½ï¿½ë»ºï¿½ï¿½
+     * @param key ï¿½ï¿½
      * @param value Öµ
-     * @param time Ê±¼ä(Ãë)
+     * @param time Ê±ï¿½ï¿½(ï¿½ï¿½)
      * @return
      */
     public boolean lSet(String key, Object value, long time) {
@@ -466,10 +466,10 @@ public class RedisUtil {
     }
 
     /**
-     * ½«list·ÅÈë»º´æ
-     * @param key ¼ü
+     * ï¿½ï¿½listï¿½ï¿½ï¿½ë»ºï¿½ï¿½
+     * @param key ï¿½ï¿½
      * @param value Öµ
-     * @param time Ê±¼ä(Ãë)
+     * @param time Ê±ï¿½ï¿½(ï¿½ï¿½)
      * @return
      */
     public boolean lSet(String key, List<Object> value) {
@@ -483,10 +483,10 @@ public class RedisUtil {
     }
 
     /**
-     * ½«list·ÅÈë»º´æ
-     * @param key ¼ü
+     * ï¿½ï¿½listï¿½ï¿½ï¿½ë»ºï¿½ï¿½
+     * @param key ï¿½ï¿½
      * @param value Öµ
-     * @param time Ê±¼ä(Ãë)
+     * @param time Ê±ï¿½ï¿½(ï¿½ï¿½)
      * @return
      */
     public boolean lSet(String key, List<Object> value, long time) {
@@ -501,9 +501,9 @@ public class RedisUtil {
     }
 
     /**
-     * ¸ù¾ÝË÷ÒýÐÞ¸ÄlistÖÐµÄÄ³ÌõÊý¾Ý
-     * @param key ¼ü
-     * @param index Ë÷Òý
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½listï¿½Ðµï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param key ï¿½ï¿½
+     * @param index ï¿½ï¿½ï¿½ï¿½
      * @param value Öµ
      * @return
      */
@@ -518,11 +518,11 @@ public class RedisUtil {
     }
 
     /**
-     * ÒÆ³ýN¸öÖµÎªvalue
-     * @param key ¼ü
-     * @param count ÒÆ³ý¶àÉÙ¸ö
+     * ï¿½Æ³ï¿½Nï¿½ï¿½ÖµÎªvalue
+     * @param key ï¿½ï¿½
+     * @param count ï¿½Æ³ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½
      * @param value Öµ
-     * @return ÒÆ³ýµÄ¸öÊý
+     * @return ï¿½Æ³ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½
      */
     public long lRemove(String key,long count,Object value) {
         try {

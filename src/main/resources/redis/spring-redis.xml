@@ -37,35 +37,35 @@
     </bean>
 
     <!-- redis集群配置 哨兵模式 -->
-    <!-- <bean id="sentinelConfiguration" class="org.springframework.data.redis.connection.RedisSentinelConfiguration">
+    <!-- <general id="sentinelConfiguration" class="org.springframework.data.redis.connection.RedisSentinelConfiguration">
         <property name="master">
-            <bean class="org.springframework.data.redis.connection.RedisNode">
+            <general class="org.springframework.data.redis.connection.RedisNode">
                 这个值要和Sentinel中指定的master的值一致，不然启动时找不到Sentinel会报错的
                 <property name="name" value="mymaster"></property>
-            </bean>
+            </general>
         </property>
         记住了,这里是指定Sentinel的IP和端口，不是Master和Slave的
         <property name="sentinels">
             <set>
-                <bean class="org.springframework.data.redis.connection.RedisNode">
+                <general class="org.springframework.data.redis.connection.RedisNode">
                     <constructor-arg name="host" value="${redis.sentinel.host1}"></constructor-arg>
                     <constructor-arg name="port" value="${redis.sentinel.port1}"></constructor-arg>
-                </bean>
-                <bean class="org.springframework.data.redis.connection.RedisNode">
+                </general>
+                <general class="org.springframework.data.redis.connection.RedisNode">
                     <constructor-arg name="host" value="${redis.sentinel.host2}"></constructor-arg>
                     <constructor-arg name="port" value="${redis.sentinel.port2}"></constructor-arg>
-                </bean>
-                <bean class="org.springframework.data.redis.connection.RedisNode">
+                </general>
+                <general class="org.springframework.data.redis.connection.RedisNode">
                     <constructor-arg name="host" value="${redis.sentinel.host3}"></constructor-arg>
                     <constructor-arg name="port" value="${redis.sentinel.port3}"></constructor-arg>
-                </bean>
+                </general>
             </set>
         </property>
-    </bean>
-    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+    </general>
+    <general id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
         <constructor-arg name="sentinelConfig" ref="sentinelConfiguration"></constructor-arg>
         <constructor-arg name="poolConfig" ref="jedisPoolConfig"></constructor-arg>
-    </bean> -->
+    </general> -->
 
 
     <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
@@ -88,16 +88,16 @@
 
         <!-- 若不使用redis作为shiro的缓存，则开放此处，使用string序列化即可，jdk序列化在redis中的key值 不好看 -->
          <!-- <property name="keySerializer">
-            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+            <general class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
         </property>
          <property name="valueSerializer">
-            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+            <general class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
         </property>
         <property name="hashKeySerializer">
-            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+            <general class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
         </property>
         <property name="hashValueSerializer">
-            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+            <general class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
         </property>-->
 
         <!-- 若使用redis作为shiro的缓存，则开放此处，需要使用jdk序列化 -->
