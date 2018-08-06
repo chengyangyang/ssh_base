@@ -56,7 +56,7 @@ public class FileController {
             for (MultipartFile file:files) {
                 long startMillis = System.currentTimeMillis();//文件上传的开始时间
                 if(file != null){
-                    String name = file.getName();
+                    String name = file.getName();//获取jsp页面中name中的值
                     String fileName = file.getOriginalFilename();//获得上传文件的名称
                     if(StringUtils.isBlank(fileName)){
                         continue;

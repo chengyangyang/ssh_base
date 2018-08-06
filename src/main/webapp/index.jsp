@@ -8,7 +8,7 @@
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
-<form id="uploadForm" method="post" enctype="multipart/form-data">
+<form id="uploadForm" enctype="multipart/form-data">
 用户名：<input type="text" name="user"/><br/>
 文件1：<input type="file" name="file"/><br/>
 文件2：<input type="file" name="file02"/><br/>

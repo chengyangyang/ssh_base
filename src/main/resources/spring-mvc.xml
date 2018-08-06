@@ -51,7 +51,7 @@
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
-	
+
 	 <!--这里是对静态资源的映射,不会被Spring MVC拦截-->
     <mvc:resources mapping="/js/**" location="/resources/js/" />
     <mvc:resources mapping="/css/**" location="/resources/css/" />
@@ -60,6 +60,12 @@
 	 <!-- 启用注解式事务 必须要这里启用，如果放在applicationContext.xml中的话不生效-->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
+    <!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
+    <bean id="multipartResolver" class="ch.system.rebean.CustomMultipartResolver">
+        <property name="maxUploadSize" value="3000000000"/>
+        <property name="maxInMemorySize" value="4096"/>
+        <property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
 
 	<!-- 控制器异常处理 -->
 	<util:properties id="filePath" location="classpath:config.properties"/>
