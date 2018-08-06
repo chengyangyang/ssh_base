@@ -35,6 +35,22 @@
 	 <mvc:default-servlet-handler/>
 	 <!-- 能支持spring更高级的应用 ，如校验..映射动态请求,启用MVC注解-->
 	 <mvc:annotation-driven/>
+
+	<!-- 注解驱动 -->
+	<mvc:annotation-driven>
+		<!-- 指定http返回编码格式，不然返回ajax请求json会出现中文乱码 -->
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+						<value>application/json;charset=UTF-8</value>
+						<value>*/*;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 	
 	 <!--这里是对静态资源的映射,不会被Spring MVC拦截-->
     <mvc:resources mapping="/js/**" location="/resources/js/" />

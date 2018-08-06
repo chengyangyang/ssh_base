@@ -5,6 +5,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -32,6 +33,7 @@ public class FileController {
      * @return
      */
     @RequestMapping(value="/upload",method = RequestMethod.POST)
+    @ResponseBody
     public Object upload(HttpServletRequest request){
         String contextPath = request.getSession().getServletContext().getRealPath("/data");
         String path = contextPath+"/diagrams";
@@ -75,7 +77,7 @@ public class FileController {
                 }
             }
         }
-        return null;
+        return "上传成功";
     }
 
 }

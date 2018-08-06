@@ -5,18 +5,41 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
-<form action="file/upload" method="post" enctype="multipart/form-data">
+<form id="uploadForm" method="post" enctype="multipart/form-data">
 用户名：<input type="text" name="user"/><br/>
 文件1：<input type="file" name="file"/><br/>
 文件2：<input type="file" name="file02"/><br/>
 <input type="submit" value="提交">
 </form>
+<button id="upload">上传文件</button>
 
 <form action="t/getuploadurl" method="post" enctype="multipart/form-data">
 
 <input type="submit" value="提交1">
 </form>
 </body>
+
+<script type="text/javascript">
+    $(function () {
+        $("#upload").click(function () {
+            var formData = new FormData($('#uploadForm'));
+            $.ajax({
+                type: 'post',
+                url: "file/upload",
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+            }).success(function (data) {
+                alert(data);
+            }).error(function () {
+                alert("上传失败");
+            });
+        });
+    });
+</script>
+
 </html>
