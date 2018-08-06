@@ -12,14 +12,8 @@
 用户名：<input type="text" name="user"/><br/>
 文件1：<input type="file" name="file"/><br/>
 文件2：<input type="file" name="file02"/><br/>
-<input type="submit" value="提交">
 </form>
 <button id="upload">上传文件</button>
-
-<form action="t/getuploadurl" method="post" enctype="multipart/form-data">
-
-<input type="submit" value="提交1">
-</form>
 </body>
 
 <script type="text/javascript">
@@ -28,7 +22,7 @@
             var formData = new FormData($('#uploadForm'));
             $.ajax({
                 type: 'post',
-                url: "file/upload",
+                url: "file/upload.action",
                 data: formData,
                 cache: false,
                 processData: false,
