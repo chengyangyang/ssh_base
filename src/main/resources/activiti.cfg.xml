@@ -7,7 +7,7 @@
    <property name="dataSource" ref="dataSource" /> 
     <property name="transactionManager" ref="transactionManager" />
      <property name="databaseSchema" value="ACT"/>
-    <property name="databaseSchemaUpdate" value="none" /><!-- none ，true创建 -->
+    <property name="databaseSchemaUpdate" value="true" /><!-- none ，true创建 -->
     <property name="jobExecutorActivate" value="false" />
     <property name="databaseType" value="mysql" />  
     <!--  <property name="dbIdentityUsed" value="false" />  

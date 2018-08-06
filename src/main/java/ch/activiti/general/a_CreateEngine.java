@@ -9,7 +9,7 @@ import org.activiti.engine.ProcessEngineConfiguration;
  * @date 2018年08月03日 16:34
  * version 1.0
  */
-public class CreateEngine {
+public class a_CreateEngine {
 
     public static void main(String[] args) {
         //流程引擎的创建（只选用了一种方法，也可以使用其他方法。），使用流程引擎配置文件，也就是创建23+张表
