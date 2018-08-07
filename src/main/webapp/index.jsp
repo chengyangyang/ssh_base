@@ -6,9 +6,10 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- 引入全局 stylesheet 和 script -->
-    <jsp:include page="${contextPath}/views/common/script.jsp"/>
-    <jsp:include page="${contextPath}/views/common/stylesheet.jsp"/>
+    <%-- <jsp:include page="${contextPath}/views/common/script.jsp"/>
+    <jsp:include page="${contextPath}/views/common/stylesheet.jsp"/> --%>
     <title>Insert title here</title>
 </head>
 <body>
@@ -18,11 +19,12 @@
     文件2：<input type="file" name="file02"/><br/>
 </form>
 <button id="upload">上传文件</button>
+<button id="checkProgress">查看进度</button>
 
 
 <form enctype="multipart/form-data" method="post" action="file/upload.action">
-    文件3：<input type="file" name="file"/><br/>
-    文件4：<input type="file" name="file02"/><br/>
+    文件3：<input type="file" name="file" multiple="multiple" /><br/>
+  
     <input type="submit" value="提交">
 </form>
 
@@ -31,7 +33,8 @@
 <script type="text/javascript">
     $(function () {
         $("#upload").click(function () {
-            var formData = new FormData($('#uploadForm'));
+            var formData = new FormData($('#uploadForm')[0]);
+            formData.append("param","bbbbbbbbbbb");
             $.ajax({
                 type: 'post',
                 url: "file/upload.action",
@@ -45,19 +48,20 @@
                 alert("上传失败");
             });
 
-
-            /*$.ajax({
-                type: 'post',
-                url: "file/getProgress.action",
-                data: {},
-                cache: false,
-                processData: false,
-                contentType: "application/json",
-            }).success(function (data) {
-                alert(data);
-            }).error(function () {
-                alert("上传失败");
-            });*/
+            $("#checkProgress").click(function () {
+	            $.ajax({
+	                type: 'post',
+	                url: "file/getProgress.action",
+	                data: {},
+	                cache: false,
+	                processData: false,
+	                contentType: "application/json",
+	            }).success(function (data) {
+	                alert(data);
+	            }).error(function () {
+	                alert("上传失败");
+	            });
+            })
 
         });
     });

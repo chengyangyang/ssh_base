@@ -35,6 +35,9 @@ public class FileController {
     @RequestMapping(value="/upload",method = RequestMethod.POST)
     @ResponseBody
     public Object upload(HttpServletRequest request){
+    	//获取数据测试
+    	String user = request.getParameter("user");
+    	String param = request.getParameter("param");
         String contextPath = request.getSession().getServletContext().getRealPath("/data");
         String path = contextPath+"/diagrams";
         Object[] fileLastName = {".zip",".doc",".docx",".txt",".iso"};
@@ -51,6 +54,9 @@ public class FileController {
             int size = files.size();//文件的数量
             if(size > 6){
                 return "上传数量不得大于6个";
+            }
+            if(size == 0) {
+            	return "没有文件或者刷新页面重新上传";
             }
             //遍历上传文件
             for (MultipartFile file:files) {
