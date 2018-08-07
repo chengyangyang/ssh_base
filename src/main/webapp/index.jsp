@@ -7,8 +7,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- 引入全局 stylesheet 和 script -->
-    <%--<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>--%>
-
     <jsp:include page="${contextPath}/views/common/script.jsp"/>
     <jsp:include page="${contextPath}/views/common/stylesheet.jsp"/>
     <title>Insert title here</title>
