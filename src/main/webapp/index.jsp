@@ -18,6 +18,14 @@
     文件2：<input type="file" name="file02"/><br/>
 </form>
 <button id="upload">上传文件</button>
+
+
+<form enctype="multipart/form-data" method="post" action="file/upload.action">
+    文件3：<input type="file" name="file"/><br/>
+    文件4：<input type="file" name="file02"/><br/>
+    <input type="submit" value="提交">
+</form>
+
 </body>
 
 <script type="text/javascript">
@@ -36,6 +44,21 @@
             }).error(function () {
                 alert("上传失败");
             });
+
+
+            /*$.ajax({
+                type: 'post',
+                url: "file/getProgress.action",
+                data: {},
+                cache: false,
+                processData: false,
+                contentType: "application/json",
+            }).success(function (data) {
+                alert(data);
+            }).error(function () {
+                alert("上传失败");
+            });*/
+
         });
     });
 </script>

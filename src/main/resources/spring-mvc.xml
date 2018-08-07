@@ -62,10 +62,15 @@
 
     <!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
     <bean id="multipartResolver" class="ch.system.rebean.CustomMultipartResolver">
-        <property name="maxUploadSize" value="3000000000"/>
-        <property name="maxInMemorySize" value="4096"/>
+       <!-- <property name="maxUploadSize" value="3"/>
+        <property name="maxInMemorySize" value="4096"/>-->
         <property name="defaultEncoding" value="UTF-8"></property>
     </bean>
+
+	<!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
+	<!--<bean id="commonsMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8"/>
+	</bean>-->
 
 	<!-- 控制器异常处理 -->
 	<util:properties id="filePath" location="classpath:config.properties"/>

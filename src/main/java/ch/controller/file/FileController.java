@@ -1,5 +1,7 @@
 package ch.controller.file;
 
+import ch.system.bean.ProgressEntity;
+import ch.system.rebean.CustomMultipartResolver;
 import ch.util.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.stereotype.Controller;
@@ -8,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
@@ -37,14 +37,14 @@ public class FileController {
     public Object upload(HttpServletRequest request){
         String contextPath = request.getSession().getServletContext().getRealPath("/data");
         String path = contextPath+"/diagrams";
-        Object[] fileLastName = {".zip",".doc",".docx",".txt"};
+        Object[] fileLastName = {".zip",".doc",".docx",".txt",".iso"};
         //创建一个通用的多部分解析器
-        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
+        CustomMultipartResolver multipartResolver = new CustomMultipartResolver(request.getSession().getServletContext());
         multipartResolver.setDefaultEncoding("utf-8");
         //判断是否有文件上传
         if(multipartResolver.isMultipart(request)){
             //转化成request
-            MultipartHttpServletRequest multipartRequest = multipartResolver.resolveMultipart(request);
+            MultipartHttpServletRequest multipartRequest =(MultipartHttpServletRequest)(request);
             //取得request中的所有文件
             Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
             Collection<MultipartFile> files = fileMap.values();
@@ -78,6 +78,16 @@ public class FileController {
             }
         }
         return "上传成功";
+    }
+
+    @RequestMapping(value = "/getProgress",method = RequestMethod.POST)
+    @ResponseBody
+    public String initCreateInfo(HttpServletRequest request) {
+        ProgressEntity status =  (ProgressEntity) request.getSession().getAttribute("status");
+        if(status==null){
+            return "{}";
+        }
+        return status.toString();
     }
 
 }

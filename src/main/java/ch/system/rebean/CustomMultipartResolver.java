@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -22,6 +23,14 @@ import java.util.List;
  * version 1.0
  */
 public class CustomMultipartResolver extends CommonsMultipartResolver {
+
+
+    public CustomMultipartResolver() {
+    }
+
+    public CustomMultipartResolver(ServletContext servletContext) {
+        super(servletContext);
+    }
 
     @Autowired
     private MyProgressListener progressListener;
