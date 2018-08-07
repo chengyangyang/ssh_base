@@ -1,17 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- 引入全局 stylesheet 和 script -->
+    <%--<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>--%>
+
+    <jsp:include page="${contextPath}/views/common/script.jsp"/>
+    <jsp:include page="${contextPath}/views/common/stylesheet.jsp"/>
+    <title>Insert title here</title>
 </head>
 <body>
 <form id="uploadForm" enctype="multipart/form-data">
-用户名：<input type="text" name="user"/><br/>
-文件1：<input type="file" name="file"/><br/>
-文件2：<input type="file" name="file02"/><br/>
+    用户名：<input type="text" name="user"/><br/>
+    文件1：<input type="file" name="file"/><br/>
+    文件2：<input type="file" name="file02"/><br/>
 </form>
 <button id="upload">上传文件</button>
 </body>

@@ -37,7 +37,7 @@ public class FileController {
     public Object upload(HttpServletRequest request){
         String contextPath = request.getSession().getServletContext().getRealPath("/data");
         String path = contextPath+"/diagrams";
-        Object[] fileLastName = {".zip",".doc",".docx"};
+        Object[] fileLastName = {".zip",".doc",".docx",".txt"};
         //创建一个通用的多部分解析器
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
         multipartResolver.setDefaultEncoding("utf-8");

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sitemesh>
+    <!--默认情况下，
+        sitemesh 只对 HTTP 响应头中 Content-Type 为 text/html 的类型进行拦截和装饰，
+        我们可以添加更多的 mime 类型-->
+  <mime-type>text/html</mime-type>
+  <mime-type>application/vnd.wap.xhtml+xml</mime-type>
+  <mime-type>application/xhtml+xml</mime-type>
+
+  <!--<mapping>
+    <path>/views/content/personalCenter/ucenter/enterprise/*</path>
+    <decorator>/views/decorator/ucenter-decor.jsp</decorator>
+  </mapping>
+
+  <mapping>
+    <path>/views/content/index.jsp</path>
+    <decorator>/views/decorator/index-decor.jsp</decorator>
+  </mapping>-->
+
+  <mapping path="/views/content/index.jsp" decorator="/views/decorator/index-decor.jsp"/>
+  <mapping path="/views/content/*/front/*" decorator="/views/decorator/index-decor.jsp"/>
+  <mapping path="/views/content/personalCenter/ucenter/*" decorator="/views/decorator/ucenter-decor.jsp"/>
+
+
+  <mapping path="/" exclue="true"/>
+  <mapping path="/*.action" exclue="true"/>
+  <mapping path="/nofind.html" exclue="true"/>
+  <mapping path="/busy.html" exclue="true"/>
+  <mapping path="/ueditor/*" exclue="true"/> <!-- 富文本框上传图片加载页面 -->
+</sitemesh>
