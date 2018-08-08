@@ -88,12 +88,12 @@ public class FileController {
 
     @RequestMapping(value = "/getProgress",method = RequestMethod.POST)
     @ResponseBody
-    public String initCreateInfo(HttpServletRequest request) {
+    public ProgressEntity initCreateInfo(HttpServletRequest request) {
         ProgressEntity status =  (ProgressEntity) request.getSession().getAttribute("status");
         if(status==null){
-            return "{}";
+            return new ProgressEntity();
         }
-        return status.toString();
+        return status;
     }
 
 }
