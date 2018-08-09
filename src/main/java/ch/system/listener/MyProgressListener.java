@@ -32,7 +32,7 @@ public class MyProgressListener implements ProgressListener {
         status.setpContentLength(pContentLength);
         status.setpItems(pItems);
         status.setUseTime(System.currentTimeMillis()-status.getStartTime());
-        status.setPercent((int)(100*pBytesRead/pContentLength));
+        status.setPercent((int)(pBytesRead*100/pContentLength));
         //完成的计算已完成pBytesRead/1024/1024 M
     }
 }

@@ -20,8 +20,13 @@
     文件2：<input type="file" name="file02"/><br/>
 </form>
 <button id="upload">上传文件</button>
-<button id="checkProgress">查看进度</button>
 
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="60"
+         aria-valuemin="0" aria-valuemax="100" style="width: 0;">
+        <span id="checkProgress"></span>
+    </div>
+</div>
 
 <form enctype="multipart/form-data" method="post" action="file/upload.action">
     文件3：<input type="file" name="file" multiple="multiple" /><br/>
@@ -33,6 +38,7 @@
 
 <script type="text/javascript">
     $(function () {
+        var pro;
         $("#upload").click(function () {
             var formData = new FormData($('#uploadForm')[0]);
             formData.append("param","bbbbbbbbbbb");
@@ -48,23 +54,31 @@
             }).error(function () {
                 alert("上传失败");
             });
-
-            $("#checkProgress").click(function () {
-	            $.ajax({
-	                type: 'post',
-	                url: "file/getProgress.action",
-	                data: {},
-	                cache: false,
-	                processData: false,
-	                contentType: "application/json",
-	            }).success(function (data) {
-	                alert(data);
-	            }).error(function () {
-	                alert("上传失败");
-	            });
-            })
-
+            pro = setInterval(progress,1000);
         });
+        function progress () {
+            $.ajax({
+                type: 'post',
+                url: "file/getProgress.action",
+                data: {},
+                cache: false,
+                processData: false,
+                contentType: "application/json",
+            }).success(function (data) {
+                if(typeof (data.percent) != "undefind" && data.percent != null){
+                   var per = data.percent +'%';
+                    $(".progress-bar").css("width",per);
+                    $("#checkProgress").html(per);
+                    if(per == "100%"){
+                        clearInterval(pro);
+                    }
+                }
+                console.log(data);
+            }).error(function () {
+                alert("上传失败");
+            });
+        }
+
     });
 </script>
 
