@@ -1,85 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<jsp:include page="/views/common/JsAndCss.jsp"/>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script> -->
-    <!-- 引入全局 stylesheet 和 script -->
-    <jsp:include page="${contextPath}/views/common/script.jsp"/>
-    <jsp:include page="${contextPath}/views/common/stylesheet.jsp"/>
-    <title>Insert title here</title>
+    <title>首页</title>
 </head>
 <body>
-<form id="uploadForm" enctype="multipart/form-data">
-    用户名：<input type="text" name="user"/><br/>
-    文件1：<input type="file" name="file"/><br/>
-    文件2：<input type="file" name="file02"/><br/>
-</form>
-<button id="upload">上传文件</button>
 
-<div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="60"
-         aria-valuemin="0" aria-valuemax="100" style="width: 0;">
-        <span id="checkProgress"></span>
+<div class="panel panel-success" style="width: 99%;margin: 0px auto;">
+    <div class="panel-heading">
+        <h1 class="panel-title text-center">我的整理目录</h1>
     </div>
+    <div class="panel-body">
+    <a href="${contextPath}/views/file/FileUpload.jsp" target="_bank" class="btn btn-default btn active" role="button">文件上传</a>
+    
+    
+    </div>
+   
 </div>
 
-<form enctype="multipart/form-data" method="post" action="file/upload.action">
-    文件3：<input type="file" name="file" multiple="multiple" /><br/>
-  
-    <input type="submit" value="提交">
-</form>
-
 </body>
-
-<script type="text/javascript">
-    $(function () {
-        var pro;
-        $("#upload").click(function () {
-            var formData = new FormData($('#uploadForm')[0]);
-            formData.append("param","bbbbbbbbbbb");
-            $.ajax({
-                type: 'post',
-                url: "file/upload.action",
-                data: formData,
-                cache: false,
-                processData: false,
-                contentType: false,
-            }).success(function (data) {
-                alert(data);
-            }).error(function () {
-                alert("上传失败");
-            });
-            pro = setInterval(progress,1000);
-        });
-        function progress () {
-            $.ajax({
-                type: 'post',
-                url: "file/getProgress.action",
-                data: {},
-                cache: false,
-                processData: false,
-                contentType: "application/json",
-            }).success(function (data) {
-                if(typeof (data.percent) != "undefind" && data.percent != null){
-                   var per = data.percent +'%';
-                    $(".progress-bar").css("width",per);
-                    $("#checkProgress").html(per);
-                    if(per == "100%"){
-                        clearInterval(pro);
-                    }
-                }
-                console.log(data);
-            }).error(function () {
-                alert("上传失败");
-            });
-        }
-
-    });
-</script>
-
 </html>

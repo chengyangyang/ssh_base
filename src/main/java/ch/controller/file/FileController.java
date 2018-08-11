@@ -86,6 +86,11 @@ public class FileController {
         return "上传成功";
     }
 
+    /**
+     * 进度条的请求
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/getProgress",method = RequestMethod.POST)
     @ResponseBody
     public ProgressEntity initCreateInfo(HttpServletRequest request) {

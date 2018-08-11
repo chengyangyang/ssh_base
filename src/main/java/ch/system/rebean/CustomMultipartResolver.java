@@ -24,6 +24,8 @@ import java.util.List;
  */
 public class CustomMultipartResolver extends CommonsMultipartResolver {
 
+	@Autowired
+    private MyProgressListener progressListener;
 
     public CustomMultipartResolver() {
     }
@@ -32,8 +34,7 @@ public class CustomMultipartResolver extends CommonsMultipartResolver {
         super(servletContext);
     }
 
-    @Autowired
-    private MyProgressListener progressListener;
+    
     public void setFileUploadProgressListener(MyProgressListener progressListener){
         this.progressListener=progressListener;
     }
