@@ -234,7 +234,7 @@
       </dependency>
 
       <!-- logback -->
-      <dependency>
+      <!--<dependency>
           <groupId>ch.qos.logback</groupId>
           <artifactId>logback-core</artifactId>
           <version>${logback.version}</version>
@@ -243,7 +243,7 @@
           <groupId>ch.qos.logback</groupId>
           <artifactId>logback-classic</artifactId>
           <version>${logback.version}</version>
-      </dependency>
+      </dependency>-->
       <!-- LOGGING end -->
 	
 	<!-- zip压缩 -->
