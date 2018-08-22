@@ -83,6 +83,16 @@
   </welcome-file-list>
 
 
+  <!--可以进行跨域,可以和vue进行结合开发,正式版本不能进行-->
+  <filter>
+    <filter-name>HeaderFilter</filter-name>
+    <filter-class>ch.system.filter.HeaderFilter</filter-class><!--你过滤器的包 -->
+  </filter>
+  <filter-mapping>
+    <filter-name>HeaderFilter</filter-name>
+    <url-pattern>/*</url-pattern><!-- 你开放的接口前缀  -->
+  </filter-mapping>
+
   <!-- sitemesh filter 装饰器-->
   <filter>
     <filter-name>sitemesh</filter-name>
