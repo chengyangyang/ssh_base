@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Description:将创建表的sql语句转化为javaBean
+ * Description:将创建表的sql语句转化为javaBean,该sql语句必须有主键的定义
  *
  * @author cy
  * @date 2018年08月24日 10:00
@@ -14,7 +14,7 @@ public class SqlToBean {
 
     public static void main(String[] args) {
       String sql = "CREATE TABLE    `trm_comPany`   (" +
-              "  `id` varchar(32) NOT NULL," +
+              "  `id` varchar(32) NOT NULL COMMENT '用户账号'," +
               "  `user_no` varchar(50) DEFAULT NULL COMMENT '用户账号'," +
               "  `company_name` varchar(100) DEFAULT NULL COMMENT '单位名称'," +
               "  `company_code` varchar(100) DEFAULT NULL COMMENT '统一社会信用代码'," +
@@ -36,8 +36,6 @@ public class SqlToBean {
               ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='企业信息  Yn';";
         Param param = new Param();
         new SqlToBean().sqlToBean(sql,param);
-
-
     }
 
         static class Param{//对头部进行添加信息
@@ -47,17 +45,57 @@ public class SqlToBean {
 
     }
 
+    class FieldAndComment{
+
+        private String field; // 表字段
+        private String type; // 字段类型
+        private String comment;  // 字段注释
+
+        public FieldAndComment(){
+        }
+
+        public FieldAndComment(String field,String type,String comment){
+            this.field = field;
+            this.type = type;
+            this.comment = comment;
+        }
+
+        public String getField() {
+            return field;
+        }
+
+        public void setField(String field) {
+            this.field = field;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public String getComment() {
+            return comment;
+        }
+
+        public void setComment(String comment) {
+            this.comment = comment;
+        }
+    }
+
     public  void sqlToBean(String sql,Param param){
         //获得表名称
         String tableName = findTableNameFromSql(sql);
         //获得表注释
         String tableComment = findTableComment(sql);
-        //获取表字段名称
+        //获得内容的字段
+        ArrayList<FieldAndComment> filds = findFilds(sql);
 
         //获得表字段
 
         //获得注解
-
 
 
 
@@ -67,11 +105,47 @@ public class SqlToBean {
     }
 
     //获得字段名称
-    public List<String> findFilds(String sql){
-        ArrayList<String> list = new ArrayList<>();
+    public ArrayList<FieldAndComment> findFilds(String sql){
+        ArrayList<FieldAndComment> list = new ArrayList<>();
         if(sql != null && sql != ""){
-            String[] split = sql.split(",");
+            //获得sql的内容语句
+            int dex = sql.indexOf("(");
+            String str = sql.substring(dex+1,sql.length());
+            String[] split = str.split(",");
+            for (int i = 0; i < split.length-1; i++) {
+                //创建所需要的对象内容
+                FieldAndComment fieldAndComment = new FieldAndComment();
+                String s = split[i];
+                //去除特定的符号
+                String s1 = s.replaceAll("`", "");
+                //用空格进行切割
+                String[] split1 = s1.split(" ");//空格隔开
+                //获得字段名称和类型
+                ArrayList<String> strings = new ArrayList<>();
+                for (int j = 0; j < split1.length; j++) {
+                    if(!split1[j].trim().equals("")){//字段名称
+                        strings.add(split1[j]);
+                    }
+                }
+                fieldAndComment.setField(strings.get(0));//第一个字段是字段
+                fieldAndComment.setType(strings.get(1));//第二个字段是类型
 
+                //获取字段的注释
+                //转化为小写
+                String s2 = s1.toLowerCase();
+                //获得comment的下标
+                int comment = s2.indexOf("comment");
+                if(comment != -1){
+                    //截取剩余的字符串
+                    String substring1 = s1.substring(comment, s1.length());
+                    //获取注释内容
+                    String[] split2 = substring1.split("'");
+                    String zj = split2[1];//获得注释的内容
+                    //放入到类中
+                    fieldAndComment.setComment(zj);
+                }
+                list.add(fieldAndComment);
+            }
         }
         return list;
     }

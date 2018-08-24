@@ -9,6 +9,7 @@ import java.lang.reflect.Modifier;
 import java.sql.Timestamp;
 import java.util.*;
 
+import ch.tool.SqlToBean;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.FatalBeanException;
 import org.springframework.util.Assert;
@@ -24,6 +25,7 @@ public abstract class BeanUtils extends org.springframework.beans.BeanUtils{
 
 		Person person1 = (Person)mapToBean(map,Person.class);
 		System.out.println("nihao");*/
+
 	}
 
 	public static void copyProperties(Object source, Object target) throws BeansException {
