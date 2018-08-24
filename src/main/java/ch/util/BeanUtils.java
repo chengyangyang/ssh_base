@@ -5,32 +5,25 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.math.BigDecimal;
+
 import java.sql.Timestamp;
 import java.util.*;
 
-import ch.entity.user.Person;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.FatalBeanException;
 import org.springframework.util.Assert;
 
 public abstract class BeanUtils extends org.springframework.beans.BeanUtils{
 	public static void main(String[] args) {
-		Person person = new Person();
+		/*Person person = new Person();
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("id",123);
 		map.put("createBy","nihao");
 		map.put("createDate",new Timestamp(System.currentTimeMillis()));
 		map.put("total",new BigDecimal("0"));
 
-		try {
-			Person person1 = (Person)mapToBean(map,Person.class);
-			System.out.println("nihao");
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		}
+		Person person1 = (Person)mapToBean(map,Person.class);
+		System.out.println("nihao");*/
 	}
 
 	public static void copyProperties(Object source, Object target) throws BeansException {
@@ -71,14 +64,21 @@ public abstract class BeanUtils extends org.springframework.beans.BeanUtils{
 	}
 
 	/**
-	 * 将map集合转化为javabean,如果javabean中没有该字段,则不进行映射
+	 * 将map集合转化为javabean,如果javabean中没有该字段,则不进行映射,会自动去除映射格式错误的的类
 	 * @param map
 	 * @param beanClass
 	 * @return
 	 */
-	public static Object mapToBean(Map<String,Object> map, Class<?> beanClass) throws IllegalAccessException, InstantiationException {
+	public static Object mapToBean(Map<String,Object> map, Class<?> beanClass) {
 		if(map != null){
-			Object object = beanClass.newInstance();
+			Object object = null;
+			try {
+				object = beanClass.newInstance();
+			} catch (InstantiationException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}
 			//遍历Map集合
 			for(Map.Entry<String, Object> mapData:map.entrySet()){
 				String key = mapData.getKey();
@@ -105,6 +105,8 @@ public abstract class BeanUtils extends org.springframework.beans.BeanUtils{
 				}catch (IllegalArgumentException e){
 					System.out.println("----------该类["+object+"]中["+setFild+"]方法类型转化错误");
 					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					e.printStackTrace();
 				}
 			}
 			return object;
@@ -114,63 +116,21 @@ public abstract class BeanUtils extends org.springframework.beans.BeanUtils{
 
 	/**
 	 * 根据List<Map<String, Object>>数据转换为JavaBean数据
-	 * @param datas
-	 * @param beanClass
+	 * @param
+	 * @param
 	 * @return
 	 * @throws*/
 
-	/*public List<T> ListMapToJavaBean(List<Map<String, Object>> datas, Class<T> beanClass) throws CommonException  {
-		// 返回数据集合
-		List<T> list = null;
-		// 对象字段名称
-		String fieldname = "";
-		// 对象方法名称
-		String methodname = "";
-		// 对象方法需要赋的值
-		Object methodsetvalue = "";
-		try {
-			list = new ArrayList<T>();
-			// 得到对象所有字段
-			Field fields[] = beanClass.getDeclaredFields();
-			// 遍历数据
-			for (Map<String, Object> mapdata : datas) {
-				// 创建一个泛型类型实例
-				T t = beanClass.newInstance();
-				// 遍历所有字段，对应配置好的字段并赋值
-				for (Field field : fields) {
-					// 获取注解配置
-					JavaBean javaBean = field.getAnnotation(JavaBean.class);
-					if(null != javaBean) {  // 有注解配置，下一步操作
-						// 全部转化为大写
-						String dbfieldname = javaBean.dbfieldname().toUpperCase();
-						// 获取字段名称
-						fieldname = field.getName();
-						// 拼接set方法
-						methodname = "set" + StrUtil.capitalize(fieldname);
-						// 获取data里的对应值
-						methodsetvalue = mapdata.get(dbfieldname);
-						// 赋值给字段
-						Method m = beanClass.getDeclaredMethod(methodname, field.getType());
-						m.invoke(t, methodsetvalue);
-					}
-				}
-				// 存入返回列表
-				list.add(t);
+	public static List<Object> ListMapToJavaBean(List<Map<String, Object>> list, Class<?> beanClass) {
+		ArrayList<Object> obj = new ArrayList<>();
+		if(list != null && list.size() >0){
+			for (int i = 0; i < list.size(); i++) {
+				Map<String, Object> stringObjectMap = list.get(i);
+				Object o = mapToBean(stringObjectMap, beanClass);
+				obj.add(o);
 			}
-		} catch (InstantiationException e) {
-			throw new CommonException(e, "创建beanClass实例异常");
-		} catch (IllegalAccessException e) {
-			throw new CommonException(e, "创建beanClass实例异常");
-		} catch (SecurityException e) {
-			throw new CommonException(e, "获取[" + fieldname + "] getter setter 方法异常");
-		} catch (NoSuchMethodException e) {
-			throw new CommonException(e, "获取[" + fieldname + "] getter setter 方法异常");
-		} catch (IllegalArgumentException e) {
-			throw new CommonException(e, "[" + methodname + "] 方法赋值异常");
-		} catch (InvocationTargetException e) {
-			throw new CommonException(e, "[" + methodname + "] 方法赋值异常");
 		}
 		// 返回
-		return list;
-	}*/
+		return obj;
+	}
 }
