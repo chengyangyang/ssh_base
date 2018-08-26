@@ -9,7 +9,6 @@ import java.lang.reflect.Modifier;
 import java.sql.Timestamp;
 import java.util.*;
 
-import ch.tool.SqlToBean;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.FatalBeanException;
 import org.springframework.util.Assert;

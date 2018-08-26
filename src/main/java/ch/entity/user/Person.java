@@ -1,11 +1,24 @@
 package ch.entity.user;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+/**
+ * 
+ * @author Administrator
+ *
+ */
 @Entity
 @Table(name = "person")
 public class Person implements java.io.Serializable {
@@ -16,6 +29,7 @@ public class Person implements java.io.Serializable {
     private String updateBy;
     private Timestamp updateDate;
     private BigDecimal total;
+    private Date date;
 
     public Person() {
     }
@@ -49,6 +63,7 @@ public class Person implements java.io.Serializable {
         this.createBy = createBy;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @Column(name = "create_date", length = 19)
     public Timestamp getCreateDate() {
         return createDate;
