@@ -24,14 +24,11 @@ public class main {
 	              "  `del_flag` varchar(2) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT '0'," +
 	              "  PRIMARY KEY (`id`)" +
 	              ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='企业信息  Yn';";
-				
-					
-				SqlToBean.sqlToBean(sql, "com.abc");
+
+
+				SqlToBean.sqlToBean(sql);
 				System.out.println("end");
 
-				
-			
-		
 	}
 	
 }

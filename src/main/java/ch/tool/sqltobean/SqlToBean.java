@@ -10,13 +10,16 @@ import java.io.OutputStream;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class SqlToBean {
-	
-	
+	private static Map<String, String> configParam;
+	static {
+		 configParam = LoadConfig.getConfigParam();
+	}
 
-	public static void sqlToBean(String sql,String packageName) {
+	public static void sqlToBean(String sql) {
 		//初始化数据
 		ConfigResolver config = new ConfigResolver(sql);
 		//获得原始数据
@@ -29,7 +32,7 @@ public class SqlToBean {
 		List<FieldAndComment> fileds = config.getFileds();
 		//获得java方法参数的结果
 		List<FieldAndComment> methods = config.getMethods();
-		
+
 		//字段类型转化为java包的集合
 		Set<String> typePackage = config.getJavaTypePackages();
 		//注解的包名称
@@ -47,7 +50,7 @@ public class SqlToBean {
 		/*构建参数end*/
 		
 		StringBuilder content = new StringBuilder();
-		content.append("package "+packageName+";\n");//创建包名称
+		content.append("package "+configParam.get("packageName")+";\n");//创建包名称
 		
 		content.append("");
 		//创建类型包
@@ -117,7 +120,7 @@ public class SqlToBean {
 		}
 		content.append("\n}");
 		//输出到本地
-		File file = new File("F://a.java");
+		File file = new File(configParam.get("exportDisk"));
 		FileOutputStream out;
 		try {
 			byte[] bytes = content.toString().getBytes();
@@ -126,10 +129,8 @@ public class SqlToBean {
 			out.flush();
 			out.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

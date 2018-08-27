@@ -14,7 +14,25 @@ public class AnnotationBean {
 	private Boolean isUse = false;//是否使用该注解
 	private String paramType;// 0:表示,不在注解中传递参数,1 表示使用原始字段名称传递,2 使用类中字段名称传递
 	private String methodName;//特定方法名称上面加注解
-	
+
+	private String type = "1";//当前只设置为1,代表hibernate的注解
+
+	public Boolean getUse() {
+		return isUse;
+	}
+
+	public void setUse(Boolean use) {
+		isUse = use;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	public String getName() {
 		return name;
 	}
