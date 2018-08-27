@@ -23,7 +23,6 @@ public class LoadConfig {
             Set<String> strings = properties.stringPropertyNames();
             for (String str : strings) {
                 map.put(str,properties.getProperty(str));
-                System.out.println(str+"="+properties.getProperty(str));
             }
         }catch (Exception e){
             e.printStackTrace();

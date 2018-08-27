@@ -64,16 +64,18 @@ public class SqlToBean {
 		}
 		
 		content.append("\n");
-		if(tableComment != null) {
+		if(tableComment != null && tableComment != "") {
 			content.append(" \n/**\n *\n * "+tableComment+"\n *\n */");//创建表注释
 		}
 		//遍历头部的注解
-		for (AnnotationBean annotationBean : annotationBeans) {
-			if("0".equals(annotationBean.getLocation())) {
-				content.append(" \n"+annotationBean.getName());//注解名称
-			}			
+		if(annotationBeans != null && annotationBeans.size() > 0){
+			for (AnnotationBean annotationBean : annotationBeans) {
+				if("0".equals(annotationBean.getLocation())) {
+					content.append(" \n"+annotationBean.getName());//注解名称
+				}
+			}
 		}
-		
+
 		content.append("\n"+"public class "+className+" {\n");//头部完成
 		//添加参数
 		for (int i = 0; i <fileds.size();i++) {
@@ -97,18 +99,25 @@ public class SqlToBean {
 			
 			//get方法的注解
 			//遍历头部的注解
-			for (AnnotationBean annotationBean : annotationBeans) {
-				if("1".equals(annotationBean.getLocation())) {
-					if("1".equals(annotationBean.getParamType())) {
-						content.append(" \n\t"+MessageFormat.format(annotationBean.getName(),data.getFieldAndCommentList().get(i).getField()));//注解名称
+			if(annotationBeans != null && annotationBeans.size() > 0){
+				for (AnnotationBean annotationBean : annotationBeans) {
+					if("1".equals(annotationBean.getLocation())) {
+						if("1".equals(annotationBean.getParamType())) {//有一个参数
+							content.append(" \n\t"+MessageFormat.format(annotationBean.getName(),data.getFieldAndCommentList().get(i).getField()));//注解名称
+						}
+						//对特定类型的添加
+						if(method.getJavaType().getName().equals(annotationBean.getReturnType())) {
+							content.append(" \n\t"+annotationBean.getName());//注解名称
+						}
+						//对特定方法名称的添加
+						if(method.getField().toLowerCase().equals(annotationBean.getMethodName())) {
+							content.append(" \n\t"+annotationBean.getName());//注解名称
+						}
+
+
 					}
-				    if(method.getJavaType().getName().equals(annotationBean.getReturnType())) {
-				    	content.append(" \n\t"+annotationBean.getName());//注解名称
-				    }
-			
-				}			
+				}
 			}
-			
 			//添加get方法
 			content.append("\n\t"+"public "+method.getJavaType().getName()+" get"+method.getField()+"(){");
 			content.append("\n\t\t"+"return "+fileds.get(i).getField()+";\n\t}");
@@ -120,7 +129,12 @@ public class SqlToBean {
 		}
 		content.append("\n}");
 		//输出到本地
-		File file = new File(configParam.get("exportDisk"));
+		String path = "c://";
+		if(configParam.get("exportDisk") != null){
+			path = configParam.get("exportDisk");
+		}
+
+		File file = new File(path+className+".java");
 		FileOutputStream out;
 		try {
 			byte[] bytes = content.toString().getBytes();

@@ -49,7 +49,29 @@ public class AddAnnotation {
 		annotation4.setIsUse(true);
 		annotation4.setParamType("0");
 		annotation4.setReturnType("Date");
-		list.add(annotation4);		
+		list.add(annotation4);
+
+		AnnotationBean annotation5 = new AnnotationBean();
+		annotation5.setName("@Id");
+		annotation5.setPackageName("javax.persistence.Id");
+		annotation5.setLocation("1");
+		annotation5.setIsUse(true);
+		annotation5.setParamType(null);
+		annotation5.setReturnType(null);
+		annotation5.setMethodName("id");
+		list.add(annotation5);
+
+		AnnotationBean annotation6 = new AnnotationBean();
+		annotation6.setName("@GeneratedValue(strategy = IDENTITY)");
+		annotation6.setPackageName("static javax.persistence.GenerationType.IDENTITY");
+		annotation6.setLocation("1");
+		annotation6.setIsUse(true);
+		annotation6.setParamType(null);
+		annotation6.setReturnType(null);
+		annotation6.setMethodName("id");
+		list.add(annotation6);
+
+
 		return list;
 		
 	}

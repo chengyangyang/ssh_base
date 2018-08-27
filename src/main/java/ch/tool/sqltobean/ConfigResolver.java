@@ -124,14 +124,14 @@ public class ConfigResolver {
 	public List<AnnotationBean> getAnnotationBean(){
 		List<AnnotationBean> allAnnotation = AddAnnotation.getAllAnnotation();
 
-		String hibernateType = "1";
+		String hibernateType = "0";
 		if(!Boolean.valueOf(configParam.get("annotation.hibernate"))){
-			hibernateType = "0";
+			hibernateType = "1";
 		}
 
 		//使用java8新特性进行过滤
 		String type = hibernateType;
-		List<AnnotationBean> collect = allAnnotation.stream().filter(a -> a.getType().equals(type) && a.getIsUse()).collect(Collectors.toList());
+		List<AnnotationBean> collect = allAnnotation.stream().filter(a -> !a.getType().equals(type) && a.getIsUse()).collect(Collectors.toList());
 		/*for (AnnotationBean annotationBean : allAnnotation) {
 			if(!annotationBean.getIsUse()) {//去除不可用的注解
 				allAnnotation.remove(annotationBean);

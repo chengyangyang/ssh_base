@@ -26,7 +26,21 @@ public class main {
 	              ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='企业信息  Yn';";
 
 
-				SqlToBean.sqlToBean(sql);
+				String sql1 = "CREATE TABLE `bsc_cooper_partner` (\n" +
+						"  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
+						"  `code` longtext,\n" +
+						"  `createTime` datetime DEFAULT NULL,\n" +
+						"  `creator` longtext,\n" +
+						"  `href` longtext NOT NULL,\n" +
+						"  `isActive` varchar(1) NOT NULL,\n" +
+						"  `name` longtext NOT NULL,\n" +
+						"  `ranks` int(11) DEFAULT NULL,\n" +
+						"  `updateTime` datetime DEFAULT NULL,\n" +
+						"  `updater` longtext,\n" +
+						"  PRIMARY KEY (`id`)\n" +
+						") ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+
+				SqlToBean.sqlToBean(sql1);
 				System.out.println("end");
 
 	}

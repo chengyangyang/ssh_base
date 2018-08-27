@@ -24,6 +24,8 @@ public class AddSqlTypeToJava {
 		Map<String,JavaTypeBean> map = new HashedMap<String,JavaTypeBean>();
 		map.put("varchar", new JavaTypeBean("String",null)); 
 		map.put("text", new JavaTypeBean("String",null));
+		map.put("longtext", new JavaTypeBean("String",null));
+		map.put("int", new JavaTypeBean("Integer",null));
 		map.put("datetime", new JavaTypeBean("Date","java.util.Date"));
 		return map;
 	}
