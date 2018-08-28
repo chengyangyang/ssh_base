@@ -124,7 +124,7 @@ public class SqlToBean {
 			
 			//添加set方法
 			content.append("\n\t"+"public void set"+method.getField()+"("+method.getJavaType().getName()+" "+fileds.get(i).getField()+"){");
-			content.append("\n\t\t"+"return this."+fileds.get(i).getField()+" = "+fileds.get(i).getField()+";\n\t}");	
+			content.append("\n\t\t"+"this."+fileds.get(i).getField()+" = "+fileds.get(i).getField()+";\n\t}");
 			content.append("\n");
 		}
 		content.append("\n}");
