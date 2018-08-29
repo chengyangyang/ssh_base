@@ -3,7 +3,7 @@ package ch.tool.sqltobean;
 public class main {
 
 	public static void main(String[] args) {
-		String sql = "CREATE TABLE    `trm_comPany`   (" +
+		String sql = "CREATE TABLE  `trm_comPany`   (" +
 	              "  `id` varchar(32) NOT NULL COMMENT '用户账号'," +
 	              "  `user_no` varchar(50) DEFAULT NULL COMMENT '用户账号'," +
 	              "  `company_name` varchar(100) DEFAULT NULL COMMENT '单位名称'," +
@@ -80,7 +80,7 @@ public class main {
 						"  PRIMARY KEY (`id`)\n" +
 						") ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;";
 
-				SqlToBean.sqlToBean(sql1);
+				SqlToBean.sqlToBean(sql);
 				System.out.println("end");
 
 	}

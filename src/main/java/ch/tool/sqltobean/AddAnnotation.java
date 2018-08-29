@@ -3,11 +3,6 @@ package ch.tool.sqltobean;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class AddAnnotation {
 
@@ -22,6 +17,7 @@ public class AddAnnotation {
 		annotation1.setIsUse(true);
 		annotation1.setParamType("1");
 		annotation1.setReturnType(null);
+		annotation1.setType("1");
 		list.add(annotation1);
 		
 		AnnotationBean annotation2 = new AnnotationBean();
@@ -31,6 +27,7 @@ public class AddAnnotation {
 		annotation2.setIsUse(true);
 		annotation2.setParamType("1");
 		annotation2.setReturnType(null);
+		annotation2.setType("1");
 		list.add(annotation2);
 		
 		AnnotationBean annotation3 = new AnnotationBean();
@@ -40,6 +37,7 @@ public class AddAnnotation {
 		annotation3.setIsUse(true);
 		annotation3.setParamType("1");
 		annotation3.setReturnType(null);
+		annotation3.setType("1");
 		list.add(annotation3);		
 		
 		AnnotationBean annotation4 = new AnnotationBean();
@@ -49,6 +47,7 @@ public class AddAnnotation {
 		annotation4.setIsUse(true);
 		annotation4.setParamType("0");
 		annotation4.setReturnType("Date");
+		annotation4.setType("0");
 		list.add(annotation4);
 
 		AnnotationBean annotation5 = new AnnotationBean();
@@ -59,6 +58,7 @@ public class AddAnnotation {
 		annotation5.setParamType(null);
 		annotation5.setReturnType(null);
 		annotation5.setMethodName("id");
+		annotation5.setType("1");
 		list.add(annotation5);
 
 		AnnotationBean annotation6 = new AnnotationBean();
@@ -69,6 +69,7 @@ public class AddAnnotation {
 		annotation6.setParamType(null);
 		annotation6.setReturnType(null);
 		annotation6.setMethodName("id");
+		annotation6.setType("1");
 		list.add(annotation6);
 
 

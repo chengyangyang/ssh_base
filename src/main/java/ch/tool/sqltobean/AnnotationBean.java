@@ -12,10 +12,9 @@ public class AnnotationBean {
 	private String location;//注解位置 当前设置两种类型 0:为类头部注解,1为get方法上面注解
 	private String returnType;// 注解的类型设置,对特定返回类型的设置,用在java类型中
 	private Boolean isUse = false;//是否使用该注解
-	private String paramType;// 0:表示,不在注解中传递参数,1 表示使用原始字段名称传递,2 使用类中字段名称传递
+	private String paramType = "0";// 0:表示,不在注解中传递参数,1表示使用原始字段名称传递
 	private String methodName;//特定方法名称上面加注解
-
-	private String type = "1";//当前只设置为1,代表hibernate的注解
+	private String type = "0";//0代表通用注解;1,代表hibernate的注解
 
 	public Boolean getUse() {
 		return isUse;

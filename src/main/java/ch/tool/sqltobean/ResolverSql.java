@@ -50,8 +50,8 @@ public class ResolverSql {
                         strings.add(split1[j]);
                     }
                 }
-                fieldAndComment.setField(strings.get(0));//第一个字段是字段
-                fieldAndComment.setType(strings.get(1));//第二个字段是类型
+                fieldAndComment.setSqlFieldName(strings.get(0));//第一个字段是字段
+                fieldAndComment.setSqlType(strings.get(1));//第二个字段是类型
 
                 //获取字段的注释
                 //转化为小写

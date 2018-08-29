@@ -7,8 +7,6 @@ public class StringFormatConfig {
 	private Boolean hump = true; //是否驼峰命名
 	private Boolean remove_ = true;//是否移除_
 	private String db = "none"; //默认不进行转化
-	
-	
 
 	public StringFormatConfig() {
 	}
@@ -68,10 +66,5 @@ public class StringFormatConfig {
 	public void setDb(String db) {
 		this.db = db;
 	}
-	
-	
-	
-     
-	
-	
+
 }

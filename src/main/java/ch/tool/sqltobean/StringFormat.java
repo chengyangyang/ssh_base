@@ -5,10 +5,6 @@ public class StringFormat {
 	/**
      * String格式转化
      * @param str
-     * @param toLowerCase 是否转化为小写
-     * @param FirstAlphabetCapital  是否首字母大写
-     * @param hump  是否驼峰命名
-     * @param remove_ 是否移除_
      * @return
      */
     public String stringFormat(String str,StringFormatConfig config){
