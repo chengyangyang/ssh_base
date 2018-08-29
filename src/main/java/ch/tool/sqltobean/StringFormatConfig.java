@@ -2,11 +2,11 @@ package ch.tool.sqltobean;
 
 public class StringFormatConfig {
 
-	private Boolean toLowerCase = true; //是否转化为小写
-	private Boolean capital = true; //是否首字母大写
+	private Boolean toLowerCase = false; //是否转化为小写
+	private Boolean capital = false; //是否首字母大写
 	private Boolean hump = true; //是否驼峰命名
 	private Boolean remove_ = true;//是否移除_
-	private String db = "mysql"; //默认的数据库
+	private String db = "none"; //默认不进行转化
 	
 	
 
