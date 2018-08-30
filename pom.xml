@@ -421,14 +421,27 @@
 
 
         <!--解决读取不到java下properties文件打包不显示的问题-->
-       <!-- <resources>
+        <resources>
+            <!-- 解决MyBatis配置文件引入问题 -->
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.properties</include>
+                    <include>**/*.xml</include>
                 </includes>
+                <!-- 是否替换资源中的属性 -->
+                <filtering>false</filtering>
             </resource>
-        </resources>-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <!-- 是否替换资源中的属性 -->
+                <filtering>false</filtering>
+            </resource>
+        </resources>
     </build>
 
 </project>

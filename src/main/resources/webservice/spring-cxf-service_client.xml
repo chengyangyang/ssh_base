@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+
+
+
+		http://cxf.apache.org/transports/http/configuration http://cxf.apache.org/schemas/configuration/http-conf.xsd">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <!-- <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />    cxf 3.0 去掉了-->
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+
+    <!-- for all service -->
+    <http-conf:conduit name="*.http-conduit">
+        <http-conf:client ConnectionTimeout="10000" ReceiveTimeout="20000"/>
+    </http-conf:conduit>
+
+   <!-- <bean id="outSoapAuth" class="com.trm.webservice.client.interceptors.AuthOutInterceptor"/>
+
+    <bean id="ossOutSoapAuth" class="com.trm.webservice.client.interceptors.OssOutInterceptor">-->
+        <!-- 设置调用文件服务的应用名称    BusinessConstants。PROJECT_TRADING -->
+        <!--<property name="source" value="TRMTRADING"/>
+    </bean>-->
+
+</beans>
