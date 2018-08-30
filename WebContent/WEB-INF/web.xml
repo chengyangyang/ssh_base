@@ -38,7 +38,8 @@
       classpath:spring-hibernate.xml,
       classpath:activiti.cfg.xml,
       classpath:spring-shiro.xml,
-      classpath:ehcache/spring-ehcache.xml
+      classpath:ehcache/spring-ehcache.xml,
+      classpath:webservice/spring-cxf-service_server.xml
     </param-value>
   </context-param>
 

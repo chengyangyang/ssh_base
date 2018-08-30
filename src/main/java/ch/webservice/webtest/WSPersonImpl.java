@@ -4,6 +4,7 @@ import ch.entity.exception.BusinessException;
 import ch.entity.user.Person;
 import ch.service.user.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Description:
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @date 2018年08月30日 12:20
  * version 1.0
  */
+
 public class WSPersonImpl implements WSPerson {
     @Autowired
     private PersonService personService;
