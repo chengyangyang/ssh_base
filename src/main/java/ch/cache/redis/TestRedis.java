@@ -17,11 +17,11 @@ public class TestRedis {
         RedisUtil redisUtil=(RedisUtil) context.getBean("redisUtil");
 
         //=====================testString======================
-        //redisUtil.set("name", "ÍõÈü³¬");
+        //redisUtil.set("name", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         //redisUtil.set("age", 24);
-        //redisUtil.set("address", "ºÓ±±ºªµ¦");
+        //redisUtil.set("address", "ï¿½Ó±ï¿½ï¿½ï¿½ï¿½ï¿½");
 
-        //System.out.println(redisUtil.set("address", "ºÓ±±ºªµ¦", 50));
+        //System.out.println(redisUtil.set("address", "ï¿½Ó±ï¿½ï¿½ï¿½ï¿½ï¿½", 50));
 
         //System.out.println(redisUtil.get("age"));
 
@@ -39,13 +39,13 @@ public class TestRedis {
 
         //Thread.sleep(5000);
 		/*Map<String,Object> map=new HashMap<>();
-		map.put("name", "ÍõÈü³¬");
+		map.put("name", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		map.put("age", 24);
-		map.put("address", "ºÓ±±ºªµ¦666");
+		map.put("address", "ï¿½Ó±ï¿½ï¿½ï¿½ï¿½ï¿½666");
 		redisUtil.hmset("15532002725", map,1000);*/
 
         //redisUtil.del("15532002725");
-        //redisUtil.hset("15532002725","address","ºÓ±±ºªµ¦",1000);
+        //redisUtil.hset("15532002725","address","ï¿½Ó±ï¿½ï¿½ï¿½ï¿½ï¿½",1000);
         //redisUtil.hdel("15532002725", "name");
         //System.out.println(redisUtil.sSetAndTime("15532002727",1000,"haha"));
         //System.out.println(redisUtil.sGet("15532002727"));

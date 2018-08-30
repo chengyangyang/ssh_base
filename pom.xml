@@ -25,6 +25,7 @@
          <ehcache-web.version>2.0.4</ehcache-web.version>
          <slf4j.version>1.7.7</slf4j.version>
          <logback.version>1.1.2</logback.version>
+         <cxf.version>3.1.9</cxf.version>
 	</properties> 
   
   <dependencies>
@@ -371,11 +372,23 @@
       </dependency>
         
         <!-- https://mvnrepository.com/artifact/org.apache.directory.studio/org.apache.commons.codec -->
-<dependency>
-    <groupId>org.apache.directory.studio</groupId>
-    <artifactId>org.apache.commons.codec</artifactId>
-    <version>1.8</version>
-</dependency>
+    <dependency>
+        <groupId>org.apache.directory.studio</groupId>
+        <artifactId>org.apache.commons.codec</artifactId>
+        <version>1.8</version>
+    </dependency>
+
+      <!-- CXF -->
+      <dependency>
+          <groupId>org.apache.cxf</groupId>
+          <artifactId>cxf-rt-frontend-jaxws</artifactId>
+          <version>${cxf.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.cxf</groupId>
+          <artifactId>cxf-rt-transports-http</artifactId>
+          <version>${cxf.version}</version>
+      </dependency>
              
   </dependencies>
     <build>
@@ -408,14 +421,14 @@
 
 
         <!--解决读取不到java下properties文件打包不显示的问题-->
-        <resources>
+       <!-- <resources>
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.properties</include>
                 </includes>
             </resource>
-        </resources>
+        </resources>-->
     </build>
 
 </project>

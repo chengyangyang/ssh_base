@@ -1,4 +1,4 @@
-package ch.common.config;
+package ch.constants;
 
 public class SystemConstants {
 	//used in webservice interceptor

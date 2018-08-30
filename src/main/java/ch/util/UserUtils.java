@@ -3,12 +3,9 @@ package ch.util;
 import ch.common.util.SpringContextHolder;
 import ch.dao.user.UserDao;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.UnavailableSecurityManagerException;
 import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
-
-import java.util.List;
 
 /**
  * 用户工具类

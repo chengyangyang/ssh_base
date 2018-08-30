@@ -1,6 +1,6 @@
 package ch.common.util;
 
-import ch.common.config.Global;
+import ch.constants.Global;
 import com.google.common.net.HttpHeaders;
 import org.apache.commons.lang3.Validate;
 import org.springframework.web.context.request.RequestContextHolder;

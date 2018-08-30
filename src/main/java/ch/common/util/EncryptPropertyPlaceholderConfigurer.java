@@ -1,4 +1,4 @@
-package ch.system.util.encrypt;
+package ch.common.util;
 
 import org.hibernate.internal.util.StringHelper;
 import org.springframework.beans.BeansException;

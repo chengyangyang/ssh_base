@@ -26,7 +26,7 @@ http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
 	<!--<context:property-placeholder location="classpath:/config.properties" />-->
 
 	<!-- 加载加密配置文件 -->
-	<bean id="propertyConfigurer" class="ch.system.util.encrypt.EncryptPropertyPlaceholderConfigurer">
+	<bean id="propertyConfigurer" class="ch.common.util.EncryptPropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
 				<value>classpath:/config.properties</value>

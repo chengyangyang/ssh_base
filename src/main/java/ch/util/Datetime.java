@@ -110,7 +110,7 @@ public class Datetime {
 	public static Date toDate(String date, String pattern) {
 		Date date2;
 		
-		if(Util.isEmpty(pattern)){
+		if(StringUtils.isEmpty(pattern)){
 			pattern="yyyy-MM-dd HH:mm:ss";
 		}
 		try {

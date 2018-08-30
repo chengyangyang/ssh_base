@@ -1,7 +1,7 @@
 package ch.common.util;
 
 
-import ch.common.config.Global;
+import ch.constants.Global;
 import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

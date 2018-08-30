@@ -1,6 +1,6 @@
-package ch.system.rebean;
+package ch.common.rebean;
 
-import ch.system.listener.MyProgressListener;
+import ch.common.listener.MyProgressListener;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUpload;
 import org.apache.commons.fileupload.FileUploadBase;

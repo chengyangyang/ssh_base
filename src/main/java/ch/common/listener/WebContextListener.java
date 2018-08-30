@@ -1,7 +1,7 @@
-package ch.system.listener;
+package ch.common.listener;
 
 
-import ch.system.util.Global;
+import ch.constants.Global;
 import org.springframework.web.context.WebApplicationContext;
 
 import javax.servlet.ServletContext;

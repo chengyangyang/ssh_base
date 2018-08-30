@@ -3,7 +3,7 @@
  */
 package ch.cache.session;
 
-import ch.common.config.Global;
+import ch.constants.Global;
 import ch.common.util.Servlets;
 import ch.common.util.StringUtils;
 import ch.util.DateUtils;

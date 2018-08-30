@@ -1,4 +1,4 @@
-package ch.system.filter;
+package ch.common.filter;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;

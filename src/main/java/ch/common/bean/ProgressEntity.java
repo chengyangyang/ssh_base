@@ -1,4 +1,4 @@
-package ch.system.bean;
+package ch.common.bean;
 
 /**
  * Description:文件下载读取文件的bean

@@ -1,7 +1,7 @@
 package ch.controller.file;
 
-import ch.system.bean.ProgressEntity;
-import ch.system.rebean.CustomMultipartResolver;
+import ch.common.bean.ProgressEntity;
+import ch.common.rebean.CustomMultipartResolver;
 import ch.util.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.stereotype.Controller;

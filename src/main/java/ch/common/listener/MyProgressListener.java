@@ -1,6 +1,6 @@
-package ch.system.listener;
+package ch.common.listener;
 
-import ch.system.bean.ProgressEntity;
+import ch.common.bean.ProgressEntity;
 import org.apache.commons.fileupload.ProgressListener;
 import org.springframework.stereotype.Component;
 
