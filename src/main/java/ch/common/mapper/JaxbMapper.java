@@ -1,8 +1,8 @@
 package ch.common.mapper;
 
-import com.trm.guapai.common.utils.Exceptions;
-import com.trm.guapai.common.utils.Reflections;
-import com.trm.guapai.common.utils.StringUtils;
+import ch.common.util.Exceptions;
+import ch.common.util.Reflections;
+import ch.util.StringUtils;
 import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.util.Assert;
 

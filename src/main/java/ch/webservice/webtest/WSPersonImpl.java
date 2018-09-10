@@ -4,7 +4,6 @@ import ch.entity.exception.BusinessException;
 import ch.entity.user.Person;
 import ch.service.user.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 /**
  * Description:

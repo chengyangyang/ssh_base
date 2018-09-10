@@ -27,6 +27,8 @@ public class AddSqlTypeToJava {
 		map.put("longtext", new JavaTypeBean("String",null));
 		map.put("int", new JavaTypeBean("Integer",null));
 		map.put("datetime", new JavaTypeBean("Date","java.util.Date"));
+		map.put("decimal", new JavaTypeBean("BigDecimal","java.math.BigDecimal"));
+
 		return map;
 	}
 	
