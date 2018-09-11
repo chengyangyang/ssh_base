@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public class PersonDaoImpl extends BaseDao implements PersonDao {
     private static Logger logger = LoggerFactory.getLogger(PersonDaoImpl.class);
 
-    public boolean savePerson(Person person) {
+    public boolean createPerson(Person person) {
         try {
             this.getHibernateTemplate().save(person);
             return true;

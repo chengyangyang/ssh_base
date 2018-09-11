@@ -21,7 +21,7 @@ public class PersonServiceImpl implements PersonService {
 
     public boolean savePerson(Person person) {
         logger.info("保存成功");
-        return personDao.savePerson(person);
+        return personDao.createPerson(person);
     }
 
     public Person getPerson(String id) throws BusinessException {
