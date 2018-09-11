@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Set;
 
 /**
- * <p> 自定义缓存 将数据存入到redis中 </p>
+ * <p> </p>
  * @author xxx
  * @date 2018年2月1日
  * @time 22:32:11

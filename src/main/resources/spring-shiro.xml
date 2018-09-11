@@ -40,7 +40,7 @@
         <property name="maxAge" value="1800"/>
     </bean>
 
-    <!-- rememberMe管理器,cipherKey生成见{@code Base64Test.java} -->
+    <!-- rememberMe管理器,cipherKey生成见{@code Base64Test.java} cookie加密的秘钥-->
     <bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
         <property name="cipherKey"
                   value="#{T(org.apache.shiro.codec.Base64).decode('5aaC5qKm5oqA5pyvAAAAAA==')}"/>
