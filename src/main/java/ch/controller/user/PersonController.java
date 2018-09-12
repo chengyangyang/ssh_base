@@ -1,5 +1,6 @@
 package ch.controller.user;
 
+import ch.common.util.CacheUtils;
 import ch.entity.exception.BusinessException;
 import ch.entity.user.Person;
 import ch.service.user.PersonService;
@@ -21,6 +22,8 @@ public class PersonController {
      * */
     @RequestMapping(value = "/savePerson", method = RequestMethod.GET)
     public void savePerson(){
+        //使用缓存
+        CacheUtils.put("aa","你好");
         Person person = new Person();
         person.setCreateBy("测试人");
         personService.savePerson(person);
@@ -29,9 +32,10 @@ public class PersonController {
     /*
      * 查询测试信息@cy
      * */
-    @RequestMapping(value = "/getPerson", method = RequestMethod.POST)
+    @RequestMapping(value = "/getPerson", method = RequestMethod.GET)
     @ResponseBody
     public Person getPerson() throws BusinessException{
+        System.out.println("缓存测试:"+CacheUtils.get("aa"));
         return personService.getPerson("1");
     }
 }
