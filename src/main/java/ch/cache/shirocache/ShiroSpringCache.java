@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.cache.Cache;
 import org.springframework.cache.Cache.ValueWrapper;
 import org.springframework.cache.CacheManager;
+import org.springframework.data.redis.cache.RedisCache;
 
 import java.util.Collection;
 import java.util.Set;
@@ -23,7 +24,7 @@ public class ShiroSpringCache<K,V> implements org.apache.shiro.cache.Cache<K, V>
 	private Logger log = LoggerFactory.getLogger(ShiroSpringCache.class);
 	private CacheManager cacheManager;
 	private Cache cache;
-	//    private RedisCache cache2;
+	//    private RedisCache cache2;使用redis
 	public ShiroSpringCache(String name, CacheManager cacheManager) {
 		if(name==null || cacheManager==null){
 			throw new IllegalArgumentException("cacheManager or CacheName cannot be null.");

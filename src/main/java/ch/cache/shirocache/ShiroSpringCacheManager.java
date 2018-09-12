@@ -42,6 +42,8 @@ public class ShiroSpringCacheManager implements CacheManager ,Destroyable{
 		if (name == null ){
 			return null;
 		}
+		//如果使用redis,需要实现Cache<k,v>
+
 		return new ShiroSpringCache<K,V>(name,getCacheManager());
 	}
 
