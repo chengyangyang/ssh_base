@@ -2,6 +2,8 @@ package ch.tool.sqltobean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Description:将创建表的sql语句转化为javaBean,该sql语句必须有主键的定义
@@ -34,6 +36,14 @@ public class ResolverSql {
             //获得sql的内容语句
             int dex = sql.indexOf("(");
             String str = sql.substring(dex+1,sql.length());
+
+            Pattern p = Pattern.compile("\\(([^\\)]+)");
+            Matcher matcher = p.matcher(str);
+            if (matcher.find() && matcher.groupCount() >= 1){
+                System.out.println(matcher.group(1));
+                str = str.replaceAll(matcher.group(1)+"","");
+            }
+
             String[] split = str.split(",");
             for (int i = 0; i < split.length-1; i++) {
                 //创建所需要的对象内容

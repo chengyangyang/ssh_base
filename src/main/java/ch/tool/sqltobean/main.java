@@ -26,61 +26,29 @@ public class main {
 	              ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='企业信息  Yn';";
 
 
-				String sql1 = "CREATE TABLE `trm_gp_fruit` (\n" +
-						"  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
-						"  `addr` varchar(150) DEFAULT NULL,\n" +
-						"  `admin` varchar(2) DEFAULT NULL,\n" +
-						"  `checkup` varchar(200) DEFAULT NULL,\n" +
-						"  `comTime` varchar(200) DEFAULT NULL,\n" +
-						"  `companyName` varchar(200) DEFAULT NULL,\n" +
-						"  `contacts` varchar(200) DEFAULT NULL,\n" +
-						"  `createTime` datetime DEFAULT NULL,\n" +
-						"  `creator` varchar(255) DEFAULT NULL,\n" +
-						"  `deputy` varchar(200) DEFAULT NULL,\n" +
-						"  `domain` varchar(200) DEFAULT NULL,\n" +
-						"  `fruitForm` varchar(200) DEFAULT NULL,\n" +
-						"  `fruitState` varchar(200) DEFAULT NULL,\n" +
-						"  `industry` varchar(200) DEFAULT NULL,\n" +
-						"  `introduce` longtext,\n" +
-						"  `isActive` varchar(10) NOT NULL,\n" +
-						"  `loginId` varchar(255) NOT NULL,\n" +
-						"  `manId` varchar(200) DEFAULT NULL,\n" +
-						"  `manIntroduce` longtext,\n" +
-						"  `manPhone` varchar(200) DEFAULT NULL,\n" +
-						"  `manTyep` varchar(200) DEFAULT NULL,\n" +
-						"  `manager` varchar(200) DEFAULT NULL,\n" +
-						"  `money` varchar(200) DEFAULT NULL,\n" +
-						"  `name` varchar(200) NOT NULL,\n" +
-						"  `nature` varchar(200) DEFAULT NULL,\n" +
-						"  `oneTime` datetime DEFAULT NULL,\n" +
-						"  `opinion` varchar(200) DEFAULT NULL,\n" +
-						"  `org` varchar(200) DEFAULT NULL,\n" +
-						"  `owner` varchar(200) DEFAULT NULL,\n" +
-						"  `ownerPhone` varchar(200) DEFAULT NULL,\n" +
-						"  `paddr` varchar(150) DEFAULT NULL,\n" +
-						"  `phone` varchar(200) DEFAULT NULL,\n" +
-						"  `postcode` varchar(200) DEFAULT NULL,\n" +
-						"  `priceStage` varchar(10) DEFAULT NULL,\n" +
-						"  `proType` varchar(200) DEFAULT NULL,\n" +
-						"  `stage` varchar(200) DEFAULT NULL,\n" +
-						"  `state` varchar(10) DEFAULT NULL,\n" +
-						"  `threeTime` datetime DEFAULT NULL,\n" +
-						"  `twoTime` datetime DEFAULT NULL,\n" +
-						"  `updateTime` datetime DEFAULT NULL,\n" +
-						"  `updater` varchar(255) DEFAULT NULL,\n" +
-						"  `views` int(11) DEFAULT NULL,\n" +
-						"  `way` varchar(200) DEFAULT NULL,\n" +
-						"  `province` varchar(200) DEFAULT NULL,\n" +
-						"  `city` varchar(200) DEFAULT NULL,\n" +
-						"  `area` varchar(200) DEFAULT NULL,\n" +
-						"  `dother` varchar(200) DEFAULT NULL,\n" +
-						"  `fother` varchar(200) DEFAULT NULL,\n" +
-						"  `ipother` varchar(200) DEFAULT NULL,\n" +
-						"  `ffother` varchar(200) DEFAULT NULL,\n" +
-						"  PRIMARY KEY (`id`)\n" +
-						") ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;";
+				String sql1 = "CREATE TABLE `trm_sys_menu` (\n" +
+						"  `id` varchar(64) NOT NULL COMMENT '编号',\n" +
+						"  `parent_id` varchar(64) NOT NULL COMMENT '父级编号',\n" +
+						"  `parent_ids` varchar(2000) NOT NULL COMMENT '所有父级编号',\n" +
+						"  `name` varchar(100) NOT NULL COMMENT '名称',\n" +
+						"  `sort` decimal(10,0) NOT NULL COMMENT '排序',\n" +
+						"  `href` varchar(2000) DEFAULT NULL COMMENT '链接',\n" +
+						"  `target` varchar(20) DEFAULT NULL COMMENT '目标',\n" +
+						"  `icon` varchar(100) DEFAULT NULL COMMENT '图标',\n" +
+						"  `is_show` char(1) NOT NULL COMMENT '是否在菜单中显示',\n" +
+						"  `permission` varchar(200) DEFAULT NULL COMMENT '权限标识',\n" +
+						"  `create_by` varchar(64) NOT NULL COMMENT '创建者',\n" +
+						"  `create_date` datetime NOT NULL COMMENT '创建时间',\n" +
+						"  `update_by` varchar(64) NOT NULL COMMENT '更新者',\n" +
+						"  `update_date` datetime NOT NULL COMMENT '更新时间',\n" +
+						"  `remarks` varchar(255) DEFAULT NULL COMMENT '备注信息',\n" +
+						"  `del_flag` char(1) NOT NULL DEFAULT '0' COMMENT '删除标记',\n" +
+						"  PRIMARY KEY (`id`),\n" +
+						"  KEY `sys_menu_parent_id` (`parent_id`),\n" +
+						"  KEY `sys_menu_del_flag` (`del_flag`)\n" +
+						") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='菜单表';";
 
-				SqlToBean.sqlToBean(sql);
+				SqlToBean.sqlToBean(sql1);
 				System.out.println("end");
 
 	}
