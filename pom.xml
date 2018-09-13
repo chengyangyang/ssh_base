@@ -27,6 +27,8 @@
          <logback.version>1.1.2</logback.version>
          <cxf.version>3.1.9</cxf.version>
          <dozer.version>5.5.1</dozer.version>
+         <httpclient.version>4.5.1</httpclient.version>
+         <httpmime.version>4.5.2</httpmime.version>
 	</properties> 
   
   <dependencies>
@@ -40,6 +42,25 @@
 <!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
 
 <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+
+      <!--使用其他http请求的依赖-->
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpclient</artifactId>
+          <version>${httpclient.version}</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>commons-logging</groupId>
+                  <artifactId>commons-logging</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpmime</artifactId>
+          <version>${httpmime.version}</version>
+      </dependency>
+
 
 <!-- 文件上传下载包 -->
 <dependency>
