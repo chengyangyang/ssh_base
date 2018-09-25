@@ -17,8 +17,9 @@
            http://www.springframework.org/schema/util
 	       http://www.springframework.org/schema/util/spring-util-4.1.xsd
            ">
-          
-	
+
+	<!--为了方便在路径中添加统一的路径前缀-->
+	<context:property-placeholder location="classpath:config.properties"/>
 	<!-- springmvc 的配置文件，包含网页的跳转逻辑控制 -->
 	<context:component-scan base-package="ch.*" use-default-filters="false">
 	<!--  只扫描控制器-->

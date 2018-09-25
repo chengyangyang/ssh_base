@@ -4,6 +4,7 @@ import ch.common.bean.ProgressEntity;
 import ch.common.rebean.CustomMultipartResolver;
 import ch.util.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,8 +26,12 @@ import java.util.*;
  * version 1.0
  */
 @Controller
-@RequestMapping("/file")
+@RequestMapping("/file")   //@RequestMapping("${mgt}/file")  可以使用这种形式,统一进行添加头部
 public class FileController {
+
+    @Value("#{filePath.fileDoMain}")
+    private String doMain;
+
 
     public static final int cacheA = 10 * 1024;
 
@@ -164,6 +169,8 @@ public class FileController {
      */
     @RequestMapping(value = "/openFile",method = {RequestMethod.POST,RequestMethod.GET})
     public void openFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        //路径测试
+        System.out.println(doMain);
         try{
             String filePath = request.getSession().getServletContext().getRealPath("/files");
             String fileCode = request.getParameter("fileCode");
