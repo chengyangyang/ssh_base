@@ -23,6 +23,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *
+ * 请求其他服务器的util
+ */
 @Component("httpClientUtil")
 public class HttpClientUtil {
 

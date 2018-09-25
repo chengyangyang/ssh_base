@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.IOException;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.*;
 
 /**
@@ -26,6 +28,7 @@ import java.util.*;
 @RequestMapping("/file")
 public class FileController {
 
+    public static final int cacheA = 10 * 1024;
 
     /**
      * 文件的上传
@@ -87,7 +90,7 @@ public class FileController {
     }
 
     /**
-     * 进度条的请求
+     * 文件上传进度条的请求
      * @param request
      * @return
      */
@@ -100,5 +103,122 @@ public class FileController {
         }
         return status;
     }
+
+    /**
+     * 文件的下载
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/download",method = {RequestMethod.POST,RequestMethod.GET})
+    public void download(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try{
+            String filePath = request.getSession().getServletContext().getRealPath("/files");
+            String fileCode = request.getParameter("fileCode");
+            HashMap<String, String> map = new HashMap<>();
+            map.put("JBXX","《企业基本信息表》.docx");
+            map.put("XMQK","《企业技术项目情况表》.docx");
+            map.put("JSXQ","《企业技术需求情况表》.docx");
+            map.put("JRXQ","《企业科技金融需求情况表》.docx");
+            map.put("ZCXQ","《企业科技政策需求情况表》.docx");
+            map.put("pdf","如何免费获得百度文库的收费文档.pdf");
+            map.put("tp","Desert.jpg");
+
+            String path = filePath+"/"+map.get(fileCode);
+            File file = new File(path);//文件的路径
+            if (file.exists()) {
+                InputStream ins = new FileInputStream(path);
+                BufferedInputStream bins = new BufferedInputStream(ins);// 放到缓冲流里面
+                OutputStream outs = response.getOutputStream();// 获取文件输出IO流
+                BufferedOutputStream bouts = new BufferedOutputStream(outs);
+                response.reset();
+                // 指定下载的文件名--设置响应头
+                response.setHeader("Content-Disposition", "attachment;Filename=" + URLEncoder.encode(file.getName(), "UTF-8"));
+                response.setContentType("application/x-download;charset=UTF-8");
+                int bytesRead = 0;
+                byte[] buffer = new byte[cacheA];
+                // 开始向网络传输文件流
+                while ((bytesRead = bins.read(buffer, 0, cacheA)) != -1) {
+                    bouts.write(buffer, 0, bytesRead);
+                }
+                bouts.flush();
+                ins.close();
+                bins.close();
+                outs.close();
+                bouts.close();
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            response.setContentType("text/html; charset=utf-8");
+            PrintWriter writer = response.getWriter();
+            writer.close();
+            response.flushBuffer();
+        }
+    }
+
+
+    /**
+     * 文件的在线打开,(只能打开图片或者pdf文档),可以使用此方法,用前端控制是否下载
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/openFile",method = {RequestMethod.POST,RequestMethod.GET})
+    public void openFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try{
+            String filePath = request.getSession().getServletContext().getRealPath("/files");
+            String fileCode = request.getParameter("fileCode");
+            HashMap<String, String> map = new HashMap<>();
+            map.put("JBXX","《企业基本信息表》.docx");
+            map.put("XMQK","《企业技术项目情况表》.docx");
+            map.put("JSXQ","《企业技术需求情况表》.docx");
+            map.put("JRXQ","《企业科技金融需求情况表》.docx");
+            map.put("ZCXQ","《企业科技政策需求情况表》.docx");
+            map.put("pdf","如何免费获得百度文库的收费文档.pdf");
+            map.put("tp","Desert.jpg");
+
+            String path = filePath+"/"+map.get(fileCode);
+            File file = new File(path);//文件的路径
+            if (file.exists()) {
+                InputStream ins = new FileInputStream(path);
+                BufferedInputStream bins = new BufferedInputStream(ins);// 放到缓冲流里面
+                OutputStream outs = response.getOutputStream();// 获取文件输出IO流
+                BufferedOutputStream bouts = new BufferedOutputStream(outs);
+                response.reset();
+
+                //在线打开
+                if(true){
+                    URL u = new URL("file:///" + path);
+                    response.setContentType(u.openConnection().getContentType());
+                        response.setHeader("Content-Disposition", "inline; filename=" + URLEncoder.encode(file.getName(), "UTF-8"));
+                }else{
+                    // 指定下载的文件名--设置响应头
+                    response.setHeader("Content-Disposition", "attachment;Filename=" + URLEncoder.encode(file.getName(), "UTF-8"));
+                    response.setContentType("application/x-download;charset=UTF-8");
+                }
+
+
+                int bytesRead = 0;
+                byte[] buffer = new byte[cacheA];
+                // 开始向网络传输文件流
+                while ((bytesRead = bins.read(buffer, 0, cacheA)) != -1) {
+                    bouts.write(buffer, 0, bytesRead);
+                }
+                bouts.flush();
+                ins.close();
+                bins.close();
+                outs.close();
+                bouts.close();
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            response.setContentType("text/html; charset=utf-8");
+            PrintWriter writer = response.getWriter();
+            writer.close();
+            response.flushBuffer();
+        }
+    }
+
+
 
 }
