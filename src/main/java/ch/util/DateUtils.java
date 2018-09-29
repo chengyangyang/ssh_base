@@ -3,6 +3,7 @@ package ch.util;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -163,5 +164,25 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		long beforeTime = before.getTime();
 		long afterTime = after.getTime();
 		return (afterTime - beforeTime) / (1000 * 60 * 60 * 24);
+	}
+
+	/**
+	 * 给时间加上一个最大的时分秒
+	 * @param date
+	 * @return
+	 */
+	public static Date addMaxTime(Date date){
+		if(date != null){
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(date);
+			calendar.set(Calendar.HOUR_OF_DAY,23);
+			calendar.set(Calendar.MINUTE,59);
+			calendar.set(Calendar.SECOND,59);
+			calendar.set(Calendar.MILLISECOND,999);
+			return calendar.getTime();
+		}else {
+			return null;
+		}
+
 	}
 }
