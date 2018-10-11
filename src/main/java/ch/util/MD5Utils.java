@@ -1,5 +1,6 @@
 package ch.util;
 
+import ch.common.util.DigestUtils;
 import org.apache.commons.codec.binary.Hex;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
@@ -96,6 +97,23 @@ public class MD5Utils {
 		}
 	}
 
+
+	/**
+	 * 求一个字符串的md5值
+	 * @param target 字符串
+	 * @return md5 value
+	 */
+	public static String MD5(String target) {
+		return DigestUtils.md5Hex(target);
+	}
+
+	public static void main(String[] args) {
+		long beginTime = System.currentTimeMillis();
+		File file = new File("C:\\Users\\user1\\Downloads\\AFR12补丁.zip");
+		String md5 = getMD5(file);
+		long endTime = System.currentTimeMillis();
+		System.out.println("MD5:" + md5 + "\n 耗时:" + ((endTime - beginTime) / 1000) + "s");
+	}
 
 
 
