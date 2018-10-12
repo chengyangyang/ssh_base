@@ -1,7 +1,7 @@
 package ch.test.notes.thread;
 
 /**
- * Description:
+ * Description:读<<[并发]java多线程编程核心技术>>总结
  *
  * @author cy
  * @date 2018年10月08日 10:21
@@ -68,7 +68,7 @@ public class Main {
         System.out.println("end");*/
 
         //线程在沉睡中,被中断(将会进入异常中)
-        MyThread6 myThread6 = new MyThread6();
+       /* MyThread6 myThread6 = new MyThread6();
         myThread6.start();
         try {
             myThread6.sleep(2000);
@@ -76,7 +76,43 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("end");*/
+
+       //线程的暂停和恢复(过期方法)
+       /* MyThread7 myThread7 = new MyThread7();
+        myThread7.start();
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        myThread7.suspend();
+        System.out.println("线程暂停10秒钟");
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("end");
+        System.out.println("线程的唤醒");
+        //如果线程不唤醒,name后面的线程暂停10秒钟,end,线程的唤醒将不能被打印出来,是因为println也是同步方法,里面的线程将会一直占着锁不放
+        myThread7.resume();*/
+
+        //yield 的使用(注释里面的Thread.yield();)
+        /*MyThread8 myThread8 = new MyThread8();
+        myThread8.start();*/
+
+        //守护线程的示例
+       /* MyThread9 myThread9 = new MyThread9();
+        myThread9.setDaemon(true);//设置线程为守护线程
+        myThread9.start();
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("离开thead将不会再打印");*/
+
 
 
     }
