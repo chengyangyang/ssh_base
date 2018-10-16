@@ -8,7 +8,7 @@ package ch.test.notes.thread;
  * version 1.0
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println(Thread.currentThread().getName());
         /*//使用继承的方法
         MyThread myThread = new MyThread();
@@ -113,8 +113,19 @@ public class Main {
         }
         System.out.println("离开thead将不会再打印");*/
 
+        //线程的等待和唤醒需要加入同步锁
+       /* Object lock = new Object();
+        MyThread10 myThread10 = new MyThread10(lock);
+        myThread10.start();
+        Thread.sleep(3000);
+        MyThread11 myThread11 = new MyThread11(lock);
+        myThread11.start();*/
 
+       //ThreadLocal 为每一个线程存放自己的值
+        MyThread12 myThread12 = new MyThread12();
+        myThread12.start();
 
+        //InheritableThreadLocal 可以让子线程从父线程中取值,同上面书写
     }
 
 }

@@ -39,7 +39,8 @@
       classpath:activiti.cfg.xml,
       classpath:spring-shiro.xml,
       classpath:ehcache/spring-ehcache.xml,
-      classpath:webservice/spring-cxf-service_server.xml
+      classpath:webservice/spring-cxf-service_server.xml,
+      classpath:mq/activeMQ.xml
     </param-value>
   </context-param>
 

@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 定时任务https://blog.csdn.net/lxxc11/article/details/78471089
+ * 定时任务
  *
  */
 public class QuotaCheckerTask {
