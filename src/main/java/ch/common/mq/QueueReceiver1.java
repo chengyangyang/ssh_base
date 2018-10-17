@@ -19,6 +19,11 @@ public class QueueReceiver1 implements MessageListener {
         // TODO Auto-generated method stub
         TextMessage textMessage = (TextMessage) message;
         try {
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.out.println("QueueReceiver1接收到消息内容是：" + textMessage.getText());
         } catch (JMSException e) {
             // TODO Auto-generated catch block

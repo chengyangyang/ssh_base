@@ -92,7 +92,7 @@
   </filter>
   <filter-mapping>
     <filter-name>HeaderFilter</filter-name>
-    <url-pattern>/*</url-pattern><!-- 你开放的接口前缀  -->
+    <url-pattern>/vue/*</url-pattern><!-- 你开放的接口前缀  -->
   </filter-mapping>
 
   <!-- sitemesh filter 装饰器-->

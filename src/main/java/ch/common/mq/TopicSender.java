@@ -1,5 +1,6 @@
 package ch.common.mq;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 
@@ -20,11 +21,14 @@ public class TopicSender {
 
     @Resource
     private JmsTemplate jmsTopicTemplate;
+    @Resource
+    @Qualifier("topicDestination")
+    private Destination topicDestination;
 
     //发送消息
-    public void sendMessage(Destination destination, final String message) {
+    public void sendMessage(final String message) {
         System.out.println("TopicSender发送消息："+message);
-        jmsTopicTemplate.send(destination, new MessageCreator() {
+        jmsTopicTemplate.send(topicDestination, new MessageCreator() {
 
             @Override
             public Message createMessage(Session session) throws JMSException {

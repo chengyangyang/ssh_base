@@ -4,3 +4,5 @@
 
 <script src="${contextPath}/static/js/jquery-1.11.3.js"></script>
 <script src="${contextPath}/static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
+<script src="${contextPath}/static/common/commonJs.js"></script>

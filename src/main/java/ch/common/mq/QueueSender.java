@@ -1,5 +1,6 @@
 package ch.common.mq;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 
@@ -20,12 +21,15 @@ public class QueueSender {
 
     @Resource
     private JmsTemplate jmsQueueTemplate;
+    @Resource
+    @Qualifier("queueDestination")
+    private Destination queueDestination;
 
 
     //发送消息
-    public void sendMessage(Destination destination, final String message) {
+    public void sendMessage(final String message) {
         System.out.println("QueueSender发送消息："+message);
-        jmsQueueTemplate.send(destination, new MessageCreator() {
+        jmsQueueTemplate.send(queueDestination, new MessageCreator() {
 
             @Override
             public Message createMessage(Session session) throws JMSException {
