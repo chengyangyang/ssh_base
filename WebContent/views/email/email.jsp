@@ -11,6 +11,11 @@
         <div class="row" >
             <div class="col-md-6 col-md-offset-3 text-center">
                 <label for="name" style="font-size: 20px">发送邮件</label>
+                <div class="form-group has-success has-feedback">
+                    <input type="text" placeholder="请输入要发送的邮箱地址" class="form-control" id="emailSendAdress" aria-describedby="inputSuccess2Status">
+                    <input class="form-control input-ms" id="emailSubject" type="text" placeholder="发送的邮件名称">
+                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                </div>
                 <textarea class="form-control content"  rows="6"></textarea>
 
                 <button type="button" class="btn btn-success queuebtn">发送邮件</button>
@@ -25,10 +30,9 @@
         var requestParam = {};
         $(".queuebtn").click(function () {
             var content = $(".content").val();
-            requestParam.message = content;
-            requestParam.subject = "测试";
-            requestParam.to = "296421181@qq.com";
-            requestParam.content = "邮件内容";
+            requestParam.to = $("#emailSendAdress").val();
+            requestParam.subject = $("#emailSubject").val();
+            requestParam.content = content;
             var da = ajaxPost("/email/sendEmail.action",requestParam);
         });
 

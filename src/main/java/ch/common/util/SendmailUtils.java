@@ -42,6 +42,7 @@ public class SendmailUtils {
             message.setFrom(new InternetAddress(mailInfo.getFromAdress()));
 
         //设置邮箱主题
+        message.setSubject(subject);
         //设置收件人(类型中有抄送,密送人)
         message.setRecipient(Message.RecipientType.TO,new InternetAddress(to));
         //设置发送时间
