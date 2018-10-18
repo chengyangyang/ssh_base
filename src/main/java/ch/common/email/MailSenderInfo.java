@@ -1,8 +1,5 @@
 package ch.common.email;
 
-import com.sun.mail.util.MailSSLSocketFactory;
-
-import java.security.GeneralSecurityException;
 import java.util.Properties;
 
 /**
@@ -15,50 +12,48 @@ import java.util.Properties;
 public class MailSenderInfo {
 
     //发送邮件的端口和ip
-    private static String mailServiceHost = "smtp.qq.com";
-    private static String mailServicePort = "465";
+    private String mailServiceHost;
+    private String mailServicePort;
     // 邮件发送协议
-    private static String protocol = "smtp";
+    private String protocol;
 
     //邮件发送的地址
-    private String fromAdress = "390518881@qq.com";
+    private String fromAdress;
 
     //登录邮件的发送的用户名和密码
-    private static String userName = "390518881@qq.com";
-    private static String password = "cqzheorzizgfbggd";
+    private String userName;
+    private String password;
     //是否需要身份验证
-    private static String validate = "true";
+    private String validate;
     // 是否启用调试模式（启用调试模式可打印客户端与服务器交互过程时一问一答的响应消息）
-    private static String debug = "true";
+    private String debug;
 
-    private static String sslEnable = "true";
-    private static Properties props = null;
+    private String sslEnable;
+    private Properties props;
 
-    static {
-        try {
-        props = new Properties();
-        props.setProperty("mail.transport.protocol",protocol);
-        props.setProperty("mail.smtp.host",mailServiceHost);
-        props.setProperty("mail.smtp.port",mailServicePort);
-        props.setProperty("mail.smtp.auth", validate);
-        props.setProperty("mail.debug",debug);
-        // 此处填写你的账号
-        props.put("mail.user",userName);
-        // 16位STMP口令
-        props.put("mail.password",password);
-        // 开启SSL加密，否则会失败
-        MailSSLSocketFactory sf = null;
-            sf = new MailSSLSocketFactory();
-        sf.setTrustAllHosts(true);
-        props.put("mail.smtp.ssl.enable", sslEnable);
-          //  props.put("mail.smtp.ssl.socketFactory", sf);
-        } catch (GeneralSecurityException e) {
-            e.printStackTrace();
-        }
+
+    public String getMailServiceHost() {
+        return mailServiceHost;
     }
 
-    public Properties getProps() {
-        return props;
+    public void setMailServiceHost(String mailServiceHost) {
+        this.mailServiceHost = mailServiceHost;
+    }
+
+    public String getMailServicePort() {
+        return mailServicePort;
+    }
+
+    public void setMailServicePort(String mailServicePort) {
+        this.mailServicePort = mailServicePort;
+    }
+
+    public String getProtocol() {
+        return protocol;
+    }
+
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
     }
 
     public String getFromAdress() {
@@ -69,28 +64,12 @@ public class MailSenderInfo {
         this.fromAdress = fromAdress;
     }
 
-    public String getMailServicePort() {
-        return mailServicePort;
-    }
-
-    public void setMailServicePort(String mailServicePort) {
-        MailSenderInfo.mailServicePort = mailServicePort;
-    }
-
-    public String getProtocol() {
-        return protocol;
-    }
-
-    public void setProtocol(String protocol) {
-        MailSenderInfo.protocol = protocol;
-    }
-
     public String getUserName() {
         return userName;
     }
 
     public void setUserName(String userName) {
-        MailSenderInfo.userName = userName;
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -98,7 +77,7 @@ public class MailSenderInfo {
     }
 
     public void setPassword(String password) {
-        MailSenderInfo.password = password;
+        this.password = password;
     }
 
     public String getValidate() {
@@ -106,7 +85,7 @@ public class MailSenderInfo {
     }
 
     public void setValidate(String validate) {
-        MailSenderInfo.validate = validate;
+        this.validate = validate;
     }
 
     public String getDebug() {
@@ -114,7 +93,7 @@ public class MailSenderInfo {
     }
 
     public void setDebug(String debug) {
-        MailSenderInfo.debug = debug;
+        this.debug = debug;
     }
 
     public String getSslEnable() {
@@ -122,14 +101,14 @@ public class MailSenderInfo {
     }
 
     public void setSslEnable(String sslEnable) {
-        MailSenderInfo.sslEnable = sslEnable;
+        this.sslEnable = sslEnable;
     }
 
-    public String getMailServiceHost() {
-        return mailServiceHost;
+    public Properties getProps() {
+        return props;
     }
 
-    public void setMailServiceHost(String mailServiceHost) {
-        MailSenderInfo.mailServiceHost = mailServiceHost;
+    public void setProps(Properties props) {
+        this.props = props;
     }
 }

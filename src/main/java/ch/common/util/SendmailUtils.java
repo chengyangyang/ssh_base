@@ -1,6 +1,8 @@
 package ch.common.util;
 
 import ch.common.email.MailSenderInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -10,6 +12,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.Properties;
 
 /**
  * Description:
@@ -18,10 +21,8 @@ import java.util.Date;
  * @date 2018年10月18日 9:43
  * version 1.0
  */
+@Component
 public class SendmailUtils {
-
-    private static MailSenderInfo mailInfo = new MailSenderInfo();
-
 
     /**
      * 发送简单的文本邮件
@@ -30,15 +31,17 @@ public class SendmailUtils {
      * @param text 发送的内容
      * @return
      */
-    public static boolean sendTextEmail(String subject,String to,String text) throws MessagingException, ParseException {
+    public  boolean sendTextEmail(String subject,String to,String text)  {
+        MailSenderInfo mailInfo = (MailSenderInfo)SpringContextHolder.getBean("mailInfo");
         //创建session实例
         Session session = Session.getDefaultInstance(mailInfo.getProps());
         //创建mimeMessage实例对象
         MimeMessage message = new MimeMessage(session);
         //设置发件人
-        message.setFrom(new InternetAddress(mailInfo.getFromAdress()));
+        try {
+            message.setFrom(new InternetAddress(mailInfo.getFromAdress()));
+
         //设置邮箱主题
-        message.setSubject(subject);
         //设置收件人(类型中有抄送,密送人)
         message.setRecipient(Message.RecipientType.TO,new InternetAddress(to));
         //设置发送时间
@@ -53,23 +56,18 @@ public class SendmailUtils {
         //获得Transport实例
         Transport transport = session.getTransport();
         //打开连接
-        transport.connect("smtp.qq.com","390518881@qq.com","cqzheorzizgfbggd");
+        transport.connect(mailInfo.getUserName(),mailInfo.getPassword());
         // 将message对象传递给transport对象，将邮件发送出去
         transport.sendMessage(message, message.getAllRecipients());
         // 关闭连接(如果发送多个,最好在关闭之前就发送)
         transport.close();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return false;
+        }
         return true;
 
     }
 
-    public static void main(String[] args) {
-        try {
-            sendTextEmail("邮件测试","296421181@qq.com","您的验证码为12123\n你好!");
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
 
 }

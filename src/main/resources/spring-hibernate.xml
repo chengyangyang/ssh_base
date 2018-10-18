@@ -132,17 +132,23 @@ http://www.springframework.org/schema/aop/spring-aop.xsd
 	<task:scheduler id="scheduler" pool-size="10" />-->
 
 	<!--邮件的发送,本邮件使用的qq邮箱-->
-	<bean id="emailInfo" class="ch.common.email.MailSenderInfo">
-		<property name="mailServiceHost" value="smtp.qq.com"/>
-		<property name="mailServicePort" value="465"/>
-		<property name="protocol" value="smtp"/>
-		<property name="fromAdress" value="390518881@qq.com"/>
-		<property name="userName" value="390518881@qq.com"/>
-		<property name="password" value=""/>
-		<property name="validate" value="true"/>
-		<property name="debug" value="true"/>
-		<property name="sslEnable" value="true"/>
-
+	<bean id="mailInfo" class="ch.common.email.MailSenderInfo">
+		<property name="fromAdress" value="390518881@qq.com"/> <!--邮件发送的地址-->
+		<property name="userName" value="390518881@qq.com"/><!--用户和上面要相同-->
+		<property name="password" value="cqzheorzizgfbggd"/><!--密码也就是安全秘钥-->
+		<property name="props">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>  <!--邮件发送协议-->
+				<prop key="mail.smtp.host">smtp.qq.com</prop> <!--发送邮件的ip-->
+				<prop key="mail.smtp.port">465</prop><!--发送邮件的端口-->
+				<prop key="mail.smtp.auth">true</prop><!--是否开启校验-->
+				<prop key="mail.debug">true</prop><!--是否开启debug-->
+				<prop key="mail.smtp.ssl.enable">true</prop><!--开启ssl-->
+			</props>
+		</property>
 	</bean>
-	
+
+
+
+
 </beans>

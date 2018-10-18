@@ -24,6 +24,7 @@
 
     <a href="${contextPath}/views/mq/mq.jsp" target="_bank" class="btn btn-default btn active" role="button">消息队列activeMQ的使用</a>
 
+    <a href="${contextPath}/views/email/email.jsp" target="_bank" class="btn btn-default btn active" role="button">发送邮件</a>
 
     </div>
    
