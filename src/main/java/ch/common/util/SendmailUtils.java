@@ -1,13 +1,11 @@
 package ch.common.util;
 
 import ch.common.email.MailSenderInfo;
-import ch.util.DateUtils;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.text.ParseException;
@@ -58,7 +56,7 @@ public class SendmailUtils {
         transport.connect("smtp.qq.com","390518881@qq.com","cqzheorzizgfbggd");
         // 将message对象传递给transport对象，将邮件发送出去
         transport.sendMessage(message, message.getAllRecipients());
-        // 关闭连接
+        // 关闭连接(如果发送多个,最好在关闭之前就发送)
         transport.close();
         return true;
 

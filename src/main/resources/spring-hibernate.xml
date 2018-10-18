@@ -130,5 +130,19 @@ http://www.springframework.org/schema/aop/spring-aop.xsd
 		<task:scheduled ref="quotaCheckerTask" method="checkerTask" cron="0/10 * *  * * ? " />
 	</task:scheduled-tasks>
 	<task:scheduler id="scheduler" pool-size="10" />-->
+
+	<!--邮件的发送,本邮件使用的qq邮箱-->
+	<bean id="emailInfo" class="ch.common.email.MailSenderInfo">
+		<property name="mailServiceHost" value="smtp.qq.com"/>
+		<property name="mailServicePort" value="465"/>
+		<property name="protocol" value="smtp"/>
+		<property name="fromAdress" value="390518881@qq.com"/>
+		<property name="userName" value="390518881@qq.com"/>
+		<property name="password" value=""/>
+		<property name="validate" value="true"/>
+		<property name="debug" value="true"/>
+		<property name="sslEnable" value="true"/>
+
+	</bean>
 	
 </beans>

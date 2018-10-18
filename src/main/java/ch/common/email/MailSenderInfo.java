@@ -22,24 +22,16 @@ public class MailSenderInfo {
 
     //邮件发送的地址
     private String fromAdress = "390518881@qq.com";
-    //邮件接收的地址
-    private String toAdress;
+
     //登录邮件的发送的用户名和密码
-    private String userName;
-    private String password;
+    private static String userName = "390518881@qq.com";
+    private static String password = "cqzheorzizgfbggd";
     //是否需要身份验证
-    private static String validate = "false";
+    private static String validate = "true";
     // 是否启用调试模式（启用调试模式可打印客户端与服务器交互过程时一问一答的响应消息）
     private static String debug = "true";
-    //邮件的主题
-    private String subject;
-    //邮件内容
-    private String content;
-    //邮件的附件名称
-    private String[] attachFileNames;
-    private String iwallHost;
 
-
+    private static String sslEnable = "true";
     private static Properties props = null;
 
     static {
@@ -50,18 +42,16 @@ public class MailSenderInfo {
         props.setProperty("mail.smtp.port",mailServicePort);
         props.setProperty("mail.smtp.auth", validate);
         props.setProperty("mail.debug",debug);
-            // 此处填写你的账号
-            props.put("mail.user", "390518881@qq.com");
-            // 16位STMP口令
-            props.put("mail.password", "cqzheorzizgfbggd");
+        // 此处填写你的账号
+        props.put("mail.user",userName);
+        // 16位STMP口令
+        props.put("mail.password",password);
         // 开启SSL加密，否则会失败
         MailSSLSocketFactory sf = null;
-
             sf = new MailSSLSocketFactory();
-
         sf.setTrustAllHosts(true);
-            props.put("mail.smtp.ssl.enable", "true");
-            props.put("mail.smtp.ssl.socketFactory", sf);
+        props.put("mail.smtp.ssl.enable", sslEnable);
+          //  props.put("mail.smtp.ssl.socketFactory", sf);
         } catch (GeneralSecurityException e) {
             e.printStackTrace();
         }
