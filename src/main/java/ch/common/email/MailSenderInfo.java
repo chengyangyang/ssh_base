@@ -68,4 +68,68 @@ public class MailSenderInfo {
     public void setFromAdress(String fromAdress) {
         this.fromAdress = fromAdress;
     }
+
+    public String getMailServicePort() {
+        return mailServicePort;
+    }
+
+    public void setMailServicePort(String mailServicePort) {
+        MailSenderInfo.mailServicePort = mailServicePort;
+    }
+
+    public String getProtocol() {
+        return protocol;
+    }
+
+    public void setProtocol(String protocol) {
+        MailSenderInfo.protocol = protocol;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        MailSenderInfo.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        MailSenderInfo.password = password;
+    }
+
+    public String getValidate() {
+        return validate;
+    }
+
+    public void setValidate(String validate) {
+        MailSenderInfo.validate = validate;
+    }
+
+    public String getDebug() {
+        return debug;
+    }
+
+    public void setDebug(String debug) {
+        MailSenderInfo.debug = debug;
+    }
+
+    public String getSslEnable() {
+        return sslEnable;
+    }
+
+    public void setSslEnable(String sslEnable) {
+        MailSenderInfo.sslEnable = sslEnable;
+    }
+
+    public String getMailServiceHost() {
+        return mailServiceHost;
+    }
+
+    public void setMailServiceHost(String mailServiceHost) {
+        MailSenderInfo.mailServiceHost = mailServiceHost;
+    }
 }
