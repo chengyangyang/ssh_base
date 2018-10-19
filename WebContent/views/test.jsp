@@ -7,8 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
+
+<link rel="stylesheet" href="/static/my/css/a.css">
+
+<link rel="stylesheet" href="/static/my/css/common.css">
+
 <body>
-<h1>我是springMVC</h1>
+<h1 class="aaaaa">我是springMVC</h1>
 </body>
 
 <script type="text/javascript">

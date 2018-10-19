@@ -1,0 +1,53 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+li{
+  list-style: none;
+}
+.container{
+  width: 1200px;
+  margin: 0px auto;
+}
+
+a{
+  text-decoration: none;
+}
+.my-f-l{
+  float: left;
+}
+.my-f-r{
+  float: right;
+}
+.clearFix:after {clear: both;display: block;content: "";height: 0;visibility: hidden;}
+
+.my-m-t10{
+  margin-top: 10px;
+}
+.my-m-t20{
+  margin-top: 20px;
+}
+.my-m-t30{
+  margin-top: 30px;
+}
+.my-m-t40{
+  margin-top: 40px;
+}
+.my-m-b10{
+  margin-bottom: 10px;
+}
+.my-m-b20{
+  margin-bottom: 20px;
+}
+.my-m-b30{
+  margin-bottom: 30px;
+}
+.my-m-b40{
+  margin-bottom: 40px;
+}
+.my-m-l5 {
+  margin-left: 5px;
+}
+.my-m-l10{
+  margin-left: 10px;
+}
