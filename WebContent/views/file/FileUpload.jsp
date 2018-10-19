@@ -8,25 +8,47 @@
 <title>文件上传</title>
 </head>
 <body>
+<div class="container p-t50">
+    <div style="" class=" content-center w-500 g-c h-600">
 
-<div class="progress" style="display: none;">
-    <div class="progress-bar" role="progressbar" aria-valuenow="60"
-         aria-valuemin="0" aria-valuemax="100" style="width: 0;">
-        <span id="checkProgress"></span>
+        <div class="form-group">
+            <label>用户名</label>
+            <input class="form-control" placeholder="请输入用户名">
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            <input class="form-control" placeholder="请输入密码">
+        </div>
+
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label>文件1</label>
+            <input type="file" name="file"/>
+
+            <label>文件2</label>
+            <input type="file" name="file02"/>
+            <button type="button" class="btn btn-primary btn-ms btn-block" id="upload">上传文件</button>
+
+        </form>
+
+        <form enctype="multipart/form-data" method="post" action="file/upload.action">
+
+            <label style="">多文件上传</label>
+            <input type="file" name="file" multiple="multiple" />
+
+            <input type="submit" class="btn btn-default col-md-4 col-md-offset-4" value="提交">
+        </form>
+
+        <div class="progress" style="display: none;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                 aria-valuemin="0" aria-valuemax="100" style="width: 0;">
+                <span id="checkProgress"></span>
+            </div>
+        </div>
+
+
     </div>
 </div>
 
-<form id="uploadForm" enctype="multipart/form-data">
-    用户名：<input type="text" name="user"/><br/>
-    文件1：<input type="file" name="file"/><br/>
-    文件2：<input type="file" name="file02"/><br/>
-</form>
-<button id="upload">上传文件</button>
-
-<form enctype="multipart/form-data" method="post" action="file/upload.action">
-    多文件上传：<input type="file" name="file" multiple="multiple" /><br/>
-    <input type="submit" value="提交">
-</form>
 
 </body>
 

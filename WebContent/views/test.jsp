@@ -5,16 +5,16 @@
 <jsp:include page="/views/common/JsAndCss.jsp"/>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>我的测试</title>
 </head>
 
-
-<link rel="stylesheet" href="/static/my/css/a.css">
-
-<link rel="stylesheet" href="/static/my/css/common.css">
-
 <body>
-<h1 class="aaaaa">我是springMVC</h1>
+    <div class="container">
+
+        你好
+
+    </div>
+
 </body>
 
 <script type="text/javascript">

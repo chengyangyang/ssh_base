@@ -16,6 +16,8 @@
         <h1 class="panel-title text-center">我的整理目录</h1>
     </div>
     <div class="panel-body">
+    <a href="${contextPath}/views/test.jsp" target="_bank" class="btn btn-default btn active" role="button">个人临时测试</a>
+
     <a href="${contextPath}/views/file/FileUpload.jsp" target="_bank" class="btn btn-default btn active" role="button">文件上传</a>
 
     <a href="${contextPath}/views/file/fileDownLoad.jsp" target="_bank" class="btn btn-default btn active" role="button">文件文件下载</a>
