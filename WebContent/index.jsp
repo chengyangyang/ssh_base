@@ -28,6 +28,10 @@
 
     <a href="${contextPath}/views/email/email.jsp" target="_bank" class="btn btn-default btn active" role="button">发送邮件</a>
 
+    <a href="${contextPath}/views/validate/form.jsp" target="_bank" class="btn btn-default btn active" role="button">基于bootstrapvalidator form表单的校验</a>
+
+    <a href="${contextPath}/views/bootstrap/home.jsp" target="_bank" class="btn btn-default btn active" role="button">bootstrap的练习</a>
+
     </div>
    
 </div>

@@ -6,3 +6,6 @@
 <script src="${contextPath}/static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 
 <script src="${contextPath}/static/common/commonJs.js"></script>
+<script src="${contextPath}/static/common/regular.js"></script>
+
+<script src="${contextPath}/static/bootstrapvalidator/js/bootstrapValidator.js"></script>

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container p-t50">
-    <div style="" class=" content-center w-500 g-c h-600">
+    <div style="" class=" content-center w-500 g-c">
 
         <div class="form-group">
             <label>用户名</label>

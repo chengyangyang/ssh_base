@@ -18,7 +18,7 @@
                 </div>
                 <textarea class="form-control content"  rows="6"></textarea>
 
-                <button type="button" class="btn btn-success queuebtn">发送邮件</button>
+                <button type="button" class="btn btn-success queuebtn m-t10">发送邮件</button>
 
             </div>
         </div>

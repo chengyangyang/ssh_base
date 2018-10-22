@@ -70,15 +70,31 @@ a{
 .h-600{
   height: 600px;
 }
-
+.h-800{
+  height: 800px;
+}
+.h-p100{
+    height: 100%;
+}
 
 .w-200{
   width: 200px;
 }
+.w-400{
+    width: 400px;
+}
 .w-500{
   width: 500px;
 }
-
+.w-600{
+  width: 600px;
+}
+.w-700{
+  width: 700px;
+}
+.w-800{
+  width: 800px;
+}
 
 .g-c{
   background-color: #B7E1B8;

@@ -16,8 +16,8 @@
                 <label for="name" style="font-size: 20px">请输入要发布的消息</label>
              <textarea class="form-control content"  rows="6"></textarea>
 
-                <button type="button" class="btn btn-success queuebtn">发送Queue消息</button>
-                <button type="button" class="btn btn-success topicbtn">发送Topic消息</button>
+                <button type="button" class="btn btn-success queuebtn m-t10">发送Queue消息</button>
+                <button type="button" class="btn btn-success topicbtn m-t10">发送Topic消息</button>
             </div>
         </div>
     </div>
