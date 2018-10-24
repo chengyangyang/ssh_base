@@ -2,6 +2,14 @@
 li a{
     text-decoration: none !important;
     color:white;
+    cursor: pointer;
+}
+
+/*li:hover{
+   background-color: #1b6d85;
+}*/
+.left-nav-f:hover{
+    background-color: #1b6d85;
 }
 
 .left-nav-f a{
@@ -11,10 +19,18 @@ li a{
 
 .left-nav-c{
     padding: 0px 15px;
+    background-color: #2f3e9a;
+
+}
+
+.left-nav-t div{
+    font-size: 10px;
+    padding: 0px 20px;
+    background-color: #2d4d9a;
 
 }
 
 .left-nav-c a{
-    font-size: 10px;
+    font-size: 13px;
     color: white;
 }

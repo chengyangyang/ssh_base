@@ -641,6 +641,8 @@ $(function(){
                 }
                 if(item.children != null && typeof (item.children) != 'undefined'&& item.children.length > 0){
                     str += ' class = "expand"';
+                } else {
+                    str += 'class = "noexpand"';
                 }
                     str += '><div class="col-md-8">'+item.name+'</div>';
                     if(item.children != null && typeof (item.children) != 'undefined'&& item.children.length > 0){
@@ -667,20 +669,25 @@ $(function(){
                 item = item.children[i];
                 str += '<li>';
                 str += '<div class="row left-nav-c">';
-                str += '<label class="col-md-2"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span></label>';
+                str += '<label class="col-md-2"><span class="'+item.icon+'" aria-hidden="true"></span></label>';
                 str += '<a ';
                 if(item.children != null && typeof (item.children) != 'undefined'&& item.children.length > 0){
                     str += 'class = "expand"';
+                }else {
+                    str += 'class = "noexpand"';
                 }
                 str += '><div class="col-md-8">'+item.name+'</div>';
 
                 if(item.children != null && typeof (item.children) != 'undefined'&& item.children.length > 0){
-                    str += '<div class="col-md-offset-1 collapse"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>';
+                    str += '<div class="col-md-offset-1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>';
+                }
+                if(item.children == null || typeof (item.children) == 'undefined'|| item.children.length <= 0){
+                    str += '<label class=""><span style="" class="glyphicon" aria-hidden="true"></span></label>';
                 }
                 str += '</a>';
                 str += '</div>';
                 str += '';
-                if(item.children != null && typeof (item.children) != 'undefined'){
+                if(item.children != null && typeof (item.children) != 'undefined' && item.children.length > 0){
                     str += getallchild(item);
                 }
                 str += '<li>';
@@ -691,6 +698,8 @@ $(function(){
         return str;
 
     }
+
+    $(".left-nav-c").siblings('ul').children('li').addClass("left-nav-t");
 
     //鼠标点击的展开显示
     $(".expand").on('click',function () {
@@ -704,6 +713,16 @@ $(function(){
             $(this).find('span').removeClass('glyphicon-minus');
             $(this).find('span').addClass('glyphicon-plus');
         }
+    })
+
+    //鼠标点击的显示箭头
+    $(".noexpand").on('click',function () {
+        $("#nav-body").find("span").each(function(index,item){
+            console.log(item.hasClass("glyphicon-chevron-righ"))
+            item.removeClass("glyphicon-chevron-righ");
+
+        })
+        $(this).find("span").addClass("glyphicon-chevron-right");
     })
 
 })
