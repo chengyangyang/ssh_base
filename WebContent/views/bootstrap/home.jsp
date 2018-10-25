@@ -16,9 +16,9 @@
            </div>
 
        </div>
-        <div id="nav-body" class="col-md-10 h-p100">
+       <%-- <div id="nav-body" class="col-md-10 h-p100">
 
-        </div>
+        </div>--%>
     </div>
 
 </body>

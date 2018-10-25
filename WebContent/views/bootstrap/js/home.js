@@ -717,10 +717,8 @@ $(function(){
 
     //鼠标点击的显示箭头
     $(".noexpand").on('click',function () {
-        $("#nav-body").find("span").each(function(index,item){
-            console.log(item.hasClass("glyphicon-chevron-righ"))
-            item.removeClass("glyphicon-chevron-righ");
-
+        $("#nav-parent").find("span").each(function(index,item){
+            $(this).removeClass("glyphicon-chevron-right");
         })
         $(this).find("span").addClass("glyphicon-chevron-right");
     })
