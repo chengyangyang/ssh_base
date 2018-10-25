@@ -64,3 +64,23 @@ function ajaxPost(url,data){
 
     });
 }
+
+
+/**
+ * 初始化左侧导航
+ */
+$.fn.initLeftNav = function(name){
+    $("#nav-parent").find("span").each(function(index,item){
+        $(this).removeClass("glyphicon-chevron-right");
+    })
+    $("#nav-parent").find("a").each(function(index,item){
+        if(typeof($(item).attr('code')) != "undefined" && $(item).attr('code') == name){
+            $(this).parents('ul').css('display','block');
+            //var val = $(this).attr('href1');//attr 自定义的属性    prop 固有的属性
+            /* $("#iframe-body").attr("src",val);*/
+            $(this).find("span").addClass("glyphicon-chevron-right");
+            return false;
+        }
+    })
+
+}

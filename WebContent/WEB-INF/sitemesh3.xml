@@ -20,6 +20,7 @@
 
   <mapping path="/views/sitemesh/demo.jsp" decorator="/views/sitemesh/decorator.jsp"/>
 
+  <mapping path="/views/bootstrap/view/*" decorator="/views/bootstrap/home.jsp"/>
 
   <mapping path="/views/content/*/front/*" decorator="/views/decorator/index-decor.jsp"/>
   <mapping path="/views/content/personalCenter/ucenter/*" decorator="/views/decorator/ucenter-decor.jsp"/>

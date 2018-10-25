@@ -11,3 +11,5 @@
 <link rel="stylesheet" href="${contextPath}/static/bootstrap-3.3.7-dist/css/bootstrap.css" />
 
 <link rel="stylesheet" href="${contextPath}/static/bootstrapvalidator/css/bootstrapValidator.css" />
+
+<link rel="stylesheet" href="${contextPath}/static/glyphicons/icon-assist.png.css" />

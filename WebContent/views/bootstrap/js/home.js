@@ -17,7 +17,7 @@ $(function(){
                 }, {
                     "checked": "",
                     "children": [],
-                    "href": "/views/content/admin/auth/rolelist.jsp",
+                    "href": "/views/bootstrap/view/form.jsp",
                     "icon": "",
                     "id": "4",
                     "isShow": "1",
@@ -125,7 +125,7 @@ $(function(){
             }, {
                 "checked": "",
                 "children": [],
-                "href": "/views/content/articleManagement/mgt/news_notice/srchlist.jsp",
+                "href": "/views/bootstrap/view/input.jsp",
                 "icon": "",
                 "id": "14",
                 "isShow": "1",
@@ -233,7 +233,7 @@ $(function(){
             }, {
                 "checked": "",
                 "children": [],
-                "href": "/views/content/auctionManagement/mgt/alliance/joinSrchlist.jsp",
+                "href": "/views/bootstrap/view/input.jsp",
                 "icon": "",
                 "id": "22",
                 "isShow": "1",
@@ -623,7 +623,6 @@ $(function(){
             "name": "企业体检平台",
             "parentId": "0"
     }]    };
-
     var str='';
     if(data.data != null && typeof(data.data) !='undefined'){
         //遍历遍历数据
@@ -671,10 +670,13 @@ $(function(){
                 str += '<div class="row left-nav-c">';
                 str += '<label class="col-md-2"><span class="'+item.icon+'" aria-hidden="true"></span></label>';
                 str += '<a ';
+                if(item.href != null && typeof (item.href) != 'undefined' && item.href != ''){
+                    str += 'href="'+item.href+'"';
+                }
                 if(item.children != null && typeof (item.children) != 'undefined'&& item.children.length > 0){
                     str += 'class = "expand"';
                 }else {
-                    str += 'class = "noexpand"';
+                    str += 'class = "noexpand" code='+item.id+'';
                 }
                 str += '><div class="col-md-8">'+item.name+'</div>';
 
@@ -720,6 +722,8 @@ $(function(){
         $("#nav-parent").find("span").each(function(index,item){
             $(this).removeClass("glyphicon-chevron-right");
         })
+        //var val = $(this).attr('href1');//attr 自定义的属性    prop 固有的属性
+       /* $("#iframe-body").attr("src",val);*/
         $(this).find("span").addClass("glyphicon-chevron-right");
     })
 

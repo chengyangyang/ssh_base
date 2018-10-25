@@ -1,0 +1,152 @@
+
+.sys-patent-icon,
+.sys-trademark-icon,
+.sys-world-icon,
+.sys-shop-icon,
+.sys-textnote-icon,
+.sys-heart-icon,
+.sys-flag-icon,
+.sys-colok-icon,
+.sys-diamond-icon,
+.sys-key-icon,
+.sys-clip-icon,
+.sys-adminuser-icon,
+.sys-setting-icon,
+.sys-chart-icon,
+.sys-pencil-icon,
+.sys-shield-icon,
+.sys-refresh-icon,
+.sys-sitehome-icon,
+.sys-siteFrontHome-icon,
+.sys-sitemap-icon,
+.sys-logout-icon,
+.sys-related-icon,
+.sys-sun-icon,
+.sys-finace-icon,
+.sys-ipsen-icon,
+.sys-statistic-icon{
+    cursor: pointer;
+    width: 22px;
+    height: 23px;
+    display: inline-block;
+    position: relative;
+    background: url(./icon/icon-assist.png) 0 0 no-repeat;
+}
+
+.sys-related-icon{
+    background-position: -324px -210px;
+}
+.sys-sun-icon{
+    background-position: -346px -210px;
+}
+.sys-finace-icon{
+    background-position: -366px -210px;     /* add by yinzheng 后台列表财务管理icon 17-03-13 */
+}
+.sys-ipsen-icon{
+    background-position: -385px -210px;     /* add by yinzheng 后台列表知识产权管家管理icon 17-03-13 */
+}
+.sys-statistic-icon{
+    background-position: -263px -210px;     /* add by yinzheng 后台列表数据统计icon 17-03-13 */
+}
+.sys-siteFrontHome-icon{
+    background-position: -327px -233px;
+}
+.sys-patent-icon{
+    background-position: 3px -210px;
+}
+.sys-trademark-icon{
+    background-position: -19px -210px;
+}
+.sys-world-icon{
+    background-position: -40px -210px;
+}
+.sys-shop-icon{
+    background-position: -60px -210px;
+}
+.sys-textnote-icon{
+    background-position: -81px -210px;
+}
+.sys-heart-icon{
+    background-position: -101px -210px;
+}
+.sys-flag-icon{
+    background-position: -121px -210px;
+}
+.sys-colok-icon{
+    background-position: -141px -210px;
+}
+.sys-diamond-icon{
+    background-position: -163px -210px;
+}
+.sys-key-icon{
+    background-position: -184px -210px;
+}
+.sys-clip-icon{
+    background-position: -204px -210px;
+}
+.sys-adminuser-icon{
+    background-position: -224px -210px;
+}
+.sys-setting-icon{
+    background-position: -243px -210px;
+}
+.sys-chart-icon{
+    background-position: -263px -210px;
+}
+.sys-pencil-icon{
+    background-position: -283px -210px;
+}
+.sys-shield-icon{
+    background-position: -303px -210px;
+}
+.sys-refresh-icon{
+    background-position: 2px -233px;
+}
+.sys-sitehome-icon{
+    background-position: -18px -233px;
+}
+.sys-sitemap-icon{
+    background-position: -38px -233px;
+}
+.sys-logout-icon{
+    background-position: -58px -233px;
+}
+.sys-edit-icon,
+.sys-delete-icon,
+.sys-add-icon,
+.sys-view-icon,
+.sys-reset-icon,
+.sys-add-blue-icon,
+.win-bid {
+    width: 22px;
+    height: 23px;
+    display: inline-block;
+    position: relative;
+    background: url(./icon/icon-assist.png) 0 0 no-repeat;
+    top: 7px;
+    cursor: pointer;
+}
+
+
+
+.sys-edit-icon{
+    background-position: -118px -233px;
+}
+.sys-delete-icon{
+    background-position: -140px -233px;
+}
+.sys-reset-icon{
+    background-position: -349px -231px;
+}
+.sys-add-icon{
+    height: 16px;
+    width: 16px;
+    top: 4px;
+    background-position: -163px -236px;
+}
+.sys-view-icon{
+    background-position: -183px -233px;
+}
+.sys-add-blue-icon{
+    background-position: -159px -264px;
+}
