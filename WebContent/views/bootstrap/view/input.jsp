@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user1
-  Date: 2018/10/25
-  Time: 16:26
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,7 +9,7 @@
     <script>
         $(function(){
         })
-        window.onload = function(){
+        window.onload = function(){// window加载完成执行方法体
             $("#nav-parent").initLeftNav("22");
         }
 

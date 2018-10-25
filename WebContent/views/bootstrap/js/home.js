@@ -719,12 +719,12 @@ $(function(){
 
     //鼠标点击的显示箭头
     $(".noexpand").on('click',function () {
-        $("#nav-parent").find("span").each(function(index,item){
-            $(this).removeClass("glyphicon-chevron-right");
-        })
+        $("#nav-parent").find("span").removeClass("glyphicon-chevron-right");
+
         //var val = $(this).attr('href1');//attr 自定义的属性    prop 固有的属性
        /* $("#iframe-body").attr("src",val);*/
         $(this).find("span").addClass("glyphicon-chevron-right");
+
     })
 
 })
