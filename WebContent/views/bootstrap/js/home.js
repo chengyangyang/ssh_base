@@ -21,7 +21,7 @@ $(function(){
                     "icon": "",
                     "id": "4",
                     "isShow": "1",
-                    "name": "角色管理",
+                    "name": "form列表练习",
                     "parentId": "2"
                 }, {
                     "checked": "",
@@ -107,7 +107,7 @@ $(function(){
             "icon": "glyphicon glyphicon-th-list",
             "id": "1",
             "isShow": "1",
-            "name": "系统管理",
+            "name": "我的练习",
             "parentId": "0"
         }, {
         "checked": "",
