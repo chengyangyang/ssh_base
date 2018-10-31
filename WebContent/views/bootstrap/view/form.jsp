@@ -43,9 +43,9 @@
                     </div>
                     <div class="form-group m-t10">
                         <label class="">发布时间</label>
-                        <input type="text" class="jm-search-item">
+                        <input type="text" class="jm-search-item" id="startDate">
                         <span class="">--</span>
-                        <input type="text" class="jm-search-item">
+                        <input type="text" class="jm-search-item" id="endDate">
                     </div>
                 </div>
             </div>
@@ -54,6 +54,16 @@
 
 <script>
     $(function(){
+        $("#startDate").on('click',function(){
+            var enddate = $("#endDate").val();
+            var obj = {
+                elem:"#startDate",
+                formmat:"YYYY-dd-MM"
+            };
+            enddate&&(obj.min = enddate);
+            laydate(obj);
+        })
+
     })
     window.onload = function(){
         $("#nav-parent").initLeftNav("4");

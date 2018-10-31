@@ -13,3 +13,5 @@
 <link rel="stylesheet" href="${contextPath}/static/bootstrapvalidator/css/bootstrapValidator.css" />
 
 <link rel="stylesheet" href="${contextPath}/static/glyphicons/icon-assist.png.css" />
+
+<link rel="stylesheet" href="${contextPath}/static/component/laydate/theme/default/laydate.css" />
