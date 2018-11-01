@@ -15,3 +15,7 @@
 <link rel="stylesheet" href="${contextPath}/static/glyphicons/icon-assist.png.css" />
 
 <link rel="stylesheet" href="${contextPath}/static/component/laydate/theme/default/laydate.css" />
+
+<link rel="stylesheet" href="${contextPath}/static/component/laydate.min.css" />
+
+<link rel="stylesheet" href="${contextPath}/static/component/laydate-custom.min.css" />

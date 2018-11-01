@@ -27,7 +27,8 @@
                 </div>
             </div>
             <h6 class="">丝绸之路经济带技术</h6>
-            <div class="h-p100" style="background-image: url(/static/img/picture/index-image.png);background-repeat: no-repeat;">
+            <div class="h-p100">
+            <%--<div class="h-p100" style="background-image: url(/static/img/picture/index-image.png);background-repeat: no-repeat;">--%>
                <%-- <p class="p-a" style="font-size: 30px;margin: 50px auto auto 50px;">
                     你好!
                 </p>
@@ -41,6 +42,7 @@
             </div>
         </div>
     </div>
+
     <script src="${contextPath}/views/bootstrap/js/home.js"></script>
 </body>
 

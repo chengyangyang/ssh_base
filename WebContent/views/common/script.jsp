@@ -12,4 +12,3 @@
 
 <script src="${contextPath}/static/component/laydate/laydate.js"></script>
 
-<script src="${contextPath}/static/component/laydate/laydate.dev.js"></script>

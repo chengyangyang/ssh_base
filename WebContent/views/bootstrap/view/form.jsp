@@ -53,16 +53,30 @@
    </div>
 
 <script>
+
+
     $(function(){
-        $("#startDate").on('click',function(){
-            var enddate = $("#endDate").val();
-            var obj = {
-                elem:"#startDate",
-                formmat:"YYYY-dd-MM"
+        $('#startDate').on('click',function(){
+            var end = $('#endDate').val();
+            var startData = {
+                elem: '#startDate'//指定元素
+                //,trigger: 'click'
             };
-            enddate&&(obj.min = enddate);
-            laydate(obj);
-        })
+            if(end){
+                startData.max = end;
+            }
+            laydate(startData);
+       });
+        $('#endDate').on('click',function(){
+            var start = $('#startDate').val();
+            var endData = {
+                elem: '#endDate' //指定元素
+            }
+            if(start){
+                endData.min = start;
+            }
+            laydate(endData);
+        });
 
     })
     window.onload = function(){
