@@ -34,7 +34,7 @@ html {
     display: inline-block;
     position: absolute;
     top: 10px;
-    background: url(/images/icn_fbsb.png) no-repeat;
+    background: url(./laydate/theme/default/images/icn_fbsb.png) no-repeat;
     background-position: -38px 0px;
     cursor: pointer;
 }
@@ -55,13 +55,13 @@ html {
 }
 /** 日期选中样式 */
 .laydate-icon-choose {
-    background: url(/images/icn_fbsb.png) no-repeat;
+    background: url(./laydate/theme/default/images/icn_fbsb.png) no-repeat;
     background-position: -64px 0px;
 }
 
 .laydate-icon-danlan {
 	border: 1px solid #B1D2EC;
-	background-image: url(../skins/danlan/icon.png)
+	background-image: url(./laydate/theme/default/images/icon.png)
 }
 
 .laydate-icon-dahong {
@@ -240,7 +240,7 @@ html {
     position: relative;
     top: 6px;
     margin-right: 4px;
-    background: url(/images/ic_rili.png) 0 0 no-repeat;
+    background: url(./laydate/theme/default/images/ic_rili.png) 0 0 no-repeat;
     background-position: -62px -8px;
 }
 
@@ -251,7 +251,7 @@ html {
     position: relative;
     top: 6px;
     margin-right: 4px;
-    background: url(/images/ic_rili.png) 0 0 no-repeat;
+    background: url(./laydate/theme/default/images/ic_rili.png) 0 0 no-repeat;
     background-position: -70px -8px;
 }
 
@@ -262,7 +262,7 @@ html {
     position: relative;
     top: 10px;
     left: 0px;
-    background: url(/images/ic_rili.png) 0 0 no-repeat;
+    background: url(./laydate/theme/default/images/ic_rili.png) 0 0 no-repeat;
     background-position: -46px -9px;
 }
 
@@ -273,7 +273,7 @@ html {
     position: relative;
     top: 8px;
     left: 0px;
-    background: url(/images/ic_rili.png) 0 0 no-repeat;
+    background: url(./laydate/theme/default/images/ic_rili.png) 0 0 no-repeat;
     background-position: -30px -9px;
 }
 
