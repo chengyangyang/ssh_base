@@ -10,5 +10,5 @@
 
 <script src="${contextPath}/static/bootstrapvalidator/js/bootstrapValidator.js"></script>
 
-<script src="${contextPath}/static/component/laydate/laydate.dev.js"></script>
+<script src="${contextPath}/static/component/laydate/laydate.js"></script>
 

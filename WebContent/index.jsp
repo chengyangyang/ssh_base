@@ -32,6 +32,8 @@
 
     <a href="${contextPath}/views/bootstrap/home.jsp" target="_bank" class="btn btn-default btn active" role="button">bootstrap的练习</a>
 
+    <a href="${contextPath}/views/layui/laydate.jsp" target="_bank" class="btn btn-default btn active" role="button">laydate练习</a>
+
     </div>
    
 </div>
