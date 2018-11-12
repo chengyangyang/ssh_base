@@ -3,6 +3,8 @@ package ch.controller.file;
 import ch.common.bean.ProgressEntity;
 import ch.common.rebean.CustomMultipartResolver;
 import ch.util.StringUtils;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.*;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -227,5 +230,62 @@ public class FileController {
     }
 
 
+    /**
+     * pdf 下载案例
+     * @param
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value="/agency/platformReviewPdf",method = {RequestMethod.POST,RequestMethod.GET})
+    @ResponseBody
+    public void platformReviewPdf(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String templatePath = request.getSession().getServletContext().getRealPath("/data/OrganTemp.pdf");
+        //根据兑现单号查询
+        String cashCode = request.getParameter("cashCode");
+        if(StringUtils.isBlank(cashCode)){
+            return ;
+        }
+        PdfReader reader;
+        ByteArrayOutputStream bos;
+        PdfStamper stamper;
+        // 重置响应对象
+        response.reset();
+        // 当前日期，用于导出文件名称
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        String dateStr = "兑现资料签收"+"-"+sdf.format(new Date())+".pdf";
+        // 指定下载的文件名--设置响应头
+        response.setHeader("Content-Disposition", "attachment;Filename=" + URLEncoder.encode(dateStr, "UTF-8"));
+        //response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(dateStr, "UTF-8")+".xls");
+        response.setContentType("application/x-download;charset=UTF-8");
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setDateHeader("Expires", 0);
+        // 写出数据输出流到页面
+        try {
+            OutputStream output = response.getOutputStream();
+            BufferedOutputStream bufferedOutPut = new BufferedOutputStream(output);
+            reader = new PdfReader(templatePath);//读取pdf模板
+            bos = new ByteArrayOutputStream();
+            stamper = new PdfStamper(reader, bos);
+            AcroFields form = stamper.getAcroFields();
+            //form.getField("policyInfo");
+            form.setField("policyName","1");
+            form.setField("cashAmt","2");
+            stamper.setFormFlattening(true);
+            stamper.close();
+            Document doc = new Document();
+            PdfCopy copy = new PdfCopy(doc, output);
+            doc.open();
+            PdfImportedPage importPage = copy.getImportedPage(
+                    new PdfReader(bos.toByteArray()), 1);
+            copy.addPage(importPage);
+            doc.close();
+            bufferedOutPut.flush();
+            bufferedOutPut.close();
+            output.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
