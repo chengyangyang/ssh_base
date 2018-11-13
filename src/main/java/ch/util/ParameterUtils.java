@@ -15,7 +15,7 @@ public class ParameterUtils {
 	
 	/**
 	 * sql参数获取方法：得到某个精确查询参数
-	 * @param param
+	 * @param
 	 * @return
 	 */
 	public static String getEqualParam(String parameter) {
@@ -29,7 +29,7 @@ public class ParameterUtils {
 	
 	/**
 	 * sql参数获取方法：得到某个模糊查询参数
-	 * @param param
+	 * @param
 	 * @return
 	 */
 	public static String getLikeParam(String parameter) {
@@ -46,7 +46,7 @@ public class ParameterUtils {
 	
 	/**
 	 * sql参数获取方法：得到精确查询参数
-	 * @param parameter 可以传入多个String类型的参数[个数不定]
+	 * @param
 	 * @return
 	 */
 	public static Object[] getEqualParams(String... parameters) {
@@ -68,7 +68,7 @@ public class ParameterUtils {
 	
 	/**
 	 * sql参数获取方法：得到模糊查询参数
-	 * @param parameter 可以传入多个String类型的参数[个数不定]
+	 * @param
 	 * @return
 	 */
 	public static Object[] getLikeParams(String... parameters) {
