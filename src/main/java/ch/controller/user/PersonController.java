@@ -21,12 +21,14 @@ public class PersonController {
      * 添加测试信息@cy
      * */
     @RequestMapping(value = "/savePerson", method = RequestMethod.GET)
-    public void savePerson(){
+    @ResponseBody
+    public String savePerson(){
         //使用缓存
         CacheUtils.put("aa","你好");
         Person person = new Person();
         person.setCreateBy("测试人");
         personService.savePerson(person);
+        return "成功";
     }
 
     /*

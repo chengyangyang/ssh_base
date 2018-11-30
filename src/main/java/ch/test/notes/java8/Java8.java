@@ -1,3 +1,4 @@
+/*
 package ch.test.notes.java8;
 
 import java.util.Arrays;
@@ -5,13 +6,15 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
+*/
 /**
  * Description:
  *
  * @author cy
  * @date 2018年08月29日 9:17
  * version 1.0
- */
+ *//*
+
 public class Java8 {
 
     public static void main(String[] args) {
@@ -49,3 +52,4 @@ public class Java8 {
     }
 
 }
+*/
