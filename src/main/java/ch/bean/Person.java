@@ -17,7 +17,7 @@ public class Person {
     private String id;
     private String name;
     @Email(message = "邮件格式不正确")
-    @Size(min = 10,max = 20 ,message = "长度在3-4之间")
+    @Size(min = 10,max = 20 ,message = "长度在10-20之间")
     private String email;
 
 
