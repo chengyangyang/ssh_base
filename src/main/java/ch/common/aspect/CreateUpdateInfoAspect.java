@@ -61,7 +61,7 @@ public class CreateUpdateInfoAspect {
 			} catch (Exception e) {
 				logger.error("ErrorIn beforeCreateInfo " + e.getMessage());
 				e.printStackTrace();
-				throw e;
+				//throw e;
 				
 			} 
 		}
