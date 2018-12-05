@@ -8,4 +8,6 @@ package ch.test.notes.procedure;
  * version 1.0
  */
 public class main {
+
+
 }

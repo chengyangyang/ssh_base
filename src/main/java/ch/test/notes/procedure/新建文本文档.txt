@@ -1,0 +1,57 @@
+
+create or replace procedure find_manager_procedure35(cd varchar2) 
+/** 新客理财销量 35 **/
+as
+begin
+    insert into PERF_BASIC_DATA(user_id,bd_value)
+    select CUST_MANAGER,sum(TO_NUMBER(ACK_AMT)) from XAN_FIN_TXN_DELIV_DETL_EVT where FIN_PROD_CD = cd group by CUST_MANAGER;
+end;
+
+
+
+
+create or replace procedure find_allocater_procedure39
+/**公司中间业务净收入  39**/
+as
+begin
+    insert into PERF_BASIC_DATA(user_id,bd_value)
+    select b.ALLOCATER_ID,
+    sum(to_number(b.DYN_SCALE) * (to_number(a.FEE_INCM) + to_number( a.FEE_EXPENSE) + to_number( a.EXCH_REVENUE) - to_number(a.EXCH_LOSS) + to_number(a.INVEST_REVENUE)
+    -  to_number(a.VAL_CHG_PL) +  to_number(a.OTHER_SALES_INCM))) as amt
+    from XAN_DTL_CONSOL_TABLE a  left join XAN_CORP_ALLOT_RELA_H b on  a.ACCT_NO = b.ALLOT_ID  where a.CUST_ID like '2%' group by b.ALLOCATER_ID ;
+end;
+
+
+create or replace procedure find_allocater_procedure40
+/**零售中间业务净收入  40**/
+as
+begin
+    insert into PERF_BASIC_DATA(user_id,bd_value)
+    select b.ALLOT_ID,
+    sum(to_number(b.DVP_RATIO) * (to_number(a.FEE_INCM) + to_number( a.FEE_EXPENSE) + to_number( a.EXCH_REVENUE) - to_number(a.EXCH_LOSS) + to_number(a.INVEST_REVENUE)
+    -  to_number(a.VAL_CHG_PL) +  to_number(a.OTHER_SALES_INCM))) as amt
+    from XAN_DTL_CONSOL_TABLE a  left join XAN_INDIV_ALLOT_RELA b on  a.ACCT_NO = b.ALLOT_ID  where a.CUST_ID like '1%' group by b.ALLOT_ID ;
+end;
+
+
+
+create or replace procedure find_allocater_procedure42
+/**公司营业净收入  42**/
+as
+begin
+    insert into PERF_BASIC_DATA(user_id,bd_value)
+    select b.ALLOCATER_ID, sum(to_number(a.FTP_REVENUE_Y2D) * to_number(b. DYN_SCALE)) amt from XAN_BIZ_ALLOT a 
+    left join XAN_CORP_ALLOT_RELA_H b on a.ACCT_NO = b.ALLOT_ID where b.CUST_ID like '2%' group by b.ALLOCATER_ID;
+end;
+
+
+
+
+create or replace procedure find_allocater_procedure43
+/**公司营业净收入  43**/
+as
+begin
+    insert into PERF_BASIC_DATA(user_id,bd_value)
+    select b.ALLOCATER_ID, sum(to_number(a.FTP_REVENUE_Y2D) * to_number(b. DYN_SCALE)) amt from XAN_BIZ_ALLOT a 
+    left join XAN_CORP_ALLOT_RELA_H b on a.ACCT_NO = b.ALLOT_ID where b.CUST_ID like '1%' group by b.ALLOCATER_ID;
+end;
