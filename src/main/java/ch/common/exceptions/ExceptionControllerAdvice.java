@@ -1,13 +1,14 @@
-package ch.controller.common;
+package ch.common.exceptions;
 
+import ch.common.exceptions.bean.BindingExcepObj;
 import ch.constants.ExceptionConstants;
-import ch.entity.exception.BusinessException;
-import ch.entity.exception.ExceptionResponse;
-import ch.entity.exception.Reason;
+import ch.common.exceptions.bean.BusinessException;
+import ch.common.exceptions.bean.ExceptionResponse;
+import ch.common.exceptions.bean.Reason;
 
+import ch.constants.SystemConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -15,9 +16,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 
 /**
- * 异常处理类
+ * 异常处理类(就是将错误的信息返回到页面中)
  * @author  
  */
 @ControllerAdvice
@@ -49,4 +52,34 @@ public class ExceptionControllerAdvice {
 		e.printStackTrace();
 		return response;
 	}
+
+	/**
+	 * 表单校验
+	 * @param e
+	 * @return
+	 */
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public @ResponseBody ExceptionResponse JsonBindExceptionHandle(MethodArgumentNotValidException e) {
+
+		BindingResult br = e.getBindingResult();
+		List<FieldError> errorList = br.getFieldErrors();
+		ExceptionResponse resp = new ExceptionResponse();
+		BindingExcepObj excepObj = null;
+
+		for (FieldError error : errorList) {
+			excepObj = new BindingExcepObj();
+			excepObj.setFieldName(error.getField());
+			excepObj.setMessage(error.getDefaultMessage());
+			resp.getFiledlist().add(excepObj);
+		}
+		resp.setErrorType(SystemConstants.ERROR_TYPE_1);
+		resp.setResponsecode(SystemConstants.RESPONSECOE_008);
+		Reason reason = new Reason();
+		reason.setDesc("表单验证有误！");
+		reason.setReasoncode("");
+		resp.setReason(reason);
+		return resp;
+	}
+
+
 }

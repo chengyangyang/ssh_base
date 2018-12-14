@@ -1,4 +1,4 @@
-package ch.entity.exception;
+package ch.common.exceptions.bean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class ExceptionResponse {
 		this.reason = reason;
 	}
 
-	public List<BindingExcepObj> getFiledErrorList() {
+	public List<BindingExcepObj> getFiledlist() {
 		if (filedErrorList == null) {
 			filedErrorList = new ArrayList<BindingExcepObj>();
 		}

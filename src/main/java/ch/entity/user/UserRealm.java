@@ -19,7 +19,7 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import ch.entity.exception.BusinessException;
+import ch.common.exceptions.bean.BusinessException;
 import ch.service.user.UserService;
 
 public class UserRealm extends AuthorizingRealm {

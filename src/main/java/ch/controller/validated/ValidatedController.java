@@ -25,6 +25,17 @@ import java.util.Map;
 @RequestMapping("/validate")
 public class ValidatedController {
 
+
+    /**
+     * 测试校验(自动抛出异常)
+     *
+     */
+    @ResponseBody
+    @RequestMapping(value = "/autoExpre", method = RequestMethod.POST)
+    public String sendEmail(@RequestBody @Validated Person person) {
+      return "请求成功";
+    }
+
     /**
      * 测试校验
      *

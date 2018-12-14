@@ -35,7 +35,7 @@ public class MyProcessService {
 	 private TaskService taskService;
 	 @Autowired
 	 private HistoryService historyService;
-	@Autowired
+	 @Autowired
 	 private RepositoryService repositoryService;
 	*/
 /* @Autowired

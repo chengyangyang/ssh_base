@@ -3,11 +3,10 @@ package ch.service.user;
 import ch.cache.session.SessionDAO;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ch.entity.exception.BusinessException;
+import ch.common.exceptions.bean.BusinessException;
 import ch.entity.user.User;
 
 @Service("userService")

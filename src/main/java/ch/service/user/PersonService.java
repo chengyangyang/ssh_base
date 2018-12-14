@@ -1,6 +1,6 @@
 package ch.service.user;
 
-import ch.entity.exception.BusinessException;
+import ch.common.exceptions.bean.BusinessException;
 import ch.entity.user.Person;
 
 public interface PersonService {

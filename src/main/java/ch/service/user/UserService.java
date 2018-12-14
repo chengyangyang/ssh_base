@@ -1,7 +1,7 @@
 package ch.service.user;
 
 import ch.cache.session.SessionDAO;
-import ch.entity.exception.BusinessException;
+import ch.common.exceptions.bean.BusinessException;
 import ch.entity.user.User;
 
 public interface UserService {

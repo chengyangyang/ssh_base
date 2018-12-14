@@ -1,4 +1,4 @@
-package ch.entity.exception;
+package ch.common.exceptions.bean;
 
 public class BindingExcepObj {
 

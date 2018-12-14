@@ -1,6 +1,6 @@
 package ch.webservice.webtest;
 
-import ch.entity.exception.BusinessException;
+import ch.common.exceptions.bean.BusinessException;
 import ch.entity.user.Person;
 import ch.service.user.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package ch.controller.user;
 
 import ch.common.util.CacheUtils;
-import ch.entity.exception.BusinessException;
+import ch.common.exceptions.bean.BusinessException;
 import ch.entity.user.Person;
 import ch.service.user.PersonService;
 

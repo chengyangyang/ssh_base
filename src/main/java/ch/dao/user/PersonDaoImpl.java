@@ -1,7 +1,7 @@
 package ch.dao.user;
 
 import ch.dao.common.BaseDao;
-import ch.entity.exception.BusinessException;
+import ch.common.exceptions.bean.BusinessException;
 import ch.entity.user.Person;
 
 import org.slf4j.Logger;

@@ -1,6 +1,6 @@
 package ch.dao.user;
 
-import ch.entity.exception.BusinessException;
+import ch.common.exceptions.bean.BusinessException;
 import ch.entity.user.Person;
 
 public interface PersonDao {

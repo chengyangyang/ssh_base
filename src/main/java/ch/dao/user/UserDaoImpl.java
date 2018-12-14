@@ -3,7 +3,7 @@ package ch.dao.user;
 import org.springframework.stereotype.Repository;
 
 import ch.dao.common.BaseDao;
-import ch.entity.exception.BusinessException;
+import ch.common.exceptions.bean.BusinessException;
 import ch.entity.user.User;
 
 @Repository("user")
