@@ -28,8 +28,7 @@
 	<!--  配置视图解析器 ，方便页面返回-->
 	 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	 <property name="prefix" value="/WEB-INF/views/"></property>
-	 <property name="suffix" value=".jsp"></property>
-	 
+	 <!--<property name="suffix" value=".jsp"></property>-->
 	 </bean>
 	 <!-- 两个标配 -->
 	 <!--将springMVC不能处理的资源交给Tomcat  -->
@@ -54,9 +53,14 @@
 	</mvc:annotation-driven>
 
 	 <!--这里是对静态资源的映射,不会被Spring MVC拦截-->
-    <mvc:resources mapping="/js/**" location="/resources/js/" />
-    <mvc:resources mapping="/css/**" location="/resources/css/" />
-    <mvc:resources mapping="/img/**" location="/resources/img/" />
+
+    <mvc:resources mapping="/js/**" location="/" />
+    <mvc:resources mapping="/css/**" location="/" />
+    <mvc:resources mapping="/img/**" location="/" />
+	<mvc:resources mapping="/swagger/**" location="/" />
+	<mvc:resources mapping="/static/**" location="/" />
+
+
 	
 	 <!-- 启用注解式事务 必须要这里启用，如果放在applicationContext.xml中的话不生效-->
 	<tx:annotation-driven transaction-manager="transactionManager" />
