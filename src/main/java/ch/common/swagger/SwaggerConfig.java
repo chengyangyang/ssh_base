@@ -3,6 +3,7 @@ package ch.common.swagger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.service.ApiInfo;
@@ -18,9 +19,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date 2018年12月18日 14:05
  * version 1.0
  */
-@Configuration
 @EnableSwagger2
-@EnableWebMvc
+@EnableWebMvc   //和springMVC 冲突
 @ComponentScan(basePackages = {"ch.**"})
 public class SwaggerConfig {
 
