@@ -15,19 +15,17 @@ import java.util.List;
 public class MyTest {
 
     public static void main(String[] args) {
+    	String str = "a";
+		String[] split = str.split("\\|");
+		String s = "";
+		for (int i = 0; i < split.length; i++) {
+			if(i == split.length -1){
+				s += "1"+split[i];
+			}else {
+				s += "1"+split[i]+"|";
+			}
 
-    	MyTest2 myTest2 = new MyTest2();
-    	List<MyTest1> list = myTest2.getList();
-    	for (MyTest1 myTest1 : list) {
-			System.out.println(myTest1+"---"+myTest1.getA());
 		}
-    	
-    	System.out.println("=====");
-    	myTest2.changeList();
-    	for (MyTest1 myTest1 : list) {
-			System.out.println(myTest1 + "---"+myTest1.getA());
-		}
-    	
-    	
-    }
+		System.out.println("结束了");
+	}
 }
