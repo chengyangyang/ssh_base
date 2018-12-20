@@ -15,6 +15,10 @@ import java.util.List;
 public class MyTest {
 
     public static void main(String[] args) {
+
+    	String s1 = "abc";
+		System.out.println(s1.startsWith("a1"));
+
     	String str = "a";
 		String[] split = str.split("\\|");
 		String s = "";

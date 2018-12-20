@@ -19,6 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date 2018年12月18日 14:05
  * version 1.0
  */
+@Configuration
 @EnableSwagger2
 @EnableWebMvc   //和springMVC 冲突
 @ComponentScan(basePackages = {"ch.**"})
