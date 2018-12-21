@@ -81,11 +81,12 @@
     <url-pattern>*.action</url-pattern>
   </servlet-mapping>
 
+
+  <!--后期需要去掉 是为了 swager测试-->
   <servlet-mapping>
     <servlet-name>SpringMVC</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-
   <servlet-mapping>
     <servlet-name>SpringMVC</servlet-name>
     <url-pattern>/v2/api-docs</url-pattern>
