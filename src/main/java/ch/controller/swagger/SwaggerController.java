@@ -20,26 +20,20 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/swagger")
-@Api(tags = "swagger控制层测试")
+@Api(tags = "swagger控制层测试",value = "api接口类",description = "测试")
 public class SwaggerController {
 
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     @ResponseBody
-    @ApiResponses(value = {
-            @ApiResponse(code = 500, message = "系统错误"),
-            @ApiResponse(code = 200, message = "0 成功,其它为错误,返回格式：{code:0,data[{}]},data中的属性参照下方Model") })
-    @ApiOperation(httpMethod = "GET", value = "个人信息")//swagger 当前接口注解
-    public CommonReponse listCompound(
-            @ApiParam(required = true, name = "start", value = "start") int start,
-            int limit,
-            @ApiParam(required = false, name = "userName", value = "名称模糊查询") String userName) {
+    @ApiOperation(value = "测试接口")
+    public CommonReponse listCompound(@ApiParam(value = "用户名称") String userName) {
         List<Person> data = new ArrayList<Person>();
         String msg = data.size() > 0 ? "" : "没有查询到相关记录";
         CommonReponse result = new CommonReponse();
         result.setMsg(msg);
         result.setCode("200");
-        result.setData(data);
+        result.setData(userName);
         return result;
     }
 
