@@ -76,5 +76,5 @@
     </bean>
 
 	<!--<bean class="ch.common.swagger.SwaggerConfig"/>-->
-
+	<import resource="classpath:elasticsearch/elasticsearch.xml"/>
 	</beans>

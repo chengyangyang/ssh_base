@@ -38,6 +38,20 @@
   
   <dependencies>
 
+
+      <!--全文搜索 数据库-->
+      <dependency>
+          <groupId>org.elasticsearch</groupId>
+          <artifactId>elasticsearch</artifactId>
+          <version>2.4.0</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.data</groupId>
+          <artifactId>spring-data-elasticsearch</artifactId>
+          <version>2.0.4.RELEASE</version>
+      </dependency>
+
+
       <!--添加swagger 组件-->
       <dependency>
           <groupId>io.springfox</groupId>
