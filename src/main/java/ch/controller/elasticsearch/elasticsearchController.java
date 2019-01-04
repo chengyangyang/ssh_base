@@ -1,4 +1,3 @@
-/*
 package ch.controller.elasticsearch;
 
 import ch.repositories.ElasticSearchTestRepository;
@@ -11,15 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-*/
-/**
+/*
+*
  * Description:es的练习
  *
  * @author cy
  * @date 2018年12月28日 16:30
  * version 1.0
- *//*
-
+*/
 @Controller
 @RequestMapping(value = "/es")
 public class elasticsearchController {
@@ -28,7 +26,7 @@ public class elasticsearchController {
     ElasticsearchTemplate es;
     @Autowired
     SimpleElasticsearchRepository sr;
-    @Autowired
+    @Autowired(required=false)
     ElasticSearchTestRepository elasticSearchTestDao;
 
 
@@ -40,10 +38,9 @@ public class elasticsearchController {
         ElasticSearchTestEntity myTestEntity = new ElasticSearchTestEntity();
         myTestEntity.setName("es新增的测试数据");
         myTestEntity.setId(111111111);
-        elasticSearchTestDao.save(myTestEntity);
+        sr.save(myTestEntity);
         //ss.save(myTestEntity);
         return "成功";
     }
 
 }
-*/
