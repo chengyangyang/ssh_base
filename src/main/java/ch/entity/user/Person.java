@@ -1,16 +1,14 @@
 package ch.entity.user;
 
-import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -19,8 +17,8 @@ import static javax.persistence.GenerationType.IDENTITY;
  * @author Administrator
  *
  */
-@Entity
-@Table(name = "person")
+
+@Entity(name = "person")
 public class Person implements java.io.Serializable {
     
     private Integer id;

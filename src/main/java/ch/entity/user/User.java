@@ -1,18 +1,14 @@
 package ch.entity.user;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
-import java.math.BigDecimal;
-import java.sql.Timestamp;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "user")
+import static javax.persistence.GenerationType.IDENTITY;
+
+
+@Entity(name = "user")
 public class User {
 
 	 private Integer id;

@@ -40,7 +40,8 @@
       classpath:spring-shiro.xml,
       classpath:ehcache/spring-ehcache.xml,
       classpath:webservice/spring-cxf-service_server.xml,
-      classpath:mq/activeMQ.xml
+      classpath:elasticsearch/elasticsearch.xml
+      <!--classpath:mq/activeMQ.xml   为了防止没有链接报错-->
     </param-value>
   </context-param>
 

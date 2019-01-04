@@ -2,7 +2,12 @@ package ch.entity.user;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+//import org.springframework.data.elasticsearch.annotations.Document;
 
 /**
  * Description:
@@ -11,8 +16,7 @@ import javax.persistence.*;
  * @date 2018年12月05日 16:45
  * version 1.0
  */
-@Entity
-@Table(name = "my_test")
+@Entity(name = "my_test")
 public class MyTestEntity {
 
     private String id;

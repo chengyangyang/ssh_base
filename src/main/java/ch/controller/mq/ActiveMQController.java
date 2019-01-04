@@ -1,3 +1,5 @@
+
+
 package ch.controller.mq;
 
 import ch.common.mq.QueueSender;
@@ -16,13 +18,13 @@ import java.util.Map;
  * @date 2018年10月16日 15:46
  * version 1.0
  */
-@Controller
+//@Controller    为了防止没有链接报错
 @RequestMapping("/mq")
 public class ActiveMQController {
 
-    @Resource
+    //@Resource
     private QueueSender queueSender;
-    @Resource
+    //@Resource
     private TopicSender topicSender;
 
     /**
@@ -52,3 +54,5 @@ public class ActiveMQController {
 
 
 }
+
+

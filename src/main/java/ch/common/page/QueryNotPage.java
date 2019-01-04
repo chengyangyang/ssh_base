@@ -4,6 +4,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
+
 import java.util.List;
 
 public class QueryNotPage {
