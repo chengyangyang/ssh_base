@@ -13,7 +13,7 @@ import org.springframework.data.repository.NoRepositoryBean;
  * @date 2018年12月29日 17:44
  * version 1.0
 */
-@NoRepositoryBean
+//@NoRepositoryBean
 public interface ElasticSearchTestRepository  extends CrudRepository<ElasticSearchTestEntity,Integer> {
 
 

@@ -26,7 +26,7 @@ public class elasticsearchController {
     ElasticsearchTemplate es;
     @Autowired
     SimpleElasticsearchRepository sr;
-    @Autowired(required=false)
+    //@Autowired(required=false)
     ElasticSearchTestRepository elasticSearchTestDao;
 
 
@@ -38,7 +38,8 @@ public class elasticsearchController {
         ElasticSearchTestEntity myTestEntity = new ElasticSearchTestEntity();
         myTestEntity.setName("es新增的测试数据");
         myTestEntity.setId(111111111);
-        sr.save(myTestEntity);
+        //sr.save(myTestEntity);
+        elasticSearchTestDao.save(myTestEntity);
         //ss.save(myTestEntity);
         return "成功";
     }
