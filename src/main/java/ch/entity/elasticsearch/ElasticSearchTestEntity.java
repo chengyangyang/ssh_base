@@ -1,8 +1,9 @@
 package ch.entity.elasticsearch;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
 
-import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
@@ -12,14 +13,14 @@ import java.io.Serializable;
  * @date 2018年12月29日 17:04
  * version 1.0
  */
-@Document(indexName = "elasticSearchTest1",type = "elasticSearchTest")
+@Document(indexName = "elasticsearchtest1",type = "elasticsearchtest")
 public class ElasticSearchTestEntity implements Serializable {
-
-
 
     @Id
     private int id;
+    @Field
     private String name;
+    @Field
     private String phone;
 
 
