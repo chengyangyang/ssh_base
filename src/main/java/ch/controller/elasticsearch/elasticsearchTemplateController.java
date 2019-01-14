@@ -4,7 +4,6 @@ import ch.common.util.ElasticSearchUtils;
 import ch.entity.elasticsearch.ElasticSearchTestEntity;
 import ch.entity.elasticsearch.Student;
 import org.elasticsearch.index.query.MatchQueryBuilder;
-import org.elasticsearch.index.query.TermQueryBuilder;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
