@@ -3,13 +3,21 @@ package ch.controller.elasticsearch;
 
 import ch.entity.elasticsearch.Student;
 import ch.repositories.EsStudentRepository;
+import org.elasticsearch.index.query.MatchQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.elasticsearch.core.query.FetchSourceFilter;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.Map;
 
 
 /**
@@ -95,16 +103,27 @@ public class EsStudentRepositoryController {
     }
 
     /**
-     * 查询
+     * 查询 高亮显示没有效果
      * @return
      */
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    @RequestMapping(value = "/search", method = RequestMethod.POST  )
     @ResponseBody
-    public void search(){
-        //esStudentRepository.
-        //QueryBuilders.
-        NativeSearchQuery build = new NativeSearchQueryBuilder().build();
-        esStudentRepository.search(build);
+    public Page<Student> search(@RequestBody Map<String,Object> map){
+        HighlightBuilder.Field introduce = new HighlightBuilder.Field("introduce").preTags("<em style='color:red'>").postTags("</em>").fragmentSize(100);
+        NativeSearchQuery search = new NativeSearchQueryBuilder()
+                .withPageable(new PageRequest(Integer.valueOf(map.get("pageNum")+""),Integer.valueOf(map.get("num")+"")))
+                .withFields("introduce","age","studentName","birthdayDate")
+                .withQuery(new MatchQueryBuilder("introduce",map.get("introduce")))
+                //.withQuery(new MatchQueryBuilder("age",map.get("age")))
+                .withHighlightBuilder(new HighlightBuilder().field(new HighlightBuilder.Field("introduce").preTags("<em style='color:red'>").postTags("</em>").fragmentSize(100)))
+                .withHighlightFields(introduce)
+                .withSourceFilter(new FetchSourceFilter(new String[]{"introduce","age", "birthdayDate","studentName"},new String[]{})) //这个是可以
+                .build();
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        SearchSourceBuilder query = searchSourceBuilder.query(search.getQuery());
+        Page<Student> search1 = esStudentRepository.search(search);
+        return search1;
+
     }
 
 }
