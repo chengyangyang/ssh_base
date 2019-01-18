@@ -26,4 +26,14 @@ public class MyTestController {
         return "成功";
     }
 
+    /*
+     * 添加测试信息@cy
+     * */
+    @RequestMapping(value = "/getInfo", method = RequestMethod.GET)
+    @ResponseBody
+    public String getInfo(){
+        String s = "请求成功node1";
+        return s;
+    }
+
 }
