@@ -44,6 +44,17 @@ public class HttpClientUtil {
         return sendHttpPost(httpPost);
     }
 
+    /**
+     * 发送 get请求
+     * @param httpUrl 地址
+     * @throws IOException
+     * @throws ClientProtocolException
+     */
+    public String sendHttpGet(String httpUrl) throws ClientProtocolException, IOException {
+        HttpGet httpPost = new HttpGet(httpUrl);// 创建httpPost
+        return sendHttpGet(httpPost);
+    }
+
     /** 
      * 发送 post请求 
      * @param httpUrl 地址 
