@@ -9,7 +9,7 @@ package ch.test.notes.copy;
  */
 public class Student implements Cloneable {
 
-    private Integer age;
+    private Integer age = 1;
     private Address address;
 
 
