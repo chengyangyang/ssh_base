@@ -34,6 +34,8 @@
 
     <a href="${contextPath}/views/layui/laydate.jsp" target="_bank" class="btn btn-default btn active" role="button">laydate练习</a>
 
+    <a href="${contextPath}/views/websocket/login.jsp" target="_bank" class="btn btn-default btn active" role="button">websocket练习</a>
+
     </div>
    
 </div>
