@@ -26,7 +26,7 @@ public class PersonServiceImpl implements PersonService {
 
     public Person getPerson(String id) throws BusinessException {
         BusinessException businessException = new BusinessException();
-        if (1==1) {
+        if (false) {
             businessException.setExceptionCode("error");
             businessException.setExceptionMsg("自定义错误");
             throw businessException;

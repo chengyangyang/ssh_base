@@ -2,10 +2,7 @@ package ch.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -17,8 +14,8 @@ import static javax.persistence.GenerationType.IDENTITY;
  * @author Administrator
  *
  */
-
-@Entity(name = "person")
+@Table(name = "person")
+@Entity
 public class Person implements java.io.Serializable {
     
     private Integer id;

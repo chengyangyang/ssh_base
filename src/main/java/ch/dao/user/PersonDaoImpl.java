@@ -23,7 +23,7 @@ public class PersonDaoImpl extends BaseDao implements PersonDao {
     }
 
     public Person getPerson(String id) throws BusinessException {
-        String hql = "from Person where id = ?";
+        String hql = "from Person where id = ?0";
         Person person = (Person) this.currentSession().createQuery(hql).setParameter(0,id).uniqueResult();
         return person;
     }
