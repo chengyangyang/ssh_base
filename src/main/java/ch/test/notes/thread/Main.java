@@ -1,5 +1,7 @@
 package ch.test.notes.thread;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * Description:读<<[并发]java多线程编程核心技术>>总结
  *
@@ -126,6 +128,9 @@ public class Main {
         myThread12.start();
 
         //InheritableThreadLocal 可以让子线程从父线程中取值,同上面书写
+        ConcurrentHashMap<String, String> map1 = new ConcurrentHashMap<>();
+        map1.remove("1");
+
     }
 
 }
