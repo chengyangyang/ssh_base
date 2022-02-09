@@ -39,7 +39,7 @@
          <easypoi.version>3.2.0</easypoi.version>
          <springfox-swagger.version>2.6.1</springfox-swagger.version>
          <spring-data-elasticsearch.version>3.2.0.BUILD-SNAPSHOT</spring-data-elasticsearch.version>
-         <hibernate.version>5.3.6.Final</hibernate.version>
+         <hibernate.version>5.4.24.Final</hibernate.version>
 	</properties> 
   
   <dependencies>
