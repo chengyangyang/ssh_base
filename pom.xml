@@ -30,7 +30,7 @@
          <httpclient.version>4.5.1</httpclient.version>
          <httpmime.version>4.5.2</httpmime.version>
          <jackson.version>2.9.5</jackson.version>
-         <fastjson.version>1.2.30</fastjson.version>
+         <fastjson.version>1.2.83</fastjson.version>
          <druid.version>1.0.18</druid.version>
          <itextpdf.version>5.5.10</itextpdf.version>
          <itext-asian.version>5.2.0</itext-asian.version>
