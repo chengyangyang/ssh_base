@@ -32,7 +32,7 @@
          <jackson.version>2.9.5</jackson.version>
          <fastjson.version>1.2.30</fastjson.version>
          <druid.version>1.0.18</druid.version>
-         <itextpdf.version>5.5.10</itextpdf.version>
+         <itextpdf.version>5.5.12</itextpdf.version>
          <itext-asian.version>5.2.0</itext-asian.version>
          <spring-framework.version>5.0.2.RELEASE</spring-framework.version>
          <elasticsearch.version>6.5.0</elasticsearch.version>
